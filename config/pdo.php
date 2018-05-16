@@ -6,11 +6,12 @@
 
 return[
 
-	'host' => 'localhost',
-	'dbname' => 'test',
-	'charset' => 'utf8',
-	'password' => 'root'
+	$host = 'localhost',
+	$dbname = 'test',
+	$charset = 'utf8',
+	$login = 'root',
+	$password = 'root'
 ];
 
-?>
+
 
