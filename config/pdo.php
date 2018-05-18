@@ -7,10 +7,10 @@
 return[
 
 	$host = 'localhost',
-	$dbname = 'test',
+	$dbname = 'professionalblog',
 	$charset = 'utf8',
 	$login = 'root',
-	$password = 'root'
+	$password = ''
 ];
 
 
