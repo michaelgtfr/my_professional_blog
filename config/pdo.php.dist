@@ -1,5 +1,4 @@
 
-
 <?php
 
 // Configuration of the database 
@@ -7,10 +6,10 @@
 return[
 
 	$host = 'localhost',
-	$dbname = 'professionalblog',
+	$dbname = 'test',
 	$charset = 'utf8',
-	$login = 'root',
-	$password = ''
+	$login = 'project',
+	$password = 'five'
 ];
 
 
