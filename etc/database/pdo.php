@@ -3,13 +3,12 @@
 // connection database
 
 
-require ('../../config/pdo.php');
 
 function pdo()
 {
+	$config = require __DIR__ . '../..config/pdo.php';
 
 
-	$db = new PDO('mysql:host=$host;dbname=$dbname;charset=$charset', '$login', '$password');
-	return $db;
+	return new PDO('mysql:host='. $config['host']. ';dbname='. $config['dbname'] . ';charset='. $config['charset'].' , $config['login'], $config['password']);
 
 }
