@@ -5,11 +5,11 @@
 
 return[
 
-	$host = 'localhost',
-	$dbname = 'test',
-	$charset = 'utf8',
-	$login = 'project',
-	$password = 'five'
+	'host' = 'localhost',
+	'dbname' = 'test',
+	'charset' = 'utf8',
+	'username' = 'project',
+	'password' = 'five'
 ];
 
 
