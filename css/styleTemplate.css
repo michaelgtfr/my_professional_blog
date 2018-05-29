@@ -1,0 +1,86 @@
+@font-face
+{
+ 	font-family: 'broken_heartregular';
+    src: url('../police/broken/broken_heart-webfont.eot');
+    src: url('../police/broken/broken_heart-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../police/broken/broken_heart-webfont.woff') format('woff'),
+         url('../police/broken/broken_heart-webfont.ttf') format('truetype'),
+         url('../police/broken/broken_heart-webfont.svg#broken_heartregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+header
+{
+	background-color: #233565;
+	padding-top: 50px;
+	font-family: 'broken_heartregular', sans serif;
+}
+
+header h1
+{
+	padding-top: 20px;
+	font-size: 6em;
+	color: #EBEEB5;
+
+}
+
+header h3
+{
+	font-size: 1.4em;
+	color: #9E7EA3;
+}
+
+footer
+{
+	background-image: linear-gradient(#233565, #ff0062);
+	color: white;
+}
+footer ul
+{
+	text-align: center;
+	list-style-type: none;
+}
+
+footer h2
+{
+	font-size: 2.2em;
+	padding: 10px;
+	font-family: 'broken_heartregular', sans serif;
+}
+
+footer a
+{
+	color: white;
+}
+
+.socialNetworks
+{
+	text-align: center;
+	padding-top: 50px;
+}
+
+.btn
+{
+	background-image: linear-gradient(#233565, #ff0062);
+	border: 1px white solid ;
+	width: 50px;
+	height: 50px;
+	padding-left: 8px;
+	padding-top: 5px;
+}
+
+.fa-facebook
+{
+    padding-left: 6px;
+    padding-top: 1px;
+}
+
+.copyright
+{
+	text-align: center;
+	padding: 10px;
+	padding-top: 20px;
+}
