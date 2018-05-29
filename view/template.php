@@ -24,7 +24,7 @@
                 <div class="container-fluid">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="homePage.php">Accueil/Contact</a></li>
-                        <li><a href="blogPostList.php">ListeDesArticles</a></li>
+                        <li><a href="blogPostList.php">Liste Des Articles</a></li>
                     </ul>
                 </div>
             </nav>
