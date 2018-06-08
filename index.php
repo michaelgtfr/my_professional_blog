@@ -1,12 +1,28 @@
 <?php
 
 
-	//Router 
+require('controler/controler_public.php'); 
 
 try
 {
-
+	if (isset($_GET['action']))
+	{
+		if($_GET['action']=='homePage')
+		{
+			homePage ();
+		}
+		else
+		{
+			throw new Exception('Désoler, mais la page que vous demandez n\'exite pas');  //francais
+		}
+	}
+	else
+	{
+		homePage();
+	}
 }
+
+
 
 catch(Exception $e)
 {
