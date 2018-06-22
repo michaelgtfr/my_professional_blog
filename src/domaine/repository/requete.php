@@ -1,6 +1,6 @@
 <?php
 
-require('etc/database/pdo.php');
+require __DIR__.'./../../../etc/database/pdo.php';
 
 
 function lastThreeAddition() 
