@@ -9,33 +9,37 @@
 
 
 <?php
+$reqMessages=$returnMessages[0];
+while ($data = $reqMessages->fetch())
+{			
+?>
 
-while ($data = $retour_messages->fetch()) 
-			{
-			?>
-				<!--contenu-->
+	<h3><?= $data['title'] ?></h3>
+	<p><img src="img/imgPost/<?=$data['name_picture'].'.'.$data['extention_picture']?>" alt="<?= $data['description_picture'] ?>" /></p>
+	<p><?= $data['chapo'] ?></p>
+	<p><?= $data['author'] ?></p>
+    <a href="/index.php/detailArticle/id=<?=$data['id']?>">voir le detail</a><br/>
 					
-			<?php
-			}
-			$retour_messages->closeCursor ();
-		}
+<?php
+}
+$reqMessages->closeCursor ();
+
 
 
 //lien des paginations
-
-		for($i=1; $i<=$nombreDePages; $i++) //On fait notre boucle
-{
+$currentPage=$returnMessages[2];
+$numberOfPages=$returnMessages[1];
+for($i=1; $i<=$numberOfPages; $i++){//On fait notre boucle
      //On va faire notre condition
-     if($i==$pageActuelle) //Si il s'agit de la page actuelle...
-     {
-         echo ' [ '.$i.' ] '; 
-     }	
-     else //Sinon...
-     {
-          echo ' <a href="index.php?page='.$i.'">'.$i.'</a> ';
-     }
-}
 
+    if($i==$currentPage) {//Si il s'agit de la page actuelle...
+       
+       	echo ' [ '.$i.' ] '; 
+    } else { //Sinon...
+     
+        echo ' <a href="index.php/listofarticles/page='.$i.'">'.$i.'</a> ';
+    }
+}
 ?>
 
 
