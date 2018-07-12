@@ -6,8 +6,8 @@ return[
     'method' => ['GET'],
     'action' => 'home'
   ],
-  'listofarticles' => [
-  	'path' => '/listofarticles/{page}',
+  'list_of_articles' => [
+  	'path' => '/index.php/listofarticles/{page}',
   	'method' => ['GET'],
   	'action' => 'listArticles',
     'params' => [ 
