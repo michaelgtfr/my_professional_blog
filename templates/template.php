@@ -41,8 +41,8 @@
                         <h2 class="titleBar">Cocoworking blog</h2>
                     </div>
                     <ul class="nav navbar-nav navbar-right menu">
-                        <li><a href="index.php/">Accueil/Contact</a></li>
-                        <li><a href="index.php/listofarticles/page=0">Liste Des Articles</a></li>
+                        <li><a href="/">Accueil/Contact</a></li>
+                        <li><a href="index.php/listofarticles/1">Liste Des Articles</a></li>
                     </ul>
                 </div>
             </nav>
