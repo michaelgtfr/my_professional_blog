@@ -12,7 +12,7 @@ function home(){
 	//if(isset($lastThreeAddition))
 	//{
 
-	loadTemplate('home.php');
+	loadTemplate('home.php','');
 
 	//}
 	//else
