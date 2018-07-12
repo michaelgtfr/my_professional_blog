@@ -1,15 +1,13 @@
 <?php
 
 require __DIR__.'./../fonction/pagination.php';
+require __DIR__.'./../domaine/repository/requeteArticles.php';
 
+function listArticles($params)
+{
 
-function listArticles($params){
+	$returnMessages = pagination('blog_posts', $params);
 
-
-	require __DIR__.'./../domaine/repository/requeteArticles.php';
-
-	$retour_messages = pagination('blog_posts', $params, $req);
-
-	loadTemplate('listOfArticles.php');
+	loadTemplate('listOfArticles.php', $returnMessages);
 	
 }
