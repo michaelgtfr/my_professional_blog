@@ -2,7 +2,7 @@
 
 <?php $title= "home page" ?>
 
-<?php $style='<link rel="stylesheet" href="css/home_page_style.css" />' ?>
+<?php $style='<link rel="stylesheet" href="http://projetcinq/css/home_page_style.css" />' ?>
 
 <!--body-->
 
@@ -43,14 +43,14 @@
 	</div>
 	<div class="post">
 		<?php
-		if(isset($data))
+		if(isset($returnMessages))
 		{
-			while ($data = $lastThreeAddition->fetch()) 
+			while ($data = $returnMessages->fetch()) 
 			{
 			?>
 				<div class="blogpost">
 					<div class="picture">
-						<p><img src=" <?= 'img/'.htmlspecialchars($data['name']).'.'. htmlspecialchars($data['extention']) ?>" alt=" <?= htmlspecialchars($data['description']) ?>" /></p>
+						<p><img src=" <?='http://projetcinq/img/imgPost/'.htmlspecialchars($data['name']).'.'. htmlspecialchars($data['extention']) ?>" alt=" <?= htmlspecialchars($data['description']) ?>" /></p>
 					</div>
 					<div class="titlePost">
 						<h6><?= htmlspecialchars($data['title']) ?></h6>
@@ -67,7 +67,7 @@
 				</div>
 			<?php
 			}
-			$lastThreeAddition->closeCursor ();
+			$returnMessages->closeCursor ();
 		}
 		else
 		{

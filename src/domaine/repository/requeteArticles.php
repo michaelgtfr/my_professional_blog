@@ -4,7 +4,6 @@ require __DIR__.'./../../../etc/database/pdo.php';
 
 function listingOfArticles($firstEnter, $messagesByPage)
 {
-
 	$db = pdo();
 
 	if(isset($db)){

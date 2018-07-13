@@ -5,9 +5,9 @@
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">     <!--Warning this tag does not pass the W3C validation-->
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link href="bootstrap-3.3.7/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/> <!--udpdate by CDN-->
-            <link href="img/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-            <link rel="stylesheet" href="css/styleTemplate.css" />
+            <link href="http://projetcinq/bootstrap-3.3.7/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/> <!--udpdate by CDN-->
+            <link href="http://projetcinq/img/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+            <link rel="stylesheet" href="http://projetcinq/css/styleTemplate.css" />
             <?= $style ?>
             
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -50,7 +50,7 @@
             <header>
             <div class="banner">
                 <div>
-                    <p><img src="img/logoblogdeux.jpg" alt="logo du site" width="20%" height="20%" /></p>
+                    <p><img src="http://projetcinq/img/logoblogdeux.jpg" alt="logo du site" width="20%" height="20%" /></p>
                 </div>
                 <div>
                     <h1>Cocoworking<br />blog</h1>

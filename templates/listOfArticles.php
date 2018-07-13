@@ -1,7 +1,7 @@
 <?php $title = 'list of aticles' ?>
 
 
-<?php $style='<link rel="stylesheet" href="css/listOfArticle.css" />' ?>
+<?php $style='<link rel="stylesheet" href="http://projetcinq/css/listOfArticle.css" />' ?>
 
 <!--body-->
 
@@ -15,7 +15,7 @@ while ($data = $reqMessages->fetch())
 ?>
 
 	<h3><?= $data['title'] ?></h3>
-	<p><img src="img/imgPost/<?=$data['name_picture'].'.'.$data['extention_picture']?>" alt="<?= $data['description_picture'] ?>" /></p>
+	<p><img src="http://projetcinq/img/imgPost/<?=$data['name_picture'].'.'.$data['extention_picture']?>" alt="<?= $data['description_picture'] ?>" /></p>
 	<p><?= $data['chapo'] ?></p>
 	<p><?= $data['author'] ?></p>
     <a href="/index.php/detailArticle/id=<?=$data['id']?>">voir le detail</a><br/>
