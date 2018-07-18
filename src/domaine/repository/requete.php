@@ -1,7 +1,5 @@
 <?php
 
-
-
 function lastThreeAddition() 
 {
 	$db = pdo();

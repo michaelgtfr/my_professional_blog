@@ -6,14 +6,12 @@ require __DIR__.'./../../etc/templateLoader.php';
 function home(){
 
 	$returnMessages = lastThreeAddition();
-	if(isset($returnMessages))
-	{
+
+	if(isset($returnMessages)){
 
 	loadTemplate('home.php',$returnMessages);
 
-	}
-	else
-	{
-		throw new Exception('Desolate item recovery problem');
+	} else {
+		throw new Exception('Sorry, no item found');
 	}	
 }

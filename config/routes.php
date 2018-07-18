@@ -14,4 +14,12 @@ return[
     'page' => '\d+'
     ]
   ],
+  'article_detail' => [
+    'path' => '/index.php/articledetail/{id}',
+    'method' => ['GET'],
+    'action' => 'detailArticle',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
 ];

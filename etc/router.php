@@ -2,7 +2,8 @@
 
 require __DIR__.'./actionResolver.php';
 
-function handleRequest(array $request) {
+function handleRequest(array $request)
+{
   $routes = require __DIR__.'./../config/routes.php';
 
   foreach ($routes as $key => $value) {
@@ -18,8 +19,8 @@ function handleRequest(array $request) {
   }
 }
 
-function catchParams(array $params, string $path, &$routePath) {
-
+function catchParams(array $params, string $path, &$routePath)
+{
   $results = [];
 
   foreach ($params as $key => $regex) {
@@ -27,8 +28,7 @@ function catchParams(array $params, string $path, &$routePath) {
     if (is_null($result)) {
 
       return;
-    }
-    elseif (!empty($result)) {
+    } elseif (!empty($result)) {
       $routePath = strtr($routePath, ['{'.$key.'}' => $result[0]]);
       return $result;
     }
