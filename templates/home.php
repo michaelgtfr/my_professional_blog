@@ -83,7 +83,7 @@
 	<form action="contactForm.php" method="post" class="col-sm-12"> 
 		<p>
 			<div class="col-sm-offset-2 col-sm-3 form-group">
-				<label for="name">Nom : </label><input type="texte" class="form-control" id="name" placeholder="ex: stella" />
+				<label for="name">Nom : </label><input type="text" class="form-control" id="name" placeholder="ex: stella" />
 			</div>
 			<div class="email col-sm-offset-2 col-sm-3 form-group">
 				<label for="email">Email : </label><input type="email" class="form-control" id="name" value="ex: quelquechose@hotmail.fr" />

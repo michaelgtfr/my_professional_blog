@@ -73,8 +73,8 @@
                 </ul>
                 <ul class="colomnTwo col-sm-6">    
                     <li><h2>Compte:</h2></li>
-                    <li><a href="connection.php">Se connecter</a></li>
-                    <li><a href="incription.php">Inscription</a></li>
+                    <li><a href="index.php/loginpage">Se connecter</a></li>
+                    <li><a href="index.php/registration">Inscription</a></li>
                 </ul>
                 <div class= "socialNetworks col-sm-12">
                     <a class="btn btn-primary btn-lg" href="https://fr-fr.facebook.com/"><i class="fa fa-facebook fa-2x"></i></a>

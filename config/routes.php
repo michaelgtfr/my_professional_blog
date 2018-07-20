@@ -22,4 +22,9 @@ return[
     'id' => '\d+'
     ]
   ],
+  'login_page' => [
+    'path' => '/index.php/loginpage',
+    'method' => ['GET'],
+    'action' => 'loginPage',
+  ],
 ];

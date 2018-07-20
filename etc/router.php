@@ -26,10 +26,9 @@ function catchParams(array $params, string $path, &$routePath)
   foreach ($params as $key => $regex) {
     preg_match('#'.$regex.'#', $path, $result);
     if (is_null($result)) {
-
       return;
     } elseif (!empty($result)) {
-      $routePath = strtr($routePath, ['{'.$key.'}' => $result[0]]);
+        $routePath = strtr($routePath, ['{'.$key.'}' => $result[0]]);
       return $result;
     }
   } 

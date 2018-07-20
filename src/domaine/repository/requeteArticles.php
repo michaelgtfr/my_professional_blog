@@ -7,7 +7,6 @@ function listingOfArticles($firstEnter, $messagesByPage)
 	$db = pdo();
 
 	if(isset($db)){
-
 		$req = $db->prepare('SELECT blog_posts.id AS id,
 									blog_posts.title AS title,
 									blog_posts.chapo AS chapo, 
@@ -35,13 +34,11 @@ function listingOfArticles($firstEnter, $messagesByPage)
 
 function articleDetail($params)
 {
-
-	$db= pdo();
+	$db = pdo();
 
 	$id = intval($params[0]);
 
 	if (isset($db)){
-
 		$req = $db->prepare('SELECT blog_posts.id AS id,
 									blog_posts.title AS title,
 									blog_posts.chapo AS chapo,
@@ -55,18 +52,17 @@ function articleDetail($params)
 									picture.description AS description_picture,
 									user.id AS id_author,
 									user.first_name AS name_author
-									FROM blog_posts
-									INNER JOIN picture
-									ON blog_posts.id = picture.blog_posts_id
-									INNER JOIN user
-									ON blog_posts.autor = user.id  
-									WHERE validate_blog_post = true AND blog_posts.id = :id');
+								FROM blog_posts
+								INNER JOIN picture
+								ON blog_posts.id = picture.blog_posts_id
+								INNER JOIN user
+								ON blog_posts.autor = user.id  
+								WHERE validate_blog_post = true AND blog_posts.id = :id');
 
 		$req->bindParam(':id', $id, PDO::PARAM_INT);
 		$req->execute();
 		
 		return $req;
-
 	} else {
 		echo 'error requete';
 	}
