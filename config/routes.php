@@ -27,4 +27,9 @@ return[
     'method' => ['GET'],
     'action' => 'loginPage',
   ],
+  'registration_page' => [
+    'path' => '/index.php/registrationpage',
+    'method' => ['GET'],
+    'action' => 'registrationPage',
+  ],
 ];

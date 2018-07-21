@@ -4,7 +4,6 @@
 <!--body-->
 <?php ob_start(); ?>
 
-<!--texte ici-->
 <section class="row">
 	<h4>se connecter:</h4>
 	<form action="postconnection.php" method="post" class="connection col-sm-offset-4 col-sm-4">
@@ -20,7 +19,7 @@
 		</div>
 	</p>
 	</form>
-	<a href="index.php/registration" class="inscription col-sm-12">cliquer ici pour se s'inscrire</a>
+	<a href="http://projetcinq/index.php/registrationpage" class="inscription col-sm-12">cliquer ici pour se s'inscrire</a>
 </section>
 
 

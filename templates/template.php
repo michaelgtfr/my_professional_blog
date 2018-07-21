@@ -42,7 +42,7 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right menu">
                         <li><a href="/">Accueil/Contact</a></li>
-                        <li><a href="index.php/listofarticles/1">Liste Des Articles</a></li>
+                        <li><a href="http://projetcinq/index.php/listofarticles/1">Liste Des Articles</a></li>
                     </ul>
                 </div>
             </nav>
@@ -73,8 +73,8 @@
                 </ul>
                 <ul class="colomnTwo col-sm-6">    
                     <li><h2>Compte:</h2></li>
-                    <li><a href="index.php/loginpage">Se connecter</a></li>
-                    <li><a href="index.php/registration">Inscription</a></li>
+                    <li><a href="http://projetcinq/index.php/loginpage">Se connecter</a></li>
+                    <li><a href="http://projetcinq/index.php/registrationpage">Inscription</a></li>
                 </ul>
                 <div class= "socialNetworks col-sm-12">
                     <a class="btn btn-primary btn-lg" href="https://fr-fr.facebook.com/"><i class="fa fa-facebook fa-2x"></i></a>

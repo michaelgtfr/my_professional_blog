@@ -89,7 +89,7 @@
 				<label for="email">Email : </label><input type="email" class="form-control" id="name" value="ex: quelquechose@hotmail.fr" />
 			</div>
 			<div class="message col-sm-12 form-group">
-				<label for="message">Message : </label><textarea class="form-control" id="message" rows="10" cols="50">écrivez ici votre message</textarea>
+				<label for="message">Message : </label><textarea class="form-control" id="message" rows="10" cols="50">Ecrivez ici votre message</textarea>
 			</div>
 			<div class="validation col-sm-12 form-group"> 
 				<input type="submit" class="btn btn-danger" name="Validate" value="valider" />
