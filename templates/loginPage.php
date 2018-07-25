@@ -6,10 +6,10 @@
 
 <section class="row">
 	<h4>se connecter:</h4>
-	<form action="postconnection.php" method="post" class="connection col-sm-offset-4 col-sm-4">
+	<form action="http://projetcinq/index.php/postconnection" method="post" class="connection col-sm-offset-4 col-sm-4">
 	<p>
-		<div class="login col-sm-12 form-group">
-			<label for="pseudo">Login : </label><input type="text" name="pseudo" id="pseudo" class="form-control" placeholder="ex:coucou45" />
+		<div class="email col-sm-12 form-group">
+			<label for="email">Email : </label><input type="email" name="email" id="email" class="form-control" placeholder="ex:coucou45@gmail.com" />
 		</div>
 		<div class="password col-sm-12 form-group">
 			<label for="password">Mot de passe : </label><input type="password" name="password" id="password" class="form-control" value="ex: stml2134" />

@@ -32,4 +32,9 @@ return[
     'method' => ['GET'],
     'action' => 'registrationPage',
   ],
+  'post_connection' => [
+    'path' => '/index.php/postconnection',
+    'method' => ['GET', 'POST'],
+    'action' => 'postConnection',
+  ],
 ];

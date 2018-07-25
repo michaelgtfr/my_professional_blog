@@ -5,7 +5,7 @@ require __DIR__.'./actionResolver.php';
 function handleRequest(array $request)
 {
   $routes = require __DIR__.'./../config/routes.php';
-
+  
   foreach ($routes as $key => $value) {
 
     switch ($value) {
