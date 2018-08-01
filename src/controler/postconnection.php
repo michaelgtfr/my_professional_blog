@@ -16,7 +16,6 @@ function postConnection()
         echo'Desolé, mais votre mot de passe ou identifiant est incorrect !';
     } else {
 	    if($PasswordCorrect) {
-		    session_start();
 		    $_SESSION['id'] = $resultat['id'];
 		    $_SESSION['email'] = $resultat['email'];
 		    echo'vous etes connecter';

@@ -5,7 +5,7 @@
 <?php ob_start(); ?>
 
 <section class="row">
-	<form action="postRegistration.php" method="post" enctype="multipart/form-data" class="col-sm-4 col-sm-offset-4">
+	<form action="/index.php/postregistration" method="post" enctype="multipart/form-data" class="col-sm-4 col-sm-offset-4">
 		<p>
 			<div class="name form-group">
 				<label for="name">Nom : </label><input type="text" name="name" id="name" class="form-control" placeholder="loka" />
@@ -24,10 +24,10 @@
 			</div>
 			<div class="photo form-group">
 				<input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-				<label for="photo">Photo/Logo (max 1Mo) : </label><input type="file" name="photo" class="form-control" />
+				<label for="photo">Photo/Logo (max 1Mo, JPG, PNG) : </label><input type="file" name="photo" id="photo" class="form-control" />
 			</div>
 			<div class="presentation form-group">
-				<label for="presentation">Présentation : </label><textarea class="form-control" id="message" rows="10" cols="50">Ecrivez votre présentation ici</textarea>
+				<label for="presentation">Présentation : </label><textarea class="form-control" name="presentation" id="presentation" rows="10" cols="50">Ecrivez votre présentation ici</textarea>
 			</div>
 			<div class="validate col-sm-12 form-group">
 			<input type="submit" name="validate" value="valider" />

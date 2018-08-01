@@ -25,16 +25,29 @@ return[
   'login_page' => [
     'path' => '/index.php/loginpage',
     'method' => ['GET'],
-    'action' => 'loginPage',
+    'action' => 'loginPage'
   ],
   'registration_page' => [
     'path' => '/index.php/registrationpage',
     'method' => ['GET'],
-    'action' => 'registrationPage',
+    'action' => 'registrationPage'
   ],
   'post_connection' => [
     'path' => '/index.php/postconnection',
     'method' => ['GET', 'POST'],
-    'action' => 'postConnection',
+    'action' => 'postConnection'
+  ],
+  'post_registration' => [
+    'path' => '/index.php/postregistration',
+    'method' => ['GET', 'POST'],
+    'action' => 'postRegistration'
+  ],
+  'accountConfirmation' => [
+    'path' => '/index.php/accountConfirmation?{emailAndCle}',
+    'method' => ['GET'],
+    'action' => 'accountConfirmation',
+    'params' => [
+    'emailAndCle' => 'activation.+'
+    ]
   ],
 ];

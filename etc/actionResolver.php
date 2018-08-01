@@ -6,6 +6,8 @@ require __DIR__.'./../src/controler/articleDetail.php';
 require __DIR__.'./../src/controler/loginPage.php';
 require __DIR__.'./../src/controler/registrationPage.php';
 require __DIR__.'./../src/controler/postconnection.php';
+require __DIR__.'./../src/controler/postRegistration.php';
+require __DIR__.'./../src/controler/accountConfirmation.php';
 
 function resolveAction(string $action, array $params = [])
 {
