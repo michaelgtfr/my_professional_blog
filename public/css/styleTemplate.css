@@ -1,0 +1,122 @@
+@font-face
+{
+ 	font-family: 'broken_heartregular';
+    src: url('../police/broken/broken_heart-webfont.eot');
+    src: url('../police/broken/broken_heart-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../police/broken/broken_heart-webfont.woff') format('woff'),
+         url('../police/broken/broken_heart-webfont.ttf') format('truetype'),
+         url('../police/broken/broken_heart-webfont.svg#broken_heartregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*nav                                nav                                                    nav*/
+
+.menu
+{
+	padding-top: 5px;
+}
+
+/*header                            header                                              header*/
+
+
+header
+{
+	background-image: url("../img/cocodix.jpg");
+	height: 500px;
+	background-size: 100%;
+}
+
+.banner
+{
+	background-color: red;
+	opacity: 0.5;
+	height: 500px;
+	color: white;
+}
+
+header h1 
+{
+	text-align: center;
+	font-family: 'broken_heartregular', sans serif;
+	font-size: 5em;
+	text-shadow: 5px 5px 10px black ;
+}
+
+.titleBar
+{
+	font-family: 'broken_heartregular', sans serif;
+	color: gray;
+}
+
+header p
+{
+	text-align: center;
+	padding-top: 50px;
+}
+
+/* footer                                         footer                                                  footer*/
+
+
+footer
+{
+	color: white;
+	background-color: red;
+	opacity: 0.7;
+}
+
+footer ul
+{
+	text-align: center;
+	list-style-type: none;
+}
+
+footer h2
+{
+	font-size: 2.2em;
+	padding: 10px;
+	font-family: 'broken_heartregular', sans serif;
+}
+
+footer a
+{
+	color: white;
+}
+
+.socialNetworks
+{
+	text-align: center;
+	padding-top: 50px;
+}
+
+
+.btn
+{
+	background-color: red;
+	border: 1px red solid;
+}
+
+
+.copyright
+{
+	text-align: center;
+	padding: 10px;
+	padding-top: 20px;
+}
+
+
+/*all media superior to 1800px                           all media superior to 1800px                                  all media superior to 1800px */
+
+@media all and (min-width: 1800px)
+{
+	header 
+	{
+		height: 600px;
+	}
+
+	.banner
+	{
+		height: 600px;
+	}
+}
