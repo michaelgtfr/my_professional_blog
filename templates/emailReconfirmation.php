@@ -8,6 +8,7 @@
 	<form action="/index.php/postEmailReconfirmation" method="post" />
 		<p>
 			<label for="email">email</label><input type="email" name="email" id="email" value="<?= $returnMessages ?>" />
+			<input type="hidden" name="previousEmail" value="<?=$returnMessages ?>" />
 		    <button>valider</button>
 		</p>
 	</form> 

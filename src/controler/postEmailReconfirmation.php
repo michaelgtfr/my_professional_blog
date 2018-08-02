@@ -3,12 +3,18 @@
 function postEmailReconfirmation()
 {
 	$email = htmlspecialchars($_POST['email']);
+    $previousEmail = htmlspecialchars($_POST['previousEmail']);
 
-    $req = confirmation($email);
+    $req = confirmation($previousEmail);
     $result = $req->fetch();
 
     $key = $result['confirmation_key'];
 	$confirmation = $result['confirmation'];
+    $id = $result['id'];
+
+    if($email != $previousEmail) {
+        updateEmail($id, $email);
+    }
 
 	if($confirmation == 1) {
     	$message = 'votre compte est déjà confirmé, veuillez attendre qu\'un administrateur valide votre compte';

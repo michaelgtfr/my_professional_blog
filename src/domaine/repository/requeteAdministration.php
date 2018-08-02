@@ -56,3 +56,14 @@ function validateConfirmation($email)
 		$req->execute();
 	}
 }
+
+function updateEmail($id, $email)
+{
+	$db = pdo();
+	if(isset ($db)) {
+		$req = $db->prepare('UPDATE user SET email = :email WHERE id = :id');
+		$req->bindParam('email', $email);
+		$req->bindParam('id', $id);
+		$req->execute();
+	}
+}
