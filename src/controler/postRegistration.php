@@ -1,4 +1,5 @@
 <?php  
+require __DIR__ .'./../fonction/sendEmail.php';
 
 function postRegistration()
 {
@@ -43,8 +44,6 @@ function postRegistration()
     $registration = registration($name, $firstname, $email, $namePhoto, $presentation, $passwordHash, $key);
 
     //preparation et envoie de l'email
-    ini_set('SMTP','smtp.free.fr');
-    ini_set('sendmail_from', 'mickdu62200@gmail.com');
 
     $to = $email; 
 
@@ -61,7 +60,7 @@ function postRegistration()
     --------------
     Ceci est un email automatique, Merci de ne pas y répondre';
 
-    mail($to, $subject, $message);
+    sendEmail($to, $subject, $message);
 
     loadTemplate('postRegistration.php', $email);
     }

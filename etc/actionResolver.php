@@ -8,6 +8,8 @@ require __DIR__.'./../src/controler/registrationPage.php';
 require __DIR__.'./../src/controler/postconnection.php';
 require __DIR__.'./../src/controler/postRegistration.php';
 require __DIR__.'./../src/controler/accountConfirmation.php';
+require __DIR__.'./../src/controler/emailReconfirmation.php';
+require __DIR__.'./../src/controler/postEmailReconfirmation.php';
 
 function resolveAction(string $action, array $params = [])
 {

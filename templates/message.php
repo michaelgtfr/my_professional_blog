@@ -1,6 +1,5 @@
-s
 <?php $title = 'item detail' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/articleDetail.css" />' ?>
+<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/message.css" />' ?>
 
 <!--body-->
 <?php ob_start(); ?>

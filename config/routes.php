@@ -50,4 +50,17 @@ return[
     'emailAndCle' => 'activation.+'
     ]
   ],
+  'emailReconfirmation' => [
+    'path' => '/index.php/emailreconfirmation?{email}',
+    'method' => ['GET'],
+    'action' => 'emailReconfirmation',
+    'params' => [
+    'email' => 'email=.+'
+    ]
+  ],
+  'postEmailReconfirmation'=> [
+    'path' => '/index.php/postEmailReconfirmation',
+    'method' => ['GET', 'POST'],
+    'action' => 'postEmailReconfirmation'
+  ],
 ];

@@ -6,7 +6,7 @@ function accountConfirmation($params)
 	$email = $_GET['activation'];
 	$confirmationKey = $_GET['cle'];
 
-	$req = Confirmation($email);
+	$req = confirmation($email);
 	$result = $req->fetch();
     
 	$cleOfAccount = $result['confirmation_key'];

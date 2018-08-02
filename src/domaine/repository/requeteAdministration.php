@@ -35,7 +35,7 @@ function registration($name, $firstname, $email, $photo, $presentation, $passwor
 	}
 }
 
-function Confirmation($email)
+function confirmation($email)
 {
 	$db = pdo();
 	if(isset($db)) {
