@@ -19,7 +19,8 @@
 		</div>
 	</p>
 	</form>
-	<a href="http://projetcinq/index.php/registrationpage" class="inscription col-sm-12">cliquer ici pour se s'inscrire</a>
+	<a href="http://projetcinq/index.php/resetpassword" class="resetPassword col-sm-12">je ne me souviens plus de mon mot de passe</a>
+	<a href="http://projetcinq/index.php/registrationpage" class="inscription col-sm-12">cliquer ici pour s'inscrire</a>
 </section>
 
 

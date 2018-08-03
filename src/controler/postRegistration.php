@@ -34,7 +34,7 @@ function postRegistration()
     $result = move_uploaded_file($_FILES['photo']['tmp_name'], $transfertFile);
 
     //hashage du mot de passe
-    $passwordHash = password_hash($_POST['passwordOne'], PASSWORD_DEFAULT);
+    $passwordHash = password_hash($passwordOne, PASSWORD_DEFAULT);
 
     //générateur de clé
 
@@ -51,7 +51,7 @@ function postRegistration()
  
     $message = 'bienvenue sur mon blog professionnel,
 
-    Pour activer votre compte, veuillez cliquer sur le lien ci dessous ou copier/coller dans votre navigateur internet.
+    Pour confirmer votre compte, veuillez cliquer sur le lien ci dessous ou copier/coller dans votre navigateur internet.
 
     http://projetCinq/index.php/accountConfirmation?activation='.urlencode($email). '&cle='.urlencode($key).'
 
@@ -62,6 +62,8 @@ function postRegistration()
 
     sendEmail($to, $subject, $message);
 
-    loadTemplate('postRegistration.php', $email);
+    $message = 'Félicitation, votre inscription est réussie il vous reste à le valider pour cela, cliquer sur le lien envoyé sur votre adresse email est aprés votre confirmation un administrateur doit approuver votre inscription'.
+    $returnMessages = array($email, $message);
+    loadTemplate('postRegistration.php', $returnMessages);
     }
 }

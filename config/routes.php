@@ -63,4 +63,14 @@ return[
     'method' => ['GET', 'POST'],
     'action' => 'postEmailReconfirmation'
   ],
+  'resetPassword' => [
+    'path' =>'/index.php/resetpassword',
+    'method' => ['GET'],
+    'action' => 'resetPassword',
+  ],
+  'postResetPassword' => [
+    'path' => '/index.php/postresetpassword',
+    'method' => ['GET', 'POST'],
+    'action' => 'postResetPassword',
+  ],
 ];

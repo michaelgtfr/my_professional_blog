@@ -10,6 +10,8 @@ require __DIR__.'./../src/controler/postRegistration.php';
 require __DIR__.'./../src/controler/accountConfirmation.php';
 require __DIR__.'./../src/controler/emailReconfirmation.php';
 require __DIR__.'./../src/controler/postEmailReconfirmation.php';
+require __DIR__.'./../src/controler/resetPassword.php';
+require __DIR__.'./../src/controler/postResetPassword.php';
 
 function resolveAction(string $action, array $params = [])
 {

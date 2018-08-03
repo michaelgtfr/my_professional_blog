@@ -67,3 +67,27 @@ function updateEmail($id, $email)
 		$req->execute();
 	}
 }
+
+function verificationElement($email, $name)
+{
+	$db = pdo();
+	if(isset ($db)) {
+		$req = $db->prepare('SELECT email, name, confirmation_key FROM user WHERE email = :email AND name = :name');
+		$req->bindParam('email', $email);
+		$req->bindParam('name', $name);
+		$req->execute();
+
+		return $req;
+	}
+}
+
+function changePassword($email, $password)
+{
+	$db = pdo();
+	if(isset($db)) {
+		$req = $db->prepare('UPDATE user SET password = :password, confirmation = 0  WHERE email = :email');
+		$req->bindParam('password', $password);
+		$req->bindParam('email', $email);
+		$req->execute();
+	}
+}
