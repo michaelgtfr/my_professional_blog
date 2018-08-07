@@ -4,8 +4,8 @@ function userRecovery($email)
 {
 	$db = pdo();
 	if(isset($db)) {
-		$req = $db->prepare('SELECT id, email, password FROM user WHERE email = :email');
-		$req->bindParam(':email', $email);
+		$req = $db->prepare('SELECT id, email, password, confirmation, validation FROM user WHERE email = :email');
+		$req->bindParam('email', $email);
 		$req->execute();
 
 		return $req;
@@ -20,18 +20,17 @@ function registration($name, $firstname, $email, $photo, $presentation, $passwor
 	if(isset($db)) {
 		$req = $db->prepare('INSERT INTO user(name, first_name, confirmation, validation, email, photo, presentation, password, role, date_create, confirmation_key) 
 			VALUES(:name, :first_name, :confirmation, :validation, :email, :photo, :presentation, :password, :role, NOW(), :confirmation_key)');
-		$req->execute(array(
-            'name' => $name,
-            'first_name' => $firstname,
-            'confirmation' => 0,
-            'validation' => 0,
-            'email' => $email,
-            'photo' => $photo,
-            'presentation' => $presentation,
-            'password' => $passwordHash,
-            'role' => 'editeur',
-            'confirmation_key' => $key
-		));
+		$req->bindParam('name', $name);
+		$req->bindParam('firstname', $firstname);
+		$req->bindParam('confirmation', 0);
+		$req->bindParam('validation', 0);
+		$req->bindParam('email', $email);
+		$req->bindParam('photo', $photo);
+		$req->bindParam('presentation', $presentation);
+		$req->bindParam('password', $passwordHash);
+        $req->bindParam('role', 'editeur');
+        $req->bindParam('confirmation_key', $key);
+        $req->execute();
 	}
 }
 
@@ -89,5 +88,17 @@ function changePassword($email, $password)
 		$req->bindParam('password', $password);
 		$req->bindParam('email', $email);
 		$req->execute();
+	}
+}
+
+function userAccount($id)
+{
+	$db = pdo();
+	if(isset($db)) {
+		$req = $db->prepare('SELECT name, first_name, email, photo, presentation, role, date_create FROM user WHERE id = :id');
+		$req->bindParam('id', $id);
+		$req->execute();
+
+		return $req;
 	}
 }

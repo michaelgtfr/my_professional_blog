@@ -38,7 +38,7 @@ function articleDetail($params)
 
 	$id = intval($params[0]);
 
-	if (isset($db)){
+	if (isset($db)) {
 		$req = $db->prepare('SELECT blog_posts.id AS id,
 									blog_posts.title AS title,
 									blog_posts.chapo AS chapo,
@@ -58,7 +58,6 @@ function articleDetail($params)
 								INNER JOIN user
 								ON blog_posts.autor = user.id  
 								WHERE validate_blog_post = true AND blog_posts.id = :id');
-
 		$req->bindParam(':id', $id, PDO::PARAM_INT);
 		$req->execute();
 		

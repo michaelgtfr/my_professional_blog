@@ -62,7 +62,7 @@
 						<p><?= htmlspecialchars($data['autor']) ?></p>
 					</div>
 					<div class="lien">
-						<p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir l'article</a></p>
+						<p><a href="http://projetCinq/index.php/articledetail/<?= $data['id'] ?>">Voir l'article</a></p>
 					</div>
 				</div>
 			<?php

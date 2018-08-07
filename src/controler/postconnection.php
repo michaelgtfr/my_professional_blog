@@ -14,11 +14,15 @@ function postConnection()
 
     if(!$resultat) {
         echo'Desolé, mais votre mot de passe ou identifiant est incorrect !';
+    } elseif($resultat['confirmation'] == 0) {
+        echo 'Desolé, mais votre compte n\'est pas confirmer veuillez le confirmer en cliquant sur email envoyer dans votre boite email';
+    }elseif ($resultat['validation'] == 0) {
+        echo 'Desolé, mais votre compte n\'est pas encore valider, un administrateur doit valider votre compte pour pourvoir l\'utiliser';
     } else {
 	    if($PasswordCorrect) {
 		    $_SESSION['id'] = $resultat['id'];
 		    $_SESSION['email'] = $resultat['email'];
-		    echo'vous etes connecter';
+            dashboard($_SESSION['id']);
    	    } else {
 		    echo'Desolé, mais votre mot de passe ou identifiant est incorrect !';
 	    }
