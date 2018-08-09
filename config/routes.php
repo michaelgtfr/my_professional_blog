@@ -42,7 +42,7 @@ return[
     'method' => ['GET', 'POST'],
     'action' => 'postRegistration'
   ],
-  'accountConfirmation' => [
+  'account_confirmation' => [
     'path' => '/index.php/accountConfirmation?{emailAndCle}',
     'method' => ['GET'],
     'action' => 'accountConfirmation',
@@ -50,7 +50,7 @@ return[
     'emailAndCle' => 'activation.+'
     ]
   ],
-  'emailReconfirmation' => [
+  'email_reconfirmation' => [
     'path' => '/index.php/emailreconfirmation?{email}',
     'method' => ['GET'],
     'action' => 'emailReconfirmation',
@@ -58,19 +58,40 @@ return[
     'email' => 'email=.+'
     ]
   ],
-  'postEmailReconfirmation'=> [
+  'post_email_reconfirmation'=> [
     'path' => '/index.php/postEmailReconfirmation',
     'method' => ['GET', 'POST'],
     'action' => 'postEmailReconfirmation'
   ],
-  'resetPassword' => [
+  'reset_password' => [
     'path' =>'/index.php/resetpassword',
     'method' => ['GET'],
-    'action' => 'resetPassword',
+    'action' => 'resetPassword'
   ],
-  'postResetPassword' => [
+  'post_reset_password' => [
     'path' => '/index.php/postresetpassword',
     'method' => ['GET', 'POST'],
-    'action' => 'postResetPassword',
+    'action' => 'postResetPassword'
+  ],
+  'comment_management' => [
+    'path' => '/index.php/commentmanagement',
+    'method' => ['GET'],
+    'action' => 'commentManagement'
+  ],
+  'validate_comment' => [
+    'path' => '/index.php/validatecomment/{id}',
+    'method' => ['GET'],
+    'action' => 'validateComment',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
+  'delete_comment' => [
+    'path' => '/index.php/deletecomment/{id}',
+    'method' => ['GET'],
+    'action' => 'deleteComment',
+    'params' => [
+    'id' => '\d+'
+    ]
   ],
 ];

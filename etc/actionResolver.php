@@ -12,6 +12,9 @@ require __DIR__.'./../src/controler/emailReconfirmation.php';
 require __DIR__.'./../src/controler/postEmailReconfirmation.php';
 require __DIR__.'./../src/controler/resetPassword.php';
 require __DIR__.'./../src/controler/postResetPassword.php';
+require __DIR__.'./../src/controler/commentManagement.php';
+require __DIR__.'./../src/controler/validateComment.php';
+require __DIR__.'./../src/controler/deleteComment.php';
 
 function resolveAction(string $action, array $params = [])
 {
