@@ -104,4 +104,33 @@ return[
     'method' => ['GET', 'POST'],
     'action' => 'postArticleCreation'
   ],
+  'article_management' => [
+    'path' => '/index.php/articlemanagement',
+    'method' => ['GET'],
+    'action' => 'articleManagement'
+  ],
+  'detail_article_no_validate' => [
+    'path' => '/index.php/detailarticlenovalidate/{id}',
+    'method' => ['GET'],
+    'action' => 'detailArticleNoValidate',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
+  'validate_article' => [
+    'path' => '/index.php/validatearticle/{id}',
+    'method' => ['GET'],
+    'action' => 'validateArticle',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
+  'delete_article' => [
+    'path' => '/index.php/deletearticle/{id}',
+    'method' => ['GET'],
+    'action' => 'deleteArticle',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
 ];

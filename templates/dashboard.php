@@ -26,7 +26,7 @@
 	    if($returnMessages['role'] == 'administrateur') {
 	    	?>
 	    	<a href="http://projetcinq/index.php/commentmanagement">Valider un commentaire</a>
-	    	<a href="http://projetcinq/index.php/ValidatePost">Valider un article</a>
+	    	<a href="http://projetcinq/index.php/articlemanagement">Valider un article</a>
 	    	<?php
 	    }
 	?>
