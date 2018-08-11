@@ -17,16 +17,16 @@
 	<?php
 	    if($returnMessages['role'] == 'administrateur') {
 	    	?>
-	        <a href="http://projetcinq/index.php/ValidateUserAccount" alt="bouton affichant la page de validation de compte utilisateur">Valider un compte utilisateur</a>
+	        <a href="http://projetcinq/index.php/ValidateUserAccount">Valider un compte utilisateur</a>
 	        <?php
 	    }
 	?>
-	<a href="http://projetcinq/index.php/createArticle" alt="bouton de création d'un article de blog">Créer un article</a>
+	<a href="http://projetcinq/index.php/articlecreation">Créer un article</a>
 	<?php
 	    if($returnMessages['role'] == 'administrateur') {
 	    	?>
-	    	<a href="http://projetcinq/index.php/commentmanagement" alt="bouton affichant la page de validation des commentaires">Valider un commentaire</a>
-	    	<a href="http://projetcinq/index.php/ValidatePost" alt="bouton affichant la page de validation des articles">Valider un article</a>
+	    	<a href="http://projetcinq/index.php/commentmanagement">Valider un commentaire</a>
+	    	<a href="http://projetcinq/index.php/ValidatePost">Valider un article</a>
 	    	<?php
 	    }
 	?>

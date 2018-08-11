@@ -15,6 +15,8 @@ require __DIR__.'./../src/controler/postResetPassword.php';
 require __DIR__.'./../src/controler/commentManagement.php';
 require __DIR__.'./../src/controler/validateComment.php';
 require __DIR__.'./../src/controler/deleteComment.php';
+require __DIR__.'./../src/controler/articleCreation.php';
+require __DIR__.'./../src/controler/postArticleCreation.php';
 
 function resolveAction(string $action, array $params = [])
 {

@@ -30,7 +30,7 @@
 				<label for="presentation">Présentation : </label><textarea class="form-control" name="presentation" id="presentation" rows="10" cols="50">Ecrivez votre présentation ici</textarea>
 			</div>
 			<div class="validate col-sm-12 form-group">
-			<input type="submit" name="validate" value="valider" />
+			<button type="submit">valider</button>
 		</div>
 	</p>
 	</form>

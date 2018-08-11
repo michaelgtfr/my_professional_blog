@@ -94,4 +94,14 @@ return[
     'id' => '\d+'
     ]
   ],
+  'article_creation' => [
+    'path' => '/index.php/articlecreation',
+    'method' => ['GET'],
+    'action' => 'articleCreation'
+  ],
+  'post_article_creation' => [
+    'path' => '/index.php/postarticlecreation',
+    'method' => ['GET', 'POST'],
+    'action' => 'postArticleCreation'
+  ],
 ];

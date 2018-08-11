@@ -59,7 +59,7 @@
 						<p><?= htmlspecialchars($data['chapo']) ?></p>
 					</div>
 					<div class="authorPost">
-						<p><?= htmlspecialchars($data['autor']) ?></p>
+						<p><?= htmlspecialchars($data['author']) ?></p>
 					</div>
 					<div class="lien">
 						<p><a href="http://projetCinq/index.php/articledetail/<?= $data['id'] ?>">Voir l'article</a></p>

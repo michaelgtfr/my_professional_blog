@@ -22,13 +22,13 @@ function registration($name, $firstname, $email, $photo, $presentation, $passwor
 			VALUES(:name, :first_name, :confirmation, :validation, :email, :photo, :presentation, :password, :role, NOW(), :confirmation_key)');
 		$req->bindParam('name', $name);
 		$req->bindParam('firstname', $firstname);
-		$req->bindParam('confirmation', 0);
-		$req->bindParam('validation', 0);
+		$req->bindValue('confirmation', 0);
+		$req->bindValue('validation', 0);
 		$req->bindParam('email', $email);
 		$req->bindParam('photo', $photo);
 		$req->bindParam('presentation', $presentation);
 		$req->bindParam('password', $passwordHash);
-        $req->bindParam('role', 'editeur');
+        $req->bindValue('role', 'editeur');
         $req->bindParam('confirmation_key', $key);
         $req->execute();
 	}

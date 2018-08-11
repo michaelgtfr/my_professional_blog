@@ -19,6 +19,7 @@
             <p><?= $data['content'] ?></p>
             <p><a href="http://projetcinq/index.php/validatecomment/<?= $data['id'] ?>">Valider le commentaire</a></p>
             <p><a href="http://projetcinq/index.php/deletecomment/<?= $data['id'] ?>">Refuser le commentaire</a></p>
+            <a href="/index.php/articledetail/<?=$data['blog_post_id']?>">voir le detail</a>
         <?php
         }
         

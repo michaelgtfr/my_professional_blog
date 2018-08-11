@@ -9,7 +9,7 @@ function lastThreeAddition()
 									blog_posts.title,
 									blog_posts.chapo,
 									blog_posts.validate_blog_post,
-									blog_posts.autor,
+									blog_posts.author,
 							 		picture.blog_posts_id,
 							 		picture.name,
 							 		picture.extention,
