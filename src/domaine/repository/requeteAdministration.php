@@ -4,7 +4,7 @@ function userRecovery($email)
 {
 	$db = pdo();
 	if(isset($db)) {
-		$req = $db->prepare('SELECT id, email, password, confirmation, validation FROM user WHERE email = :email');
+		$req = $db->prepare('SELECT id, email, password, confirmation, validation, role FROM user WHERE email = :email');
 		$req->bindParam('email', $email);
 		$req->execute();
 

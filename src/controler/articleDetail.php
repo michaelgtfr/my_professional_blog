@@ -1,7 +1,7 @@
 <?php
-
 function detailArticle($params)
 {
 	$returnMessages = articleDetail($params);
-	loadTemplate('articleDetail.php', $returnMessages);
+	$data = $returnMessages->fetch();
+	loadTemplate('articleDetail.php', $data);
 }

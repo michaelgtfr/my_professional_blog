@@ -5,19 +5,34 @@
 <?php ob_start(); ?>
 
 <?php
-
-while($data = $returnMessages->fetch()) {
-?>
-	<h3><?= $data['title']?></h3>
-	<p><img src="http://projetcinq/img/imgPost/<?= $data['name_picture'] .'.'. $data['extention_picture']?>" alt="<?= $data['description_picture'] ?>" /></p>
-	<p><?= $data['chapo']?></p>
-	<p><?= $data['content']?></p>
-	<p><?= $data['name_author'] ?></p>
-	<p><?= $data['create_date'] ?></p>
-
-<?php
+if(isset($_SESSION ['id']) && isset($_SESSION['email']) && isset($_SESSION['role'])) {
+	?>
+	<nav class="adminNav">
+		<div class="Modify">
+			<a href="http://projetcinq/index.php/modifyarticle/<?= $returnMessages['id'] ?>">Modifier l'article</a>
+		</div>
+	<?php
+    if($_SESSION['role'] == 'administrateur') {
+	    ?>
+		    <div class="deleted">
+			    <a href="http://projetcinq/index.php/deletedarticle/<?=$returnMessages['id'] ?>">Supprimer l'article</a>
+		    </div>
+	    </nav>
+	    <?php
+    }
 }
-$returnMessages->closeCursor();
+
+foreach($returnMessages as $key => $value) {
+    ?>
+	<h3><?= $returnMessages['title']?></h3>
+	<p><img src="http://projetcinq/img/imgPost/<?= $returnMessages['name_picture'] .'.'. $returnMessages['extention_picture']?>" alt="<?= $returnMessages['description_picture'] ?>" /></p>
+	<p><?= $returnMessages['chapo']?></p>
+	<p><?= $returnMessages['content']?></p>
+	<p><?= $returnMessages['name_author'] ?></p>
+	<p><?= $returnMessages['create_date'] ?></p>
+    <?php
+    break;
+}
 
 ?>
 

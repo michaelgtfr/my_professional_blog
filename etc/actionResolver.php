@@ -18,6 +18,7 @@ require __DIR__.'./../src/controler/deleteComment.php';
 require __DIR__.'./../src/controler/articleCreation.php';
 require __DIR__.'./../src/controler/postArticleCreation.php';
 require __DIR__.'./../src/controler/articleManagement.php';
+require __DIR__.'./../src/controler/deletedArticle.php';
 
 function resolveAction(string $action, array $params = [])
 {

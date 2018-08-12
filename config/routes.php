@@ -133,4 +133,20 @@ return[
     'id' => '\d+'
     ]
   ],
+  'deleted_article' => [
+    'path' => '/index.php/deletedarticle/{id}',
+    'method' => ['GET'],
+    'action' => 'deletedArticle',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
+  'post_deleted_message' => [
+    'path' => '/index.php/postdeletedarticle/{id}',
+    'method' => ['GET'],
+    'action' => 'postDeletedArticle',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
 ];

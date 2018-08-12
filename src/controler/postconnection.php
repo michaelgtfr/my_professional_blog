@@ -22,6 +22,7 @@ function postConnection()
 	    if($PasswordCorrect) {
 		    $_SESSION['id'] = $resultat['id'];
 		    $_SESSION['email'] = $resultat['email'];
+            $_SESSION['role'] = $resultat['role'];
             dashboard($_SESSION['id']);
    	    } else {
 		    echo'Desolé, mais votre mot de passe ou identifiant est incorrect !';
