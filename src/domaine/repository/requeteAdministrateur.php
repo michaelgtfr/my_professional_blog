@@ -149,3 +149,60 @@ function userArticle($id)
     $req->execute();
     return $req;
 }
+
+function articleToBeAmended($id)
+{
+    $req = pdo()->prepare('SELECT blog_posts.id AS id,
+                                blog_posts.title AS title,
+                                blog_posts.chapo AS chapo,
+                                blog_posts.content AS content,
+                                picture.blog_posts_id AS id_picture, 
+                                picture.name AS name_picture, 
+                                picture.extention AS extention_picture, 
+                                picture.description AS description_picture
+                                FROM blog_posts
+                                INNER JOIN picture
+                                ON blog_posts.id = picture.blog_posts_id
+                                WHERE blog_posts.id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+
+    return $req; 
+}
+
+function reqChangeRegister($blogPost, $title, $chapo, $content, $author)
+{
+    $req = pdo()->prepare('INSERT INTO blog_post_update(blog_post_id, author, title, chapo, content) VALUES(:blog_post_id, :author, :title, :chapo, :content)');
+    $req->bindParam('blog_post_id', $blogPost);
+    $req->bindParam('author', $author);
+    $req->bindParam('title', $title);
+    $req->bindParam('chapo', $chapo);
+    $req->bindParam('content', $content);
+    $req->execute();
+
+    $req = pdo()->prepare('SELECT id FROM blog_post_update WHERE blog_post_id = :blog_post_id AND author = :author');
+    $req->bindParam('blog_post_id', $blogPost);
+    $req->bindParam('author', $author);
+    $req->execute();
+
+    return $req;
+}
+
+function reqAddIdPicture($blogPost, $idPostUpdate)
+{
+    $req = pdo()->prepare('UPDATE picture SET update_post_id = :update_post_id WHERE blog_posts_id = :blog_posts_id');
+    $req->bindParam('blog_posts_id', $blogPost);
+    $req->bindParam('update_post_id', $idPostUpdate);
+    $req->execute();
+}
+
+function reqAddPicture($idPostUpdate, $description, $datePicture, $extensionUpload)
+{
+    $req = pdo()->prepare('INSERT INTO picture(update_post_id, blog_posts_id, name, extention, description) VALUES(:update_post_id, :blog_posts_id, :name, :extention, :description)');
+    $req->bindParam('update_post_id', $idPostUpdate);
+    $req->bindValue('blog_posts_id', NULL);
+    $req->bindParam('name', $datePicture);
+    $req->bindParam('extention', $extensionUpload);
+    $req->bindParam('description', $description);
+    $req->execute();
+}

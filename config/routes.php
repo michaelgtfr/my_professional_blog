@@ -149,4 +149,17 @@ return[
     'id' => '\d+'
     ]
   ],
+  'modify_article' => [
+    'path' => '/index.php/modifyarticle/{id}',
+    'method' => ['GET'],
+    'action' => 'modifyArticle',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
+  'post_modify_article' => [
+    'path' => '/index.php/postmodifyarticle',
+    'method' => ['GET', 'POST'],
+    'action' => 'postModifyArticle'
+  ],
 ];
