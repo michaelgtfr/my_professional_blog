@@ -162,4 +162,25 @@ return[
     'method' => ['GET', 'POST'],
     'action' => 'postModifyArticle'
   ],
+  'validate_change_article' => [
+    'path' => '/index.php/validatechangearticle',
+    'method' => ['GET'],
+    'action' => 'validateChangeArticle'
+  ],
+  'validate_the_change' => [
+    'path' => '/index.php/validatethechange/{id}',
+    'method' => ['GET'],
+    'action' => 'validateTheChange',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
+  'refuse_the_change' => [
+    'path' => '/index.php/refusethechange/{id}',
+    'method' => ['GET'],
+    'action' => 'refuseTheChange',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
 ];

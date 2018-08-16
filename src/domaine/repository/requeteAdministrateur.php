@@ -2,12 +2,9 @@
 
 function commentRecovery()
 {
-	$db = pdo();
 
-	if(isset($db)) {
-		$req = $db->query('SELECT * FROM comment WHERE validation = 0');
+		$req = pdo()->query('SELECT * FROM comment WHERE validation = 0');
 		return $req;
-	}
 }
 
 function validationComment($id)
@@ -204,5 +201,103 @@ function reqAddPicture($idPostUpdate, $description, $datePicture, $extensionUplo
     $req->bindParam('name', $datePicture);
     $req->bindParam('extention', $extensionUpload);
     $req->bindParam('description', $description);
+    $req->execute();
+}
+
+function recoverModifyArticle()
+{
+    $req = pdo()->query('SELECT blog_post_update.id AS id,
+                            blog_post_update.blog_post_id AS id_blog_post,
+                            blog_post_update.title AS title,
+                            blog_post_update.chapo AS chapo,
+                            picture.name AS name_picture,
+                            picture.extention AS extention_picture,
+                            picture.description AS description_picture,
+                            user.first_name AS first_name
+                            FROM blog_post_update
+                            INNER JOIN picture
+                            ON blog_post_update.id = picture.update_post_id
+                            INNER JOIN user
+                            ON blog_post_update.author = user.id');
+
+    return $req;   
+}
+
+function validateTheModify($id)
+{
+    $req = pdo()->prepare('SELECT * FROM blog_post_update WHERE id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+    return $req;
+}
+
+function modifyTheDonnees($params)
+{
+    $req = pdo()->prepare('UPDATE blog_posts SET author = :author,
+                                                title = :title,
+                                                chapo = :chapo,
+                                                content = :content,
+                                                date_update = NOW()
+                            WHERE id = :blog_post_id');
+    $req->bindParam('author', $params['author']);
+    $req->bindParam('title', $params['title']);
+    $req->bindParam('chapo', $params['chapo']);
+    $req->bindParam('content', $params['content']);
+    $req->bindParam('blog_post_id', $params['blog_post_id']);
+    $req->execute();
+}
+
+function deleteTheModify($id)
+{
+    $req = pdo()->prepare('DELETE FROM blog_post_update WHERE id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+}
+
+function recoveryPicture($id)
+{
+    $req = pdo()->prepare('SELECT blog_posts_id, name, extention FROM picture WHERE update_post_id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+    return $req;
+}
+
+function deletePicture($id)
+{
+    $req = pdo()->prepare('DELETE FROM picture WHERE update_post_id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+}
+
+function modifyPicture($id)
+{
+    $req = pdo()->prepare('UPDATE picture SET update_post_id = NULL WHERE update_post_id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+}
+
+function recoveryNameExtentionPicture($id)
+{
+   $req = pdo()->prepare('SELECT name, extention FROM picture WHERE blog_posts_id = :blog_posts_id');
+    $req->bindParam('blog_posts_id', $id);
+    $req->execute(); 
+
+    return $req;
+}
+
+
+function reqDeletedPicture($id)
+{
+    $req = pdo()->prepare('DELETE FROM picture WHERE blog_posts_id = :blog_posts_id');
+    $req->bindParam('blog_posts_id', $id);
+    $req->execute();
+}
+
+function reqModifyPicture($blog_posts_id, $id)
+{
+    $req = pdo()->prepare('UPDATE picture SET update_post_id = NULL,
+                                blog_posts_id = :blog_posts_id WHERE update_post_id = :id');
+    $req->bindParam('blog_posts_id', $blog_posts_id);
+    $req->bindParam('id', $id);
     $req->execute();
 }

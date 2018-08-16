@@ -25,12 +25,10 @@ function postModifyArticle()
 		$returnMessages = reqChangeRegister($blogPost, $title, $chapo, $content, $author);
 		$idPostUpdate = $returnMessages->fetch();
 		$idPostUpdate = $idPostUpdate[0];
-
-        if(isset($_FILES['picture']['name'])) { //si une photo est envoyé
+        if($_FILES['picture']['size'] > 0 ) { //si une photo est envoyé
             $maxsize = 2097152;
 	        $extensionAllowed = array('jpg', 'jpeg', 'png');//savoir si l'extention est autorisé
             $extensionUpload = strtolower(substr(strrchr($_FILES['picture']['name'], '.'), 1));
-
             if($_FILES['picture']['error'] > 0) {
     	        echo 'erreur lors du transfert';
             } elseif ($_FILES['picture']['size'] > $maxsize) {
