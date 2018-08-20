@@ -183,4 +183,25 @@ return[
     'id' => '\d+'
     ]
   ],
+  'user_account_management' => [
+    'path' => '/index.php/useraccountmanagement',
+    'method' => ['GET'],
+    'action' => 'userAccountManagement'
+  ],
+  'user_account_validate' => [
+    'path' => '/index.php/useraccountvalidate/{id}',
+    'method' => ['GET'],
+    'action' => 'userAccountValidate',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
+  'user_account_reject' => [
+    'path' => '/index.php/useraccountreject/{id}',
+    'method' => ['GET'],
+    'action' => 'userAccountReject',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
 ];

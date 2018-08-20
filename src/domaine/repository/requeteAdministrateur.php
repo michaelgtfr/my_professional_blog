@@ -301,3 +301,41 @@ function reqModifyPicture($blog_posts_id, $id)
     $req->bindParam('id', $id);
     $req->execute();
 }
+
+function userAccountNoValidate()
+{
+    $req = pdo()->query('SELECT id, name, first_name, photo, presentation, date_create FROM user WHERE confirmation = 1 AND validation = 0');
+    return $req;
+}
+
+function reqUserAccountValidate($id)
+{
+    $req = pdo()->prepare('UPDATE user SET validation = 1 WHERE  id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+}
+
+function reqUserEmailAccount($id)
+{
+    $req = pdo()->prepare('SELECT email FROM user WHERE id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+
+    return $req;
+}
+
+function reqUserEmailAndPhotoAccount($id)
+{
+    $req = pdo()->prepare('SELECT email, photo FROM user WHERE id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+
+    return $req;
+}
+
+function reqUserAccountReject($id)
+{
+    $req = pdo()->prepare('DELETE FROM user WHERE id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+}

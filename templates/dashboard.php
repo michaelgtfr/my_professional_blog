@@ -17,7 +17,7 @@
 	<?php
 	    if($returnMessages['role'] == 'administrateur') {
 	    	?>
-	        <a href="http://projetcinq/index.php/ValidateUserAccount">Valider un compte utilisateur</a>
+	        <a href="http://projetcinq/index.php/useraccountmanagement">Valider un compte utilisateur</a>
 	        <a href="http://projetcinq/index.php/validatechangearticle">Valider une modification des article</a>
 	        <?php
 	    }
