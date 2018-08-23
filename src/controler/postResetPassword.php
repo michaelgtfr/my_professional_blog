@@ -7,8 +7,7 @@ function postResetPassword()
 	$passwordOne = htmlspecialchars($_POST['passwordOne']);
 	$passwordTwo = htmlspecialchars($_POST['passwordTwo']);
 
-	$req = verificationElement($email, $name);
-	$result = $req->fetch();
+	$result = verificationElement($email, $name);
 
 	if (empty($result)) {
 		$message = "désolé, mais votre compte est introuvable veuillez prévénir un administrateur via le formulaire de contact pour trouver une solution à votre problème.";
@@ -39,8 +38,7 @@ function postResetPassword()
         sendEmail($to, $subject, $message);
         
         $message = 'Félicitation! votre mot de passe à été modifié, vous pourrez utiliser votre compte aprés la validation de votre nouveau mot de passe envoyé sur votre adresse email';
-        $returnMessages = array($email, $message);
-        loadTemplate('postRegistration.php', $returnMessages);
+        loadTemplate('postRegistration.php', array($email, $message));
 	}
 
 

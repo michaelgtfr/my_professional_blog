@@ -2,7 +2,6 @@
 
 function dashboard($id)
 {
-	$req = userAccount($id);
-    $result = $req->fetch();
+	$result = userAccount($id);
     loadTemplate('dashboard.php',$result);
 }

@@ -26,8 +26,7 @@ function postArticleCreation()
         $result = move_uploaded_file($_FILES['photo']['tmp_name'], $transfertFile);
 
         addArticle($id, $title, $chapo, $content);
-        $req = recoveryIdArticle($title, $chapo);
-        $reqId = $req->fetch();
+        $reqId = recoveryIdArticle($title, $chapo);
         $idArticle = $reqId[0];
         photoJoin($idArticle, $datePicture, $extensionUpload, $description);
 

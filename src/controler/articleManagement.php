@@ -2,18 +2,15 @@
 
 function articleManagement()
 {
-	$req = noValidateArticles();
-	$reqArticle = $req->fetch(PDO::FETCH_ASSOC);
+	$reqArticle = noValidateArticles();
 	$message = 'Page de validation des articles';
-	$returnMessages = array($reqArticle, $message);
-	loadTemplate('articleManagement.php', $returnMessages);
+	loadTemplate('articleManagement.php', array($reqArticle, $message));
 }
 
 function detailArticleNoValidate($params)
 {
 	$id = $params[0];
-	$req = reqArticleNoValidate($id);
-	$returnMessages = $req->fetch(PDO::FETCH_ASSOC);
+	$returnMessages = reqArticleNoValidate($id);
 	loadTemplate('detailArticleNoValidate.php', $returnMessages);
 }
 
@@ -21,8 +18,7 @@ function validateArticle($params)
 {
 	$id = $params[0];
 
-    $return = userArticle($id);
-    $email = $return->fetch();
+    $email = userArticle($id);
     $to = $email[0];
     $subject = 'Validation de votre article';
     $message = 'Félicitation votre message a été valider, vous pouvez dès à présent voir votre article sur le blog.
@@ -31,19 +27,16 @@ function validateArticle($params)
     sendEmail($to, $subject, $message);
 
 	reqValidateArticle($id);
-    $req = noValidateArticles();
-    $reqArticle = $req->fetch(PDO::FETCH_ASSOC);
+    $reqArticle = noValidateArticles();
     $message = 'Article Valider, vous pouvez continué à valider des articles.';
-    $returnMessages = array($reqArticle, $message);
-    loadTemplate('articleManagement.php', $returnMessages);
+    loadTemplate('articleManagement.php', array($reqArticle, $message));
 }
 
 function deleteArticle($params)
 {
 	$id = $params[0];
 
-	$return = userArticle($id);
-    $email = $return->fetch();
+	$email = userArticle($id);
     $to = $email[0];
     $subject = 'Refus de votre article';
     $message = 'Désoler votre message a été refusé. Pour plus de reponse sur ce refus vous pouvez dès a présent envoyer un message via le formualire de contact.
@@ -52,9 +45,7 @@ function deleteArticle($params)
     sendEmail($to, $subject, $message);
 
 	$return =reqDeleteArticle($id);
-	$req = noValidateArticles();
-	$reqArticle = $req->fetch(PDO::FETCH_ASSOC);
+	$reqArticle = noValidateArticles();
 	$message = 'Article supprimer, vous pouvez continué à supprimer des articles.';
-	$returnMessages = array($reqArticle, $message);
-	loadTemplate('articleManagement.php', $returnMessages);
+	loadTemplate('articleManagement.php', array($reqArticle, $message));
 }

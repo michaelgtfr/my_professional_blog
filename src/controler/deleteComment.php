@@ -2,10 +2,8 @@
 
 function deleteComment($params)
 {
-	$id = $params[0];
-	deletedComment($id);
+	deletedComment($params[0]);
 	$message = 'Commentaire supprimer, vous pouvez continué de valider ou refuser des commentaires';
 	$req = commentRecovery();
-    $returnMessages = array($message, $req);
-    loadTemplate('commentManagement.php', $returnMessages);
+    loadTemplate('commentManagement.php', array($message, $req));
 }

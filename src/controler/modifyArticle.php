@@ -3,8 +3,7 @@
 function modifyArticle($params)
 {
 	if(isset($_SESSION['id']) && ($_SESSION['email'])) {
-	    $returnMessages = articleToBeAmended($params[0]);
-	    $data = $returnMessages->fetch();
+	    $data = articleToBeAmended($params[0]);
 	    loadTemplate('modifyArticle.php', $data);
     } else {
     	$message = 'désoler, vous ne pouvez pas accéder à cette page';
@@ -22,8 +21,7 @@ function postModifyArticle()
         $blogPost = htmlspecialchars($_POST['blogPost']);
         $author = htmlspecialchars($_POST['author']);
 //enregistement de l'article modifié et recuperation de son id
-		$returnMessages = reqChangeRegister($blogPost, $title, $chapo, $content, $author);
-		$idPostUpdate = $returnMessages->fetch();
+		$idPostUpdate = reqChangeRegister($blogPost, $title, $chapo, $content, $author);
 		$idPostUpdate = $idPostUpdate[0];
         if($_FILES['picture']['size'] > 0 ) { //si une photo est envoyé
             $maxsize = 2097152;

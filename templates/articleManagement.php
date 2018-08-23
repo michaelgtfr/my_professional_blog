@@ -9,7 +9,7 @@
     <p><?= $returnMessages[1]?></p>
     <?php
     $returnMessages = $returnMessages[0];
-    if($returnMessages == true) {
+    if($returnMessages) {
     foreach ($returnMessages as $key => $value) {
         ?>
         <p><?= $returnMessages['title'] ?></p>

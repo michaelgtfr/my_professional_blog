@@ -22,6 +22,7 @@ require __DIR__.'./../src/controler/deletedArticle.php';
 require __DIR__.'./../src/controler/modifyArticle.php';
 require __DIR__.'./../src/controler/validateChangeArticle.php';
 require __DIR__.'./../src/controler/userAccountManagement.php';
+require __DIR__.'./../src/controler/updateHerProfil.php';
 
 function resolveAction(string $action, array $params = [])
 {

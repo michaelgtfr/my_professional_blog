@@ -12,6 +12,7 @@
     <p>email : <?= $returnMessages['email'] ?></p>
     <p>présentation : <?= $returnMessages['presentation'] ?></p>
     <p>Compte créer le <?=$returnMessages['date_create'] ?></p>
+    <a href="http://projetcinq/index.php/updateherprofil/<?= $returnMessages['id'] ?>">Modifier mon profil</a>
 </section>
 <section class="menuEditor">
 	<?php

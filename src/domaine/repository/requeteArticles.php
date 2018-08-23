@@ -4,10 +4,7 @@ require __DIR__.'./../../../etc/database/pdo.php';
 
 function listingOfArticles($firstEnter, $messagesByPage)
 {
-	$db = pdo();
-
-	if(isset($db)){
-		$req = $db->prepare('SELECT blog_posts.id AS id,
+		$req = pdo()->prepare('SELECT blog_posts.id AS id,
 									blog_posts.title AS title,
 									blog_posts.chapo AS chapo, 
 									blog_posts.validate_blog_post AS validate,
@@ -26,20 +23,13 @@ function listingOfArticles($firstEnter, $messagesByPage)
 		$req->execute();
 
 		return $req;
-
-	} else {
-		echo ' error requete'; 
-	}
 }
 
 function articleDetail($params)
 {
-	$db = pdo();
-
 	$id = intval($params[0]);
 
-	if (isset($db)) {
-		$req = $db->prepare('SELECT blog_posts.id AS id,
+	$req = pdo()->prepare('SELECT blog_posts.id AS id,
 									blog_posts.title AS title,
 									blog_posts.chapo AS chapo,
 									blog_posts.validate_blog_post AS validate,
@@ -58,11 +48,31 @@ function articleDetail($params)
 								INNER JOIN user
 								ON blog_posts.author = user.id  
 								WHERE validate_blog_post = true AND blog_posts.id = :id');
-		$req->bindParam(':id', $id, PDO::PARAM_INT);
-		$req->execute();
-		
-		return $req;
-	} else {
-		echo 'error requete';
-	}
+	$req->bindParam(':id', $id, PDO::PARAM_INT);
+	$req->execute();
+	
+	$data = $req->fetch();	
+	return $data;
+}
+
+function lastThreeAddition() 
+{
+
+	$req = pdo()->query('SELECT blog_posts.id,
+								blog_posts.title,
+								blog_posts.chapo,
+								blog_posts.validate_blog_post,
+								blog_posts.author,
+							 	picture.blog_posts_id,
+							 	picture.name,
+							 	picture.extention,
+							 	picture.description  
+							FROM blog_posts 
+							INNER JOIN picture
+							ON blog_posts.id = picture.blog_posts_id
+							WHERE validate_blog_post = true 
+							ORDER BY id DESC LIMIT 0,2');
+
+	return $req; 
+
 }

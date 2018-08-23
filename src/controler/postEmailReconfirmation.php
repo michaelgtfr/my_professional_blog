@@ -5,8 +5,7 @@ function postEmailReconfirmation()
 	$email = htmlspecialchars($_POST['email']);
     $previousEmail = htmlspecialchars($_POST['previousEmail']);
 
-    $req = confirmation($previousEmail);
-    $result = $req->fetch();
+    $result = confirmation($previousEmail);
 
     $key = $result['confirmation_key'];
 	$confirmation = $result['confirmation'];

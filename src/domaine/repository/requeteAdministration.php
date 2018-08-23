@@ -2,23 +2,17 @@
 
 function userRecovery($email)
 {
-	$db = pdo();
-	if(isset($db)) {
-		$req = $db->prepare('SELECT id, email, password, confirmation, validation, role FROM user WHERE email = :email');
+		$req = pdo()->prepare('SELECT id, email, password, confirmation, validation, role FROM user WHERE email = :email');
 		$req->bindParam('email', $email);
 		$req->execute();
 
-		return $req;
-	} else {
-		echo'probleme de connexion';
-	}
+        $resultat = $req->fetch();
+		return $resultat;
 }
 
 function registration($name, $firstname, $email, $photo, $presentation, $passwordHash, $key)
 {
-	$db = pdo();
-	if(isset($db)) {
-		$req = $db->prepare('INSERT INTO user(name, first_name, confirmation, validation, email, photo, presentation, password, role, date_create, confirmation_key) 
+		$req = pdo()->prepare('INSERT INTO user(name, first_name, confirmation, validation, email, photo, presentation, password, role, date_create, confirmation_key) 
 			VALUES(:name, :first_name, :confirmation, :validation, :email, :photo, :presentation, :password, :role, NOW(), :confirmation_key)');
 		$req->bindParam('name', $name);
 		$req->bindParam('firstname', $firstname);
@@ -31,74 +25,59 @@ function registration($name, $firstname, $email, $photo, $presentation, $passwor
         $req->bindValue('role', 'editeur');
         $req->bindParam('confirmation_key', $key);
         $req->execute();
-	}
 }
 
 function confirmation($email)
 {
-	$db = pdo();
-	if(isset($db)) {
-		$req = $db->prepare('SELECT id, confirmation, email, confirmation_key FROM user Where email = :email');
+		$req = pdo()->prepare('SELECT id, confirmation, email, confirmation_key FROM user Where email = :email');
 		$req->bindParam(':email', $email);
 		$req->execute();
 
-		return $req;
-	}
+        $result = $req->fetch();
+		return $result;
 }
 
 function validateConfirmation($email)
 {
-	$db = pdo();
-	if(isset($db)) {
-		$req = $db->prepare('UPDATE user SET confirmation = 1 WHERE email = :email');
+		$req = pdo()->prepare('UPDATE user SET confirmation = 1 WHERE email = :email');
 		$req->bindParam('email', $email);
 		$req->execute();
-	}
 }
 
 function updateEmail($id, $email)
 {
-	$db = pdo();
-	if(isset ($db)) {
-		$req = $db->prepare('UPDATE user SET email = :email WHERE id = :id');
+		$req = pdo()->prepare('UPDATE user SET email = :email WHERE id = :id');
 		$req->bindParam('email', $email);
 		$req->bindParam('id', $id);
 		$req->execute();
-	}
 }
 
 function verificationElement($email, $name)
 {
-	$db = pdo();
-	if(isset ($db)) {
-		$req = $db->prepare('SELECT email, name, confirmation_key FROM user WHERE email = :email AND name = :name');
+		$req = pdo()->prepare('SELECT email, name, confirmation_key FROM user WHERE email = :email AND name = :name');
 		$req->bindParam('email', $email);
 		$req->bindParam('name', $name);
 		$req->execute();
 
-		return $req;
-	}
+        $result = $req->fetch();
+		return $result;
 }
 
 function changePassword($email, $password)
 {
-	$db = pdo();
-	if(isset($db)) {
-		$req = $db->prepare('UPDATE user SET password = :password, confirmation = 0  WHERE email = :email');
+		$req = pdo()->prepare('UPDATE user SET password = :password, confirmation = 0  WHERE email = :email');
 		$req->bindParam('password', $password);
 		$req->bindParam('email', $email);
 		$req->execute();
-	}
 }
 
 function userAccount($id)
 {
-	$db = pdo();
-	if(isset($db)) {
-		$req = $db->prepare('SELECT name, first_name, email, photo, presentation, role, date_create FROM user WHERE id = :id');
+
+		$req = pdo()->prepare('SELECT id, name, first_name, email, photo, presentation, role, date_create FROM user WHERE id = :id');
 		$req->bindParam('id', $id);
 		$req->execute();
 
+        $req = $req->fetch(PDO::FETCH_ASSOC);
 		return $req;
-	}
 }

@@ -1,6 +1,5 @@
 <?php
 
-require __DIR__.'./../../src/domaine/repository/requete.php';
 require __DIR__.'./../../etc/templateLoader.php';
 
 function home()

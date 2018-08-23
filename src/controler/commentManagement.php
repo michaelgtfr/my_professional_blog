@@ -6,6 +6,5 @@ function commentManagement()
 {
 	$req = commentRecovery();
 	$message = 'Ici vous pouvez valider ou refuser les commentaires omis par les utilisateurs';
-	$returnMessage = array($message, $req);
-	loadTemplate('commentManagement.php', $returnMessage);
+	loadTemplate('commentManagement.php', array($message, $req));
 }

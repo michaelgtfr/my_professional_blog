@@ -13,8 +13,7 @@ function postRegistration()
     $maxsize = 1048576;
     $extensionAllowed = array('jpg', 'jpeg', 'png');//savoir si l'extention est autorisé
     $extensionUpload = strtolower(substr(strrchr($_FILES['photo']['name'], '.'), 1));
-    $req = userRecovery($email);
-    $resultat = $req->fetch();
+    $resultat = userRecovery($email);
 
     if(!empty($resultat)) {//verifie si un compte existe
         echo 'desoler mais ce compte existe deja';
@@ -63,7 +62,6 @@ function postRegistration()
     sendEmail($to, $subject, $message);
 
     $message = 'Félicitation, votre inscription est réussie il vous reste à le valider pour cela, cliquer sur le lien envoyé sur votre adresse email est aprés votre confirmation un administrateur doit approuver votre inscription'.
-    $returnMessages = array($email, $message);
-    loadTemplate('postRegistration.php', $returnMessages);
+    loadTemplate('postRegistration.php', array($email, $message));
     }
 }

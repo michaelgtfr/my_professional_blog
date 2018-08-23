@@ -204,4 +204,17 @@ return[
     'id' => '\d+'
     ]
   ],
+  'update_her_profil' => [
+    'path' => '/index.php/updateherprofil/{id}',
+    'method' => ['GET'],
+    'action' => 'updateHerProfil',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
+  'post_update_her_profil' => [
+    'path' => '/index.php/postupdateherprofil',
+    'method' => ['GET','POST'],
+    'action' => 'postUpdateHerProfil'
+  ],
 ];

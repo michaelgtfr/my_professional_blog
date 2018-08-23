@@ -9,24 +9,16 @@ function commentRecovery()
 
 function validationComment($id)
 {
-    $db = pdo();
-
-    if(isset($db)) {
-    	$req = $db->prepare('UPDATE comment SET validation = 1 WHERE id = :id');
+    	$req = pdo()->prepare('UPDATE comment SET validation = 1 WHERE id = :id');
     	$req->bindParam('id', $id);
     	$req->execute();
-    }
 }
 
 function deletedComment($id)
 {
-	$db = pdo();
-    if(isset($db)) {
-    	$req = $db->prepare('DELETE FROM comment WHERE id = :id');
+    	$req = pdo()->prepare('DELETE FROM comment WHERE id = :id');
     	$req->bindParam('id', $id);
     	$req->execute();
-    }
-
 }
 
 function addArticle($id, $title, $chapo, $content)
@@ -49,7 +41,8 @@ function recoveryIdArticle($title, $chapo)
         $req->bindParam('chapo', $chapo);
         $req->execute();
 
-        return $req;
+        $reqId = $req->fetch();
+        return $reqId;
 }
 
 function photoJoin($id, $datePicture, $extensionUpload, $description)
@@ -86,7 +79,8 @@ function noValidateArticles()
                                 ON blog_posts.author = user.id  
                                 WHERE validate_blog_post = 0');
 
-    return $req;
+    $reqArticle = $req->fetch(PDO::FETCH_ASSOC);
+    return $reqArticle;
 }
 
 function reqArticleNoValidate($id)
@@ -113,7 +107,8 @@ function reqArticleNoValidate($id)
     $req->bindParam('id', $id);
     $req->execute();
 
-    return $req;
+    $returnMessages = $req->fetch(PDO::FETCH_ASSOC);
+    return $returnMessages;
 }
 
 function reqValidateArticle($id)
@@ -144,7 +139,8 @@ function userArticle($id)
                             WHERE blog_posts.id = :id');
     $req->bindParam('id', $id);
     $req->execute();
-    return $req;
+    $email = $return->fetch();
+    return $email;
 }
 
 function articleToBeAmended($id)
@@ -164,7 +160,8 @@ function articleToBeAmended($id)
     $req->bindParam('id', $id);
     $req->execute();
 
-    return $req; 
+    $data = $req->fetch();
+    return $data; 
 }
 
 function reqChangeRegister($blogPost, $title, $chapo, $content, $author)
@@ -182,7 +179,8 @@ function reqChangeRegister($blogPost, $title, $chapo, $content, $author)
     $req->bindParam('author', $author);
     $req->execute();
 
-    return $req;
+    $idPostUpdate = $req->fetch();
+    return $idPostUpdate;
 }
 
 function reqAddIdPicture($blogPost, $idPostUpdate)
@@ -220,7 +218,8 @@ function recoverModifyArticle()
                             INNER JOIN user
                             ON blog_post_update.author = user.id');
 
-    return $req;   
+    $reqArticle = $req->fetch(PDO::FETCH_ASSOC);
+    return $reqArticle;
 }
 
 function validateTheModify($id)
@@ -228,7 +227,9 @@ function validateTheModify($id)
     $req = pdo()->prepare('SELECT * FROM blog_post_update WHERE id = :id');
     $req->bindParam('id', $id);
     $req->execute();
-    return $req;
+
+    $newData = $req->fetch(PDO::FETCH_ASSOC);
+    return $newData;
 }
 
 function modifyTheDonnees($params)
@@ -259,7 +260,9 @@ function recoveryPicture($id)
     $req = pdo()->prepare('SELECT blog_posts_id, name, extention FROM picture WHERE update_post_id = :id');
     $req->bindParam('id', $id);
     $req->execute();
-    return $req;
+
+    $verification = $req->fetch();
+    return $verification;
 }
 
 function deletePicture($id)
@@ -282,9 +285,9 @@ function recoveryNameExtentionPicture($id)
     $req->bindParam('blog_posts_id', $id);
     $req->execute(); 
 
-    return $req;
+    $return = $req->fetch(PDO::FETCH_ASSOC);
+    return $return;
 }
-
 
 function reqDeletedPicture($id)
 {
@@ -305,7 +308,9 @@ function reqModifyPicture($blog_posts_id, $id)
 function userAccountNoValidate()
 {
     $req = pdo()->query('SELECT id, name, first_name, photo, presentation, date_create FROM user WHERE confirmation = 1 AND validation = 0');
-    return $req;
+
+    $return = $req->fetch(PDO::FETCH_ASSOC);
+    return $return;
 }
 
 function reqUserAccountValidate($id)
@@ -321,7 +326,8 @@ function reqUserEmailAccount($id)
     $req->bindParam('id', $id);
     $req->execute();
 
-    return $req;
+    $email = $req->fetch(PDO::FETCH_ASSOC);
+    return $email;
 }
 
 function reqUserEmailAndPhotoAccount($id)
@@ -330,12 +336,30 @@ function reqUserEmailAndPhotoAccount($id)
     $req->bindParam('id', $id);
     $req->execute();
 
-    return $req;
+    $emailAndPhoto = $req->fetch(PDO::FETCH_ASSOC);
+    return $emailAndPhoto;
 }
 
 function reqUserAccountReject($id)
 {
     $req = pdo()->prepare('DELETE FROM user WHERE id = :id');
+    $req->bindParam('id', $id);
+    $req->execute();
+}
+
+function reqUpdateUserAccount($id, $name, $firstName, $email, $presentation, $photo)
+{
+    $req = pdo()->prepare('UPDATE user SET name = :name,
+                                        first_name = :firstName,
+                                        email = :email,
+                                        presentation = :presentation,
+                                        photo = :photo
+                                        WHERE id = :id');
+    $req->bindParam('name', $name);
+    $req->bindParam('firstName', $firstName);
+    $req->bindParam('email', $email);
+    $req->bindParam('presentation', $presentation);
+    $req->bindParam('photo', $photo);
     $req->bindParam('id', $id);
     $req->execute();
 }
