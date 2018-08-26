@@ -40,7 +40,7 @@ function postRegistration()
     $key = md5(microtime(TRUE)*100000);
 
     //enregistrement
-    $registration = registration($name, $firstname, $email, $namePhoto, $presentation, $passwordHash, $key);
+    registration($name, $firstname, $email, $namePhoto, $presentation, $passwordHash, $key);
 
     //preparation et envoie de l'email
 
@@ -61,7 +61,7 @@ function postRegistration()
 
     sendEmail($to, $subject, $message);
 
-    $message = 'Félicitation, votre inscription est réussie il vous reste à le valider pour cela, cliquer sur le lien envoyé sur votre adresse email est aprés votre confirmation un administrateur doit approuver votre inscription'.
-    loadTemplate('postRegistration.php', array($email, $message));
+    $messageSucces = 'Félicitation, votre inscription est réussie il vous reste à le valider pour cela, cliquer sur le lien envoyé sur votre adresse email est aprés votre confirmation un administrateur doit approuver votre inscription';
+    loadTemplate('postRegistration.php', array($email, $messageSucces));
     }
 }
