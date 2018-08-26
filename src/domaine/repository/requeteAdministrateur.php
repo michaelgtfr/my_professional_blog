@@ -222,6 +222,33 @@ function recoverModifyArticle()
     return $reqArticle;
 }
 
+function articleDetailModify($id)
+{
+    var_dump($id);
+    $req = pdo()->prepare('SELECT blog_post_update.id AS id,
+                                    blog_post_update.title AS title,
+                                    blog_post_update.chapo AS chapo,
+                                    blog_post_update.author AS author,
+                                    blog_post_update.content AS content,
+                                    picture.update_post_id AS id_picture, 
+                                    picture.name AS name_picture, 
+                                    picture.extention AS extention_picture, 
+                                    picture.description AS description_picture,
+                                    user.id AS id_author,
+                                    user.first_name AS name_author
+                                FROM blog_post_update
+                                INNER JOIN picture
+                                ON blog_post_update.id = picture.update_post_id
+                                INNER JOIN user
+                                ON blog_post_update.author = user.id  
+                                WHERE blog_post_update.id = :id');
+    $req->bindParam(':id', $id, PDO::PARAM_INT);
+    $req->execute();
+    
+    $data = $req->fetch();  
+    return $data;
+}
+
 function validateTheModify($id)
 {
     $req = pdo()->prepare('SELECT * FROM blog_post_update WHERE id = :id');
