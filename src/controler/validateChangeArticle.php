@@ -7,6 +7,12 @@ function validateChangeArticle()
 	loadTemplate('validateChangeArticle.php', array($message, $reqArticle));
 }
 
+function detailArticleModify($params)
+{
+    $data = articleDetailModify($params[0]);
+    loadTemplate('articleDetailModify.php', $data);
+}
+
 function validateTheChange($params)
 {
 	$newData = validateTheModify($params[0]);//Recovered the data changes 

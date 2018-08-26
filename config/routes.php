@@ -157,6 +157,14 @@ return[
     'id' => '\d+'
     ]
   ],
+  'detail_modify_article' =>[
+    'path' => '/index.php/detailarticlemodify/{id}',
+    'method' => ['GET'],
+    'action' => 'detailArticleModify',
+    'params' => [
+    'id' => '\d+'
+    ]
+  ],
   'post_modify_article' => [
     'path' => '/index.php/postmodifyarticle',
     'method' => ['GET', 'POST'],
@@ -217,4 +225,12 @@ return[
     'method' => ['GET','POST'],
     'action' => 'postUpdateHerProfil'
   ],
+  'contact_form' => [
+    'path' => '/index.php/contactForm/{type}',
+    'method' => ['GET', 'POST'],
+    'action' => 'contactForm',
+    'params' => [
+    'type' => '\d+'
+    ]
+  ]
 ];

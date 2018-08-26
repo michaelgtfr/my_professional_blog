@@ -14,7 +14,7 @@
             <p>Titre: <?= $returnMessages['title'] ?></p>
             <p>Chapo: <?= $returnMessages['chapo'] ?></p>
             <img src="http://projetcinq/img/imgPost/<?= $returnMessages['name_picture'].'.'. $returnMessages['extention_picture'] ?>" alt="<?= $returnMessages['description_picture'] ?>"/>
-            <a href="http:/projetcinq/index.php/detailarticlemodify/<?= $returnMessages['id'] ?>" target="_blank">Voir l'article modifié</a>
+            <a href="http://projetcinq/index.php/detailarticlemodify/<?= $returnMessages['id'] ?>" target="_blank">Voir l'article modifié</a>
             <a href="http://projetcinq/index.php/articledetail/<?= $returnMessages['id_blog_post'] ?>"" target="_blank">Voir l'article</a>
             <p>Description de l'image: <?= $returnMessages['description_picture'] ?></p>
             <a href="http://projetcinq/index.php/validatethechange/<?=$returnMessages['id'] ?>" >Valider le changement</a>

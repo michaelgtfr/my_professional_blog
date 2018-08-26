@@ -15,7 +15,7 @@ function registration($name, $firstname, $email, $photo, $presentation, $passwor
 		$req = pdo()->prepare('INSERT INTO user(name, first_name, confirmation, validation, email, photo, presentation, password, role, date_create, confirmation_key) 
 			VALUES(:name, :first_name, :confirmation, :validation, :email, :photo, :presentation, :password, :role, NOW(), :confirmation_key)');
 		$req->bindParam('name', $name);
-		$req->bindParam('firstname', $firstname);
+		$req->bindParam('first_name', $firstname);
 		$req->bindValue('confirmation', 0);
 		$req->bindValue('validation', 0);
 		$req->bindParam('email', $email);
@@ -25,6 +25,8 @@ function registration($name, $firstname, $email, $photo, $presentation, $passwor
         $req->bindValue('role', 'editeur');
         $req->bindParam('confirmation_key', $key);
         $req->execute();
+
+        var_dump($req);
 }
 
 function confirmation($email)
@@ -73,7 +75,6 @@ function changePassword($email, $password)
 
 function userAccount($id)
 {
-
 		$req = pdo()->prepare('SELECT id, name, first_name, email, photo, presentation, role, date_create FROM user WHERE id = :id');
 		$req->bindParam('id', $id);
 		$req->execute();

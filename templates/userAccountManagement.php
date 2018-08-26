@@ -10,7 +10,7 @@ if(isset($_SESSION ['id']) && isset($_SESSION['email']) && $_SESSION['role'] == 
     <section>
         <p><?= $returnMessages[1] ?></p>
         <?php
-        if( $returnMessages[0] != null) {
+        if($returnMessages[0] != null) {
         	$returnMessages = $returnMessages[0];
             foreach($returnMessages as $key => $value) {
                 ?>

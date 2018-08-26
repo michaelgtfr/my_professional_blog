@@ -80,16 +80,17 @@
 </section>
 <section class="formContact row">
 	<h4>Formulaire de contact</h4>
-	<form action="contactForm.php" method="post" class="col-sm-12"> 
+	<form action="index.php/contactForm/1" method="post" class="col-sm-12"> 
 		<p>
 			<div class="col-sm-offset-2 col-sm-3 form-group">
-				<label for="name">Nom : </label><input type="text" class="form-control" id="name" placeholder="ex: stella" />
+				<label for="name">Nom : </label><input type="text" class="form-control" id="name" name="name" placeholder="ex: stella" />
 			</div>
 			<div class="email col-sm-offset-2 col-sm-3 form-group">
-				<label for="email">Email : </label><input type="email" class="form-control" id="name" value="ex: quelquechose@hotmail.fr" />
+				<label for="email">Email : </label><input type="email" class="form-control" id="name" 
+				name="email" value="ex: quelquechose@hotmail.fr" />
 			</div>
 			<div class="message col-sm-12 form-group">
-				<label for="message">Message : </label><textarea class="form-control" id="message" rows="10" cols="50">Ecrivez ici votre message</textarea>
+				<label for="message">Message : </label><textarea class="form-control" id="message" name="message" rows="10" cols="50">Ecrivez ici votre message</textarea>
 			</div>
 			<div class="validation col-sm-12 form-group"> 
 				<input type="submit" class="btn btn-danger" name="Validate" value="valider" />

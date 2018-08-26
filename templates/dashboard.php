@@ -33,11 +33,11 @@
 	    }
 	?>
 </section>
-<section class="contactformulaire">
-	<Form action="Postformulaire.php" method="post">
+<section class="contactform">
+	<Form action="/index.php/contactForm/2" method="post">
 		<h3>Formulaire de contact:</h3>
 		<div>
-		    <label for=message>Message :</label><textarea id=message>écrivez ici votre message</textarea>
+		    <label for=message>Message :</label><textarea name="message" id=message>écrivez ici votre message</textarea>
 		    <input type="hidden" name="name" value=<?= $returnMessages['name']?> />
 		    <input type="hidden" name="email" value=<?= $returnMessages['email']?> />
 		    <input type="hidden" name="role" value=<?= $returnMessages['role']?> />
