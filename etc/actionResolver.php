@@ -24,6 +24,7 @@ require __DIR__.'./../src/controler/validateChangeArticle.php';
 require __DIR__.'./../src/controler/userAccountManagement.php';
 require __DIR__.'./../src/controler/updateHerProfil.php';
 require __DIR__.'./../src/controler/contactForm.php';
+require __DIR__.'./../src/controler/formComment.php';
 
 function resolveAction(string $action, array $params = [])
 {

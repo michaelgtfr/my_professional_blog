@@ -25,10 +25,8 @@ function listingOfArticles($firstEnter, $messagesByPage)
 		return $req;
 }
 
-function articleDetail($params)
+function articleDetail($id)
 {
-	$id = intval($params[0]);
-
 	$req = pdo()->prepare('SELECT blog_posts.id AS id,
 									blog_posts.title AS title,
 									blog_posts.chapo AS chapo,
@@ -75,4 +73,25 @@ function lastThreeAddition()
 
 	return $req; 
 
+}
+
+function detailComment($id)
+{
+	$req = pdo()->prepare('SELECT date_create, author, content FROM comment WHERE blog_post_id = :id AND validation = 1');
+	$req->bindParam('id', $id);
+	$req->execute();
+
+	$comment = $req->fetchAll(PDO::FETCH_ASSOC);
+	return $comment;
+}
+
+function addComment($author, $content, $email, $id)
+{
+    $req = pdo()->prepare('INSERT INTO comment(blog_post_id, validation, date_create, author, email, content) VALUES (:blog_post_id, :validation, NOW(), :author, :email, :content)');
+    $req->bindParam('blog_post_id', $id);
+    $req->bindValue('validation', 0);
+    $req->bindParam('author', $author);
+    $req->bindParam('email', $email);
+    $req->bindParam('content', $content);
+    $req->execute();
 }

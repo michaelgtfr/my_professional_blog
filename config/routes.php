@@ -232,5 +232,10 @@ return[
     'params' => [
     'type' => '\d+'
     ]
+  ],
+  'form_comment' => [
+    'path' => '/index.php/formcomment',
+    'method' => ['GET', 'POST'],
+    'action' => 'formComment'
   ]
 ];
