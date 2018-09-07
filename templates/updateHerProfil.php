@@ -1,4 +1,4 @@
-<?php $title = 'item detail' ?>
+<?php $title = 'Update her profil' ?>
 <?php $style ='<link rel="stylesheet" href="http://projetcinq/css/updateHerProfil.css" />' ?>
 
 <!--body-->

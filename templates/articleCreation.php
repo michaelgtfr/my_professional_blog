@@ -1,5 +1,5 @@
-<?php $title = 'item detail' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/articleCreation.css" />' ?>
+<?php $title = 'item creation' ?>
+<?php $style ='<link rel="stylesheet" href="/css/articleCreation.css" />' ?>
 
 <!--body-->
 <?php ob_start(); ?>

@@ -7,20 +7,19 @@
 	<p><?= $returnMessages[0] ?></p>
 	<?php
 	$returnMessages = $returnMessages[1];
-	if($returnMessages == true) {
+	if($returnMessages) {
 	    foreach($returnMessages as $key => $value) {
         ?>
-            <p>Auteur: <?= $returnMessages['first_name'] ?></p>
-            <p>Titre: <?= $returnMessages['title'] ?></p>
-            <p>Chapo: <?= $returnMessages['chapo'] ?></p>
-            <img src="http://projetcinq/img/imgPost/<?= $returnMessages['name_picture'].'.'. $returnMessages['extention_picture'] ?>" alt="<?= $returnMessages['description_picture'] ?>"/>
-            <a href="http://projetcinq/index.php/detailarticlemodify/<?= $returnMessages['id'] ?>" target="_blank">Voir l'article modifié</a>
-            <a href="http://projetcinq/index.php/articledetail/<?= $returnMessages['id_blog_post'] ?>"" target="_blank">Voir l'article</a>
-            <p>Description de l'image: <?= $returnMessages['description_picture'] ?></p>
-            <a href="http://projetcinq/index.php/validatethechange/<?=$returnMessages['id'] ?>" >Valider le changement</a>
-            <a href="http://projetcinq/index.php/refusethechange/<?= $returnMessages['id'] ?>" >Refuser le changement</a>
+            <p>Auteur: <?= $value['first_name'] ?></p>
+            <p>Titre: <?= $value['title'] ?></p>
+            <p>Chapo: <?= $value['chapo'] ?></p>
+            <img src="http://projetcinq/img/imgPost/<?= $value['name_picture'].'.'. $value['extention_picture'] ?>" alt="<?= $value['description_picture'] ?>"/>
+            <a href="http://projetcinq/index.php/detailarticlemodify/<?= $value['id'] ?>" target="_blank">Voir l'article modifié</a>
+            <a href="http://projetcinq/index.php/articledetail/<?= $value['id_blog_post'] ?>"" target="_blank">Voir l'article</a>
+            <p>Description de l'image: <?= $value['description_picture'] ?></p>
+            <a href="http://projetcinq/index.php/validatethechange/<?= $value['id'] ?>" >Valider le changement</a>
+            <a href="http://projetcinq/index.php/refusethechange/<?= $value['id'] ?>" >Refuser le changement</a>
         <?php
-        break;
 	    }
     } else {
     ?>

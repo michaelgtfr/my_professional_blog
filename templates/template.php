@@ -5,9 +5,9 @@
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">     <!--Warning this tag does not pass the W3C validation-->
             <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link href="http://projetcinq/bootstrap-3.3.7/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/> <!--udpdate by CDN-->
-            <link href="http://projetcinq/img/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-            <link rel="stylesheet" href="http://projetcinq/css/styleTemplate.css" />
+            <link href="/bootstrap-3.3.7/bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/> <!--udpdate by CDN-->
+            <link href="/img/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+            <link rel="stylesheet" href="/css/styleTemplate.css" />
             <?= $style ?>
             
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -42,7 +42,7 @@
                     </div>
                     <ul class="nav navbar-nav navbar-right menu">
                         <li><a href="/">Accueil/Contact</a></li>
-                        <li><a href="http://projetcinq/index.php/listofarticles/1">Liste Des Articles</a></li>
+                        <li><a href="/index.php/listofarticles/1">Liste Des Articles</a></li>
                     </ul>
                 </div>
             </nav>
@@ -50,7 +50,7 @@
             <header>
             <div class="banner">
                 <div>
-                    <p><img src="http://projetcinq/img/logoblogdeux.jpg" alt="logo du site" width="20%" height="20%" /></p>
+                    <p><img src="/img/logoblogdeux.jpg" alt="logo du site" width="20%" height="20%" /></p>
                 </div>
                 <div>
                     <h1>Cocoworking<br />blog</h1>
@@ -68,13 +68,13 @@
             <footer class="row">
                 <ul class="colomnOne col-sm-6">   
                     <li><h2>Page: </h2></li>
-                    <li>Accueil/ Contact</li>
-                    <li>Liste des articles</li>
+                    <li><a href="/">Accueil/ Contact</a></li>
+                    <li><a href="/index.php/listofarticles/1">Liste des articles</a></li>
                 </ul>
                 <ul class="colomnTwo col-sm-6">    
                     <li><h2>Compte:</h2></li>
-                    <li><a href="http://projetcinq/index.php/loginpage">Se connecter</a></li>
-                    <li><a href="http://projetcinq/index.php/registrationpage">Inscription</a></li>
+                    <li><a href="/index.php/loginpage">Se connecter</a></li>
+                    <li><a href="/index.php/registrationpage">Inscription</a></li>
                 </ul>
                 <div class= "socialNetworks col-sm-12">
                     <a class="btn btn-primary btn-lg" href="https://fr-fr.facebook.com/"><i class="fa fa-facebook fa-2x"></i></a>

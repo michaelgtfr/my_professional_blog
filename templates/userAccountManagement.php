@@ -14,15 +14,14 @@ if(isset($_SESSION ['id']) && isset($_SESSION['email']) && $_SESSION['role'] == 
         	$returnMessages = $returnMessages[0];
             foreach($returnMessages as $key => $value) {
                 ?>
-	            <img src="http://projetcinq/img/avatar/<?= $returnMessages['photo'] ?>" />
-	            <p><?= $returnMessages['name']?></p>
-	            <p><?= $returnMessages['first_name']?></p>
-	            <p><?= $returnMessages['presentation'] ?></p>
-	            <p><?= $returnMessages['date_create'] ?></p>
-	            <a href="http://projetcinq/index.php/useraccountvalidate/<?= $returnMessages['id'] ?>">Valider le compte</a>
-	            <a href="http://projetcinq/index.php/useraccountreject/<?= $returnMessages['id'] ?>">Refuser le compte</a>
+	            <img src="http://projetcinq/img/avatar/<?= $value['photo'] ?>" />
+	            <p><?= $value['name']?></p>
+	            <p><?= $value['first_name']?></p>
+	            <p><?= $value['presentation'] ?></p>
+	            <p><?= $value['date_create'] ?></p>
+	            <a href="http://projetcinq/index.php/useraccountvalidate/<?= $value['id'] ?>">Valider le compte</a>
+	            <a href="http://projetcinq/index.php/useraccountreject/<?= $value['id'] ?>">Refuser le compte</a>
                 <?php
-                break;
             }
         } else {
         	?>

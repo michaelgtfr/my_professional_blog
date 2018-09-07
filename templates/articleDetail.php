@@ -1,5 +1,5 @@
 <?php $title = 'item detail' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/articleDetail.css" />' ?>
+<?php $style ='<link rel="stylesheet" href="/css/articleDetail.css" />' ?>
 
 <!--body-->
 <?php ob_start(); ?>

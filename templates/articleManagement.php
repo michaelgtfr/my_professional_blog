@@ -12,16 +12,15 @@
     if($returnMessages) {
     foreach ($returnMessages as $key => $value) {
         ?>
-        <p><?= $returnMessages['title'] ?></p>
-        <p><?= $returnMessages['chapo'] ?></p>
-        <p><?= $returnMessages['name_author'] ?></p>
-        <p><?= $returnMessages['create_date'] ?></p>
-        <img src="http://projetcinq/img/imgPost/<?= $returnMessages['name_picture'].'.'. $returnMessages['extention_picture'] ?>" alt="<?= $returnMessages['description_picture'] ?>" />
-        <a href="http://projetcinq/index.php/detailarticlenovalidate/<?= $returnMessages['id'] ?>" target="_blank">Voir l'article</a>
-        <a href="http://projetcinq/index.php/validatearticle/<?= $returnMessages['id'] ?>">Valider l'article</a>
-        <a href="http://projetcinq/index.php/deletearticle/<?= $returnMessages['id'] ?>">Refuser l'article</a>
+        <p><?= $value['title'] ?></p>
+        <p><?= $value['chapo'] ?></p>
+        <p><?= $value['name_author'] ?></p>
+        <p><?= $value['create_date'] ?></p>
+        <img src="http://projetcinq/img/imgPost/<?= $value['name_picture'].'.'. $value['extention_picture'] ?>" alt="<?= $value['description_picture'] ?>" />
+        <a href="http://projetcinq/index.php/detailarticlenovalidate/<?= $value['id'] ?>" target="_blank">Voir l'article</a>
+        <a href="http://projetcinq/index.php/validatearticle/<?= $value['id'] ?>">Valider l'article</a>
+        <a href="http://projetcinq/index.php/deletearticle/<?= $value['id'] ?>">Refuser l'article</a>
         <?php
-        break;
         }
     } else {
         ?>

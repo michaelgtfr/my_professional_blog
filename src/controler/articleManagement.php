@@ -44,7 +44,7 @@ function deleteArticle($params)
     Ceci est un email automatique, Merci de ne pas y répondre';
     sendEmail($to, $subject, $message);
 
-	$return =reqDeleteArticle($id);
+	reqDeleteArticle($id);
 	$reqArticle = noValidateArticles();
 	$message = 'Article supprimer, vous pouvez continué à supprimer des articles.';
 	loadTemplate('articleManagement.php', array($reqArticle, $message));

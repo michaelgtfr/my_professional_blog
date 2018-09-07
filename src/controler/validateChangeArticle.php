@@ -41,7 +41,7 @@ function refuseTheChange($params)
     } else {
         modifyPicture($params[0]);
     }
-    $req = recoverModifyArticle();
+    $reqArticle = recoverModifyArticle();
     $message = 'L\'article a été supprimé, vous pouvez continuer à juger les autres articles modifié.';
 	loadTemplate('validateChangeArticle.php', array($message, $reqArticle));
 }

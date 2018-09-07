@@ -1,7 +1,5 @@
 <?php
 
-require __DIR__.'./../../src/domaine/repository/requeteAdministration.php';
-
 function postConnection()
 {
     $email = htmlspecialchars($_POST['email']);

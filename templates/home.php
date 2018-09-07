@@ -45,29 +45,27 @@
 		<?php
 		if(isset($returnMessages))
 		{
-			while ($data = $returnMessages->fetch()) 
-			{
+			foreach ($returnMessages as $key => $value) {
 			?>
 				<div class="blogpost">
 					<div class="picture">
-						<p><img src=" <?='http://projetcinq/img/imgPost/'.htmlspecialchars($data['name']).'.'. htmlspecialchars($data['extention']) ?>" alt=" <?= htmlspecialchars($data['description']) ?>" /></p>
+						<p><img src=" <?='http://projetcinq/img/imgPost/'.htmlspecialchars($value['name']).'.'. htmlspecialchars($value['extention']) ?>" alt=" <?= htmlspecialchars($value['description']) ?>" /></p>
 					</div>
 					<div class="titlePost">
-						<h6><?= htmlspecialchars($data['title']) ?></h6>
+						<h6><?= htmlspecialchars($value['title']) ?></h6>
 					</div>
 					<div class="chapo">
-						<p><?= htmlspecialchars($data['chapo']) ?></p>
+						<p><?= htmlspecialchars($value['chapo']) ?></p>
 					</div>
 					<div class="authorPost">
-						<p><?= htmlspecialchars($data['author']) ?></p>
+						<p><?= htmlspecialchars($value['author']) ?></p>
 					</div>
 					<div class="lien">
-						<p><a href="http://projetCinq/index.php/articledetail/<?= $data['id'] ?>">Voir l'article</a></p>
+						<p><a href="http://projetCinq/index.php/articledetail/<?= $value['id'] ?>">Voir l'article</a></p>
 					</div>
 				</div>
 			<?php
 			}
-			$returnMessages->closeCursor ();
 		}
 		else
 		{

@@ -1,4 +1,4 @@
-<?php $title = 'item detail' ?>
+<?php $title = 'Dashboard' ?>
 <?php $style ='<link rel="stylesheet" href="http://projetcinq/css/dashboard.css" />' ?>
 
 <!--body-->

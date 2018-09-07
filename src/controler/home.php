@@ -4,7 +4,8 @@ require __DIR__.'./../../etc/templateLoader.php';
 
 function home()
 {
-	$returnMessages = lastThreeAddition();
+	$req = new ArticleManagement();
+	$returnMessages = $req->lastThreeAddition();
 
 	if(isset($returnMessages)) {
 		loadTemplate('home.php',$returnMessages);		

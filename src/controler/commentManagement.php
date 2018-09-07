@@ -1,6 +1,10 @@
 <?php
 
-require __DIR__.'./../domaine/repository/requeteAdministrateur.php';
+require __DIR__.'./../domaine/repository/PictureManagement.php';
+require __DIR__.'./../domaine/repository/ArticleManagement.php';
+require __DIR__.'./../domaine/repository/UserManagement.php';
+require __DIR__.'./../domaine/repository/CommentManagement.php';
+require __DIR__.'./../domaine/repository/UpdatePostManagement.php';
 
 function commentManagement()
 {

@@ -12,22 +12,23 @@
 	<h3>Tableau de validation des commentaires:</h3>
     <p><?= $message ?></p>
 	<?php
-	    while ($data = $req->fetch()) {
+    if($req) {
+	    foreach ($req as $key => $value) {
         ?>
-            <p><?= $data['author'] ?><p>
-            <p><?= $data['date_create'] ?></p>
-            <p><?= $data['content'] ?></p>
-            <p><a href="http://projetcinq/index.php/validatecomment/<?= $data['id'] ?>">Valider le commentaire</a></p>
-            <p><a href="http://projetcinq/index.php/deletecomment/<?= $data['id'] ?>">Refuser le commentaire</a></p>
-            <a href="/index.php/articledetail/<?=$data['blog_post_id']?>">voir le detail</a>
+            <p><?= $value['author'] ?><p>
+            <p><?= $value['date_create'] ?></p>
+            <p><?= $value['content'] ?></p>
+            <p><a href="http://projetcinq/index.php/validatecomment/<?= $value['id'] ?>">Valider le commentaire</a></p>
+            <p><a href="http://projetcinq/index.php/deletecomment/<?= $value['id'] ?>">Refuser le commentaire</a></p>
+            <a href="/index.php/articledetail/<?= $value['blog_post_id'] ?>">Voir le detail</a>
         <?php
         }
-        
-	    $req->closeCursor();
-
+    } else {
+    ?>
+        <p>Désoler il n'y a rien à juger!</p>
+    <?php
+    }
 	?>
-
-
 
 <?php $content = ob_get_clean(); ?>
 

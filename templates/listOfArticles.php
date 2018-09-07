@@ -5,21 +5,17 @@
 <?php ob_start(); ?>
 
 <?php
-$reqMessages = $returnMessages[0];
-while ($data = $reqMessages->fetch()) {			
+$data = $returnMessages[0];
+foreach ($data as $key => $value) {			
 ?>
-	<h3><?= $data['title'] ?></h3>
-	<p><img src="http://projetcinq/img/imgPost/<?= $data['name_picture'].'.'.$data['extention_picture']?>" alt="<?= $data['description_picture'] ?>" /></p>
-	<p><?= $data['chapo'] ?></p>
-	<p><?= $data['author'] ?></p>
-    <a href="/index.php/articledetail/<?=$data['id']?>">voir le detail</a><br/>
+	<h3><?= $value['title'] ?></h3>
+	<p><img src="http://projetcinq/img/imgPost/<?= $value['name_picture'].'.'.$value['extention_picture']?>" alt="<?= $value['description_picture'] ?>" /></p>
+	<p><?= $value['chapo'] ?></p>
+	<p><?= $value['author'] ?></p>
+    <a href="/index.php/articledetail/<?=$value['id']?>">voir le detail</a><br/>
 					
 <?php
 }
-$reqMessages->closeCursor ();
-
-
-
 
 $currentPage=$returnMessages[2];
 $numberOfPages=$returnMessages[1];

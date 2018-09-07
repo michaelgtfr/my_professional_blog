@@ -1,4 +1,4 @@
-<?php $title = 'item detail' ?>
+<?php $title = 'reset her password' ?>
 <?php $style ='<link rel="stylesheet" href="http://projetcinq/css/emailReconfirmation.css" />' ?>
 
 <!--body-->
