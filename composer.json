@@ -1,0 +1,20 @@
+{
+    "name": "ProfessionalBlog/my_professional_blog",
+    "type": "project",
+    "authors": [
+        {
+            "name": "mickdu62",
+            "email": "mickdu62200@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "etc/",
+            "MyModule\\": "src/"
+        }
+    },
+    "require": {
+        "swiftmailer/swiftmailer": "^6.0",
+        "twig/twig": "^2.0"
+    }
+}
