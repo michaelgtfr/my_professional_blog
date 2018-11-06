@@ -1,34 +1,25 @@
 <?php $title = 'item detail' ?>
 <?php $style ='<link rel="stylesheet" href="http://projetcinq/css/commentManagement.css" />' ?>
 
-<!--body-->
+<!--body: Displays uncommitted comments-->
 <?php ob_start(); ?>
 
-<section class="tableau">                                            <!--francais-->
-    <?php
-        $message = $returnMessages[0];
-        $req = $returnMessages[1];
-    ?>
+<section class="board">                                           
 	<h3>Tableau de validation des commentaires:</h3>
-    <p><?= $message ?></p>
-	<?php
-    if($req) {
-	    foreach ($req as $key => $value) {
-        ?>
-            <p><?= $value['author'] ?><p>
-            <p><?= $value['date_create'] ?></p>
-            <p><?= $value['content'] ?></p>
-            <p><a href="http://projetcinq/index.php/validatecomment/<?= $value['id'] ?>">Valider le commentaire</a></p>
-            <p><a href="http://projetcinq/index.php/deletecomment/<?= $value['id'] ?>">Refuser le commentaire</a></p>
-            <a href="/index.php/articledetail/<?= $value['blog_post_id'] ?>">Voir le detail</a>
-        <?php
-        }
-    } else {
-    ?>
+    <p><?= $data['request']->getSession('message') ?></p>
+
+	<?php if(!empty($data['comment'])) : ?>
+	    <?php foreach ($data['comment'] as $key => $value) : ?>
+            <p><?= $data->getAuthor() ?><p>
+            <p><?= $data->getDateCreate() ?></p>
+            <p><?= $data->getContent() ?></p>
+            <p><a href="http://projetcinq/index.php/validatecomment/<?= $data->getId() ?>">Valider le commentaire</a></p>
+            <p><a href="http://projetcinq/index.php/deletecomment/<?= $data->getId() ?>">Refuser le commentaire</a></p>
+            <a href="/index.php/articledetail/<?= $data->getIdBlogPost() ?>">Voir le detail</a>
+        <?php endforeach; ?>
+    <?php else : ?>
         <p>Désoler il n'y a rien à juger!</p>
-    <?php
-    }
-	?>
+    <?php endif; ?>
 
 <?php $content = ob_get_clean(); ?>
 

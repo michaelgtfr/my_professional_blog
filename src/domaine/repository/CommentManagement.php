@@ -1,18 +1,24 @@
 <?php
 
-require_once 'DbConnect.php';
+namespace MyModule\domaine\repository;
 
-class CommentManagement extends DbConnect
+use MyModule\domaine\repository\DBConnect;
+
+class CommentManagement extends DBConnect
 {
     public function detailComment($id)
     {
-	    $req = $this->db->prepare('SELECT date_create, author, content 
-            FROM comment WHERE blog_post_id = :id AND validation = 1');
-	    $req->bindParam('id', $id);
+	    $req = $this->db->prepare('SELECT date_create AS dateCreateComment,
+                                author AS authorComment,
+                                content AS contentComment
+                                FROM comment
+                                WHERE blog_post_id = :id AND validation = 1');
+	    $req->bindParam('id', $id, \PDO::PARAM_INT);
 	    $req->execute();
 
-	    $comment = $req->fetchAll(PDO::FETCH_ASSOC);
-	    return $comment;
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Comment');
+
+        return $req->fetchAll();
     }
 
     public function addComment($author, $content, $email, $id)
@@ -31,10 +37,17 @@ class CommentManagement extends DbConnect
 
     public function commentRecovery()
     {
+		$req = $this->db->query('SELECT id AS idComment, 
+                                blog_post_id AS blogPostIdComment, 
+                                date_create AS dateCreateComment,
+                                author AS authorComment, 
+                                email AS emailComment,
+                                content AS contentComment
+                                FROM comment WHERE validation = 0');
 
-		$req = $this->db->query('SELECT * FROM comment WHERE validation = 0');
-        $data = $req->fetchAll();
-		return $data;
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Comment');
+
+		return $req->fetchAll();
     }
 
     public function validationComment($id)

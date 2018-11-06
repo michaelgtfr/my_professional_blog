@@ -4,6 +4,10 @@
 <!--body-->
 <?php ob_start(); ?>
 
+<?php if (isset($data->getSession('message'))) : ?>
+	<p><?= $data->getSession('message') ?>
+<?php endif; ?>
+
 <section class="row">
 	<form action="/index.php/postregistration" method="post" enctype="multipart/form-data" class="col-sm-4 col-sm-offset-4">
 		<p>
@@ -34,7 +38,6 @@
 		</div>
 	</p>
 	</form>
-
 
 <?php $content = ob_get_clean(); ?>
 

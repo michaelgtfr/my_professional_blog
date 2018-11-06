@@ -1,31 +1,53 @@
 <?php
 
-function pagination($table, $params)
+namespace MyModule\fonction;
+
+use MyModule\domaine\repository\ArticleManagement;
+use MyModule\entities\Items;
+
+class Pagination
 {
-	$messagesByPage = 5; 
+	protected $reqMessages = [];
+	protected $numberOfPages;
+	protected $currentPage;
 
-	$db = pdo();
+	function __construct($table, $params)
+	{
+		$messagesByPage = 5; 
 
-	$totalReturn = $db->query('SELECT COUNT(*) AS total FROM '. $table .''); 
+		$count = new ArticleManagement;
+		$totalReturn = $count->countItems();
+		$total = $totalReturn['total']; 
+		$this->numberOfPages = ceil($total/$messagesByPage);
 
-	$totalData = $totalReturn->fetch();
-	$total = $totalData['total']; 
-	$numberOfPages = ceil($total/$messagesByPage);
+    	if(isset($params)) {
+        	$this->currentPage = intval($params[0]);
 
-	if(isset($params)) {
-    	$currentPage = intval($params);
+    	    if($this->currentPage>$this->numberOfPages) {    
+       	    	$this->currentPage = $this->numberOfPages;
+    	    }
+	    } else {		
+    	    $this->currentPage = 1;
+	    }
 
-    	if($currentPage>$numberOfPages) {    
-       		$currentPage = $numberOfPages;
-    	}
-	} else {		
-    	$currentPage = 1;
-	}
+	    $firstEnter = ($this->currentPage-1)*$messagesByPage; 
+	    $reqMessages = new ArticleManagement;
+	    $this->reqMessages = $reqMessages->listingOfArticles($firstEnter, $messagesByPage);
 
-	$firstEnter = ($currentPage-1)*$messagesByPage; 
-	$reqMessages = listingOfArticles($firstEnter, $messagesByPage);
+    }
 
-	$returnMessages = array($reqMessages, $numberOfPages, $currentPage);
+    public function getReqMessage()
+    {
+    	return $this->reqMessages;
+    }
 
-	return $returnMessages;
+    public function getNumberOfPages()
+    {
+    	return $this->numberOfPages;
+    }
+
+    public function getCurrentPage()
+    {
+    	return $this->currentPage;
+    }
 }

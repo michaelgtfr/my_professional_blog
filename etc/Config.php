@@ -1,5 +1,9 @@
 <?php
 
+namespace MyApp; 
+/**
+*récupére les variables de configuration de la base de données
+*/
 final class Config 
 {
 	private $settings = [];

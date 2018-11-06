@@ -1,7 +1,7 @@
-<?php $title = 'item detail' ?>
+<?php $title = 'email of reconfirmation' ?>
 <?php $style ='<link rel="stylesheet" href="http://projetcinq/css/emailReconfirmation.css" />' ?>
 
-<!--body-->
+<!--body: Displays the reconfirmation form for an user email-->
 <?php ob_start(); ?>
 
 <section>

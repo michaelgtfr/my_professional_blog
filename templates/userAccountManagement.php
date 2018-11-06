@@ -1,39 +1,25 @@
-<?php $title = 'item detail' ?>
+<?php $title = 'list of user account no validate' ?>
 <?php $style ='<link rel="stylesheet" href="http://projetcinq/css/userAccountManagement.css" />' ?>
 
 <!--body-->
 <?php ob_start(); ?>
 
-<?php
-if(isset($_SESSION ['id']) && isset($_SESSION['email']) && $_SESSION['role'] == 'administrateur') {
-    ?>
-    <section>
-        <p><?= $returnMessages[1] ?></p>
-        <?php
-        if($returnMessages[0] != null) {
-        	$returnMessages = $returnMessages[0];
-            foreach($returnMessages as $key => $value) {
-                ?>
-	            <img src="http://projetcinq/img/avatar/<?= $value['photo'] ?>" />
-	            <p><?= $value['name']?></p>
-	            <p><?= $value['first_name']?></p>
-	            <p><?= $value['presentation'] ?></p>
-	            <p><?= $value['date_create'] ?></p>
-	            <a href="http://projetcinq/index.php/useraccountvalidate/<?= $value['id'] ?>">Valider le compte</a>
-	            <a href="http://projetcinq/index.php/useraccountreject/<?= $value['id'] ?>">Refuser le compte</a>
-                <?php
-            }
-        } else {
-        	?>
-        	<p>Désoler il y n'a rien à juger!</p>
-        	<?php
-        }
-    ?>
-    </section>
-    <?php
-}
-?>
-
+<section>
+    <p><?= $data['request']->getSession('message') ?></p>
+    <?php if ($data['user'] != null) : ?>
+        <?php foreach($data['user'] as $value) : ?>
+	        <img src="http://projetcinq/img/avatar/<?= $value->getPhoto() ?>" />
+	        <p><?= $value->getName() ?></p>
+	        <p><?= $value->getFirstName() ?></p>
+	        <p><?= $value->getPresentation() ?></p>
+	        <p><?= $value->getDateCreate() ?></p>
+	        <a href="http://projetcinq/index.php/useraccountvalidate/<?= $value->getId() ?>">Valider le compte</a>
+	        <a href="http://projetcinq/index.php/useraccountreject/<?= $value->getId() ?>">Refuser le compte</a>
+        <?php endforeach; ?>
+    <?php else : ?>
+        <p>Désoler il y n'a rien à juger!</p>
+    <?php endif; ?>
+</section>
 
 <?php $content = ob_get_clean(); ?>
 

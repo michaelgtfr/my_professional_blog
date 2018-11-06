@@ -1,11 +1,9 @@
 <!-- head -->
+<?php $title = "home page" ?>
 
-<?php $title= "home page" ?>
+<?php $style = '<link rel="stylesheet" href="http://projetcinq/css/home_page_style.css" />' ?>
 
-<?php $style='<link rel="stylesheet" href="http://projetcinq/css/home_page_style.css" />' ?>
-
-<!--body-->
-
+<!--body: Home page of the site-->
 <?php ob_start(); ?>
 
 <div class="container">
@@ -42,38 +40,29 @@
 		<h4>Les trois derniers ajouts:</h4>
 	</div>
 	<div class="post">
-		<?php
-		if(isset($returnMessages))
-		{
-			foreach ($returnMessages as $key => $value) {
-			?>
+		<?php if($data) : ?>
+			<?php foreach ($data as $value) : ?>
 				<div class="blogpost">
 					<div class="picture">
-						<p><img src=" <?='http://projetcinq/img/imgPost/'.htmlspecialchars($value['name']).'.'. htmlspecialchars($value['extention']) ?>" alt=" <?= htmlspecialchars($value['description']) ?>" /></p>
+						<p><img src=" <?='http://projetcinq/img/imgPost/'.htmlspecialchars($value->getNamePicture()).'.'. htmlspecialchars($value->getExtentionPicture()) ?>" alt=" <?= htmlspecialchars($value->getDescriptionPicture()) ?>" /></p>
 					</div>
 					<div class="titlePost">
-						<h6><?= htmlspecialchars($value['title']) ?></h6>
+						<h6><?= htmlspecialchars($value->getTitle()) ?></h6>
 					</div>
 					<div class="chapo">
-						<p><?= htmlspecialchars($value['chapo']) ?></p>
+						<p><?= htmlspecialchars($value->getChapo()) ?></p>
 					</div>
 					<div class="authorPost">
-						<p><?= htmlspecialchars($value['author']) ?></p>
+						<p><?= htmlspecialchars($value->getFirstName()) ?></p>
 					</div>
 					<div class="lien">
-						<p><a href="http://projetCinq/index.php/articledetail/<?= $value['id'] ?>">Voir l'article</a></p>
+						<p><a href="http://projetCinq/index.php/articledetail/<?= $value->getId() ?>">Voir l'article</a></p>
 					</div>
 				</div>
-			<?php
-			}
-		}
-		else
-		{
-		?>
+			<?php endforeach; ?>
+		<?php else : ?>
 		<p class="noArticle">Désolé mais il y a pas d'article disponible sur le blog</p>
-		<?php
-		}
-		?>
+		<?php endif; ?>
 	</div>
 </section>
 <section class="formContact row">
@@ -98,7 +87,7 @@
 </section>
 </div>
 
-	<?php $content = ob_get_clean(); ?>
+<?php $content = ob_get_clean(); ?>
 
 
 <?php require __DIR__.'/template.php'; ?>

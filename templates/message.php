@@ -1,15 +1,13 @@
-<?php $title = 'item detail' ?>
+<?php $title = 'message page' ?>
 <?php $style ='<link rel="stylesheet" href="http://projetcinq/css/message.css" />' ?>
 
-<!--body-->
+<!--body: Page of message-->
 <?php ob_start(); ?>
 
 <section>
-	<p><?= $returnMessages; ?></p>
+	<p><?= $data->getSession('message'); ?></p>
 </section>
 
 <?php $content = ob_get_clean(); ?>
 
 <?php require __DIR__.'/template.php'; ?>
-
-}

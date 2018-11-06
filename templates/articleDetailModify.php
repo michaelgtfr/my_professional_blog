@@ -1,25 +1,15 @@
 <?php $title = 'item detail' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/articleDetail.css" />' ?>
+<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/articleDetailModify.css" />' ?>
 
-<!--body-->
+<!--body: Detail of the modification of an article-->
 <?php ob_start(); ?>
 
-<?php
-foreach($returnMessages as $key => $value) {
-    ?>
-	<h3><?= $returnMessages['title']?></h3>
-	<p><img src="http://projetcinq/img/imgPost/<?= $returnMessages['name_picture'] .'.'. $returnMessages['extention_picture']?>" alt="<?= $returnMessages['description_picture'] ?>" /></p>
-	<p><?= $returnMessages['chapo']?></p>
-	<p><?= $returnMessages['content']?></p>
-	<p><?= $returnMessages['name_author'] ?></p>
-    <?php
-    break;
-}
-
-?>
+	<h3><?= $data->getTitle() ?></h3>
+	<p><img src="http://projetcinq/img/imgPost/<?= $data->getNamePicture() .'.'. $data->getExtentionPicture() ?>" alt="<?= $data->getDescriptionPicture() ?>" /></p>
+	<p><?= $data->getChapo() ?></p>
+	<p><?= $data->getContent() ?></p>
+	<p><?= $data->getFirstName() ?></p>
 
 <?php $content = ob_get_clean(); ?>
 
 <?php require __DIR__.'/template.php'; ?>
-
-}

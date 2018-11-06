@@ -1,7 +1,7 @@
 <?php $title = 'reset her password' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/emailReconfirmation.css" />' ?>
+<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/resetPassword.css" />' ?>
 
-<!--body-->
+<!--body: Site Registration page -->
 <?php ob_start(); ?>
 
 <section>
@@ -19,5 +19,3 @@
 <?php $content = ob_get_clean(); ?>
 
 <?php require __DIR__.'/template.php'; ?>
-
-}

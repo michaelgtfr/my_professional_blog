@@ -1,8 +1,10 @@
 <?php
 
-require_once 'DbConnect.php';
+namespace MyModule\domaine\repository;
 
-class PictureManagement extends DbConnect
+use MyModule\domaine\repository\DBConnect;
+
+class PictureManagement extends DBConnect
 {
     public function photoJoin
     ($id, $datePicture, $extensionUpload, $description)
@@ -44,13 +46,14 @@ class PictureManagement extends DbConnect
 
     public function recoveryPicture($id)
     {
-        $req = $this->db->prepare('SELECT blog_posts_id, name, extention 
+        $req = $this->db->prepare('SELECT blog_posts_id AS blogPostsIdPicture, namePicture, extentionPicture 
                                 FROM picture WHERE update_post_id = :id');
         $req->bindParam('id', $id);
         $req->execute();
 
-        $verification = $req->fetch();
-        return $verification;
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Picture');
+
+        return $req->fetch();
     }
 
     public function deletePicture($id)
@@ -76,8 +79,9 @@ class PictureManagement extends DbConnect
         $req->bindParam('blog_posts_id', $id);
         $req->execute(); 
 
-        $return = $req->fetch(PDO::FETCH_ASSOC);
-        return $return;
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Picture');
+
+        return $req->fetch();
     }
 
     public function reqDeletedPicture($id)
@@ -88,12 +92,12 @@ class PictureManagement extends DbConnect
         $req->execute();
     }
 
-    public function reqModifyPicture($blog_posts_id, $id)
+    public function reqModifyPicture($blogPostsId, $id)
     {
         $req = $this->db->prepare('UPDATE picture SET update_post_id = NULL,
                                 blog_posts_id = :blog_posts_id 
                                 WHERE update_post_id = :id');
-        $req->bindParam('blog_posts_id', $blog_posts_id);
+        $req->bindParam('blog_posts_id', $blogPostsId);
         $req->bindParam('id', $id);
         $req->execute();
     }

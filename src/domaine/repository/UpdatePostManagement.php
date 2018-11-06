@@ -1,8 +1,10 @@
 <?php
 
-require_once 'DbConnect.php';
+namespace MyModule\domaine\repository;
 
-class UpdatePostManagement extends DbConnect
+use MyModule\domaine\repository\DBConnect;
+
+class UpdatePostManagement extends DBConnect
 {
 	public function reqChangeRegister
 	($blogPost, $title, $chapo, $content, $author)
@@ -18,33 +20,36 @@ class UpdatePostManagement extends DbConnect
         $req->execute();
 
         $req = $this->db->prepare('SELECT id FROM blog_post_update 
-        	WHERE blog_post_id = :blog_post_id AND author = :author');
+        	                    WHERE blog_post_id = :blog_post_id 
+                                AND author = :author');
         $req->bindParam('blog_post_id', $blogPost);
         $req->bindParam('author', $author);
         $req->execute();
 
-        $idPostUpdate = $req->fetch();
-        return $idPostUpdate;
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\User');
+
+        return $req->fetch();
     }
 
     public function recoverModifyArticle()
     {
         $req = $this->db->query('SELECT blog_post_update.id AS id,
-                            blog_post_update.blog_post_id AS id_blog_post,
+                            blog_post_update.blog_post_id AS idBlogPost,
                             blog_post_update.title AS title,
                             blog_post_update.chapo AS chapo,
-                            picture.name AS name_picture,
-                            picture.extention AS extention_picture,
-                            picture.description AS description_picture,
-                            user.first_name AS first_name
+                            picture.name AS namePicture,
+                            picture.extention AS extentionPicture,
+                            picture.description AS descriptionPicture,
+                            user.first_name AS firstName
                             FROM blog_post_update
                             INNER JOIN picture
                             ON blog_post_update.id = picture.update_post_id
                             INNER JOIN user
                             ON blog_post_update.author = user.id');
 
-        $reqArticle = $req->fetchAll(PDO::FETCH_ASSOC);
-        return $reqArticle;
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');
+
+        return $req->fetchAll();
     }
 
     public function articleDetailModify($id)
@@ -54,12 +59,11 @@ class UpdatePostManagement extends DbConnect
                                     blog_post_update.chapo AS chapo,
                                     blog_post_update.author AS author,
                                     blog_post_update.content AS content,
-                                    picture.update_post_id AS id_picture, 
-                                    picture.name AS name_picture, 
-                                    picture.extention AS extention_picture, 
-                                    picture.description AS description_picture,
-                                    user.id AS id_author,
-                                    user.first_name AS name_author
+                                    picture.update_post_id AS idPicture, 
+                                    picture.name AS namePicture, 
+                                    picture.extention AS extentionPicture, 
+                                    picture.description AS descriptionPicture,
+                                    user.first_name AS firstName
                                 FROM blog_post_update
                                 INNER JOIN picture
                                 ON blog_post_update.id = picture.update_post_id
@@ -68,20 +72,28 @@ class UpdatePostManagement extends DbConnect
                                 WHERE blog_post_update.id = :id');
         $req->bindParam(':id', $id, PDO::PARAM_INT);
         $req->execute();
-    
-        $data = $req->fetch();  
-        return $data;
+
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');
+      
+        return $req->fetch();
     }
 
     public function validateTheModify($id)
     {
-        $req = $this->db->prepare('SELECT * FROM blog_post_update 
+        $req = $this->db->prepare('SELECT blog_post_update.id AS id,
+                                    blog_post_update.blog_post_id AS idBlogPost,
+                                    blog_post_update.title AS title,
+                                    blog_post_update.chapo AS chapo,
+                                    blog_post_update.author AS author,
+                                    blog_post_update.content AS content
+                                    FROM blog_post_update 
         	                        WHERE id = :id');
         $req->bindParam('id', $id);
         $req->execute();
 
-        $newData = $req->fetch(PDO::FETCH_ASSOC);
-        return $newData;
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');
+
+        return $req->fetch();
     }
 
     public function deleteTheModify($id)

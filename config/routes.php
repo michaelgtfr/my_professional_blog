@@ -1,15 +1,18 @@
 <?php
 
+/**configuration des différentes page du site*/
 return[
   'homepage' => [
     'path' => '/',
     'method' => ['GET'],
-    'action' => 'home'
+    'module' => 'MyModule\\Controller\\Home',
+    'action' => '',
   ],
   'list_of_articles' => [
   	'path' => '/index.php/listofarticles/{page}',
   	'method' => ['GET'],
-  	'action' => 'listArticles',
+  	'module' => 'MyModule\\Controller\\ListArticles',
+    'action' => '',
     'params' => [ 
     'page' => '\d+'
     ]
@@ -17,7 +20,8 @@ return[
   'article_detail' => [
     'path' => '/index.php/articledetail/{id}',
     'method' => ['GET'],
-    'action' => 'detailArticle',
+    'module' => 'MyModule\\Controller\\DetailArticle',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -25,27 +29,32 @@ return[
   'login_page' => [
     'path' => '/index.php/loginpage',
     'method' => ['GET'],
-    'action' => 'loginPage'
+    'module' => 'MyModule\\Controller\\LoginPage',
+    'action' => '',
   ],
   'registration_page' => [
     'path' => '/index.php/registrationpage',
     'method' => ['GET'],
-    'action' => 'registrationPage'
+    'module' => 'MyModule\\Controller\\RegistrationPage',
+    'action' => '',
   ],
   'post_connection' => [
     'path' => '/index.php/postconnection',
     'method' => ['GET', 'POST'],
-    'action' => 'postConnection'
+    'module' => 'MyModule\\Controller\\PostConnection',
+    'action' => '',
   ],
   'post_registration' => [
     'path' => '/index.php/postregistration',
     'method' => ['GET', 'POST'],
-    'action' => 'postRegistration'
+    'module' => 'MyModule\\Controller\\PostRegistration',
+    'action' => '',
   ],
   'account_confirmation' => [
     'path' => '/index.php/accountConfirmation?{emailAndCle}',
     'method' => ['GET'],
-    'action' => 'accountConfirmation',
+    'module' => 'MyModule\\Controller\\AccountConfirmation',
+    'action' => '',
     'params' => [
     'emailAndCle' => 'activation.+'
     ]
@@ -53,7 +62,8 @@ return[
   'email_reconfirmation' => [
     'path' => '/index.php/emailreconfirmation?{email}',
     'method' => ['GET'],
-    'action' => 'emailReconfirmation',
+    'module' => 'MyModule\\Controller\\EmailReconfirmation',
+    'action' => '',
     'params' => [
     'email' => 'email=.+'
     ]
@@ -61,27 +71,32 @@ return[
   'post_email_reconfirmation'=> [
     'path' => '/index.php/postEmailReconfirmation',
     'method' => ['GET', 'POST'],
-    'action' => 'postEmailReconfirmation'
+    'module' => 'MyModule\\Controller\\PostEmailReconfirmation',
+    'action' => '',
   ],
   'reset_password' => [
     'path' =>'/index.php/resetpassword',
     'method' => ['GET'],
-    'action' => 'resetPassword'
+    'module' => 'MyModule\\Controller\\ResetPassword',
+    'action' => '',
   ],
   'post_reset_password' => [
     'path' => '/index.php/postresetpassword',
     'method' => ['GET', 'POST'],
-    'action' => 'postResetPassword'
+    'module' => 'MyModule\\Controller\\PostResetPassword',
+    'action' => '',
   ],
   'comment_management' => [
     'path' => '/index.php/commentmanagement',
     'method' => ['GET'],
-    'action' => 'commentManagement'
+    'module' => 'MyModule\\Controller\\CommentsManagement',
+    'action' => '',
   ],
   'validate_comment' => [
     'path' => '/index.php/validatecomment/{id}',
     'method' => ['GET'],
-    'action' => 'validateComment',
+    'module' => 'MyModule\\Controller\\ValidateComment',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -89,7 +104,8 @@ return[
   'delete_comment' => [
     'path' => '/index.php/deletecomment/{id}',
     'method' => ['GET'],
-    'action' => 'deleteComment',
+    'module' => 'MyModule\\Controller\\DeleteComment',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -97,22 +113,26 @@ return[
   'article_creation' => [
     'path' => '/index.php/articlecreation',
     'method' => ['GET'],
-    'action' => 'articleCreation'
+    'module' => 'MyModule\\Controller\\ArticleCreation',
+    'action' => '',
   ],
   'post_article_creation' => [
     'path' => '/index.php/postarticlecreation',
     'method' => ['GET', 'POST'],
-    'action' => 'postArticleCreation'
+    'module' => 'MyModule\\Controller\\PostArticleCreation',
+    'action' => '',
   ],
-  'article_management' => [
-    'path' => '/index.php/articlemanagement',
+  'articles_management' => [
+    'path' => '/index.php/articlesmanagement',
     'method' => ['GET'],
-    'action' => 'articleManagement'
+    'module' => 'MyModule\\Controller\\ArticlesManagement',
+    'action' => '',
   ],
   'detail_article_no_validate' => [
     'path' => '/index.php/detailarticlenovalidate/{id}',
     'method' => ['GET'],
-    'action' => 'detailArticleNoValidate',
+    'module' => 'MyModule\\Controller\\DetailArticleNoValidate',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -120,7 +140,8 @@ return[
   'validate_article' => [
     'path' => '/index.php/validatearticle/{id}',
     'method' => ['GET'],
-    'action' => 'validateArticle',
+    'module' => 'MyModule\\Controller\\ValidateArticle',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -128,7 +149,8 @@ return[
   'delete_article' => [
     'path' => '/index.php/deletearticle/{id}',
     'method' => ['GET'],
-    'action' => 'deleteArticle',
+    'module' => 'MyModule\\Controller\\DeleteArticle',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -136,7 +158,8 @@ return[
   'deleted_article' => [
     'path' => '/index.php/deletedarticle/{id}',
     'method' => ['GET'],
-    'action' => 'deletedArticle',
+    'module' => 'MyModule\\Controller\\DeletedArticle',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -144,7 +167,8 @@ return[
   'post_deleted_message' => [
     'path' => '/index.php/postdeletedarticle/{id}',
     'method' => ['GET'],
-    'action' => 'postDeletedArticle',
+    'module' => 'MyModule\\Controller\\PostDeletedArticle',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -152,7 +176,8 @@ return[
   'modify_article' => [
     'path' => '/index.php/modifyarticle/{id}',
     'method' => ['GET'],
-    'action' => 'modifyArticle',
+    'module' => 'MyModule\\Controller\\ModifyArticle',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -160,7 +185,8 @@ return[
   'detail_modify_article' =>[
     'path' => '/index.php/detailarticlemodify/{id}',
     'method' => ['GET'],
-    'action' => 'detailArticleModify',
+    'module' => 'MyModule\\Controller\\DetailArticleModify',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -168,17 +194,20 @@ return[
   'post_modify_article' => [
     'path' => '/index.php/postmodifyarticle',
     'method' => ['GET', 'POST'],
-    'action' => 'postModifyArticle'
+    'module' => 'MyModule\\Controller\PostModifyArticle',
+    'action' => '',
   ],
   'validate_change_article' => [
     'path' => '/index.php/validatechangearticle',
     'method' => ['GET'],
-    'action' => 'validateChangeArticle'
+    'module' => 'MyModule\\Controller\\ValidateChangeArticle',
+    'action' => '',
   ],
   'validate_the_change' => [
     'path' => '/index.php/validatethechange/{id}',
     'method' => ['GET'],
-    'action' => 'validateTheChange',
+    'module' => 'MyModule\\Controller\\ValidateTheChange',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -186,7 +215,8 @@ return[
   'refuse_the_change' => [
     'path' => '/index.php/refusethechange/{id}',
     'method' => ['GET'],
-    'action' => 'refuseTheChange',
+    'module' => 'MyModule\\Controller\\RefuseTheChange',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -194,12 +224,14 @@ return[
   'user_account_management' => [
     'path' => '/index.php/useraccountmanagement',
     'method' => ['GET'],
-    'action' => 'userAccountManagement'
+    'module' => 'MyModule\\Controller\\UserAccountManagement',
+    'action' => '',
   ],
   'user_account_validate' => [
     'path' => '/index.php/useraccountvalidate/{id}',
     'method' => ['GET'],
-    'action' => 'userAccountValidate',
+    'module' => 'MyModule\\Controller\\UserAccountValidate',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -207,7 +239,8 @@ return[
   'user_account_reject' => [
     'path' => '/index.php/useraccountreject/{id}',
     'method' => ['GET'],
-    'action' => 'userAccountReject',
+    'module' => 'MyModule\\Controller\\UserAccountReject',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -215,7 +248,8 @@ return[
   'update_her_profil' => [
     'path' => '/index.php/updateherprofil/{id}',
     'method' => ['GET'],
-    'action' => 'updateHerProfil',
+    'module' => 'MyModule\\Controller\\UpdateHerProfil',
+    'action' => '',
     'params' => [
     'id' => '\d+'
     ]
@@ -223,12 +257,14 @@ return[
   'post_update_her_profil' => [
     'path' => '/index.php/postupdateherprofil',
     'method' => ['GET','POST'],
-    'action' => 'postUpdateHerProfil'
+    'module' => 'MyModule\\Controller\\PostUpdateHerProfil',
+    'action' => '',
   ],
   'contact_form' => [
     'path' => '/index.php/contactForm/{type}',
     'method' => ['GET', 'POST'],
-    'action' => 'contactForm',
+    'module' => 'MyModule\\Controller\\ContactForm',
+    'action' => '',
     'params' => [
     'type' => '\d+'
     ]
@@ -236,6 +272,7 @@ return[
   'form_comment' => [
     'path' => '/index.php/formcomment',
     'method' => ['GET', 'POST'],
-    'action' => 'formComment'
+    'module' => 'MyModule\\Controller\\FormComment',
+    'action' => '',
   ]
 ];
