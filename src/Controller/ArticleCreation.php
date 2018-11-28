@@ -1,6 +1,5 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
@@ -13,14 +12,14 @@ class ArticleCreation
     public function __invoke(HTTPRequest $request)
     {
         if (!empty($request->getSession('id')) && !empty($request->getSession('email'))) {
-            echo (new TemplateLoader)->generate('articleCreation.php', [
+            echo (new TemplateLoader)->twigTemplate('articleCreation.php', [
                 'request' => $request
                 ]);
         } else {
-            $request->addSession('message', 'Désoler, mais vous pouvez pas aller sur cette page sans vous connectez.');
+            $message = 'Désoler, mais vous pouvez pas aller sur cette page sans vous connectez.';
         
-            echo (new TemplateLoader)->generate('message.php', [
-                'request' => $request
+            echo (new TemplateLoader)->twigTemplate('message.php', [
+                'message' => $message
                 ]);
         }
     }

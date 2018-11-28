@@ -1,21 +1,17 @@
-<?php $title = 'email of reconfirmation' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/emailReconfirmation.css" />' ?>
+{% extends "template.html" %}
 
+{% block title %}Email of reconfirmation{% endblock %}
+{% block style %}<link rel="stylesheet" href="http://projetcinq/css/emailReconfirmation.css" />{% endblock %}
+
+{% block content %}
 <!--body: Displays the reconfirmation form for an user email-->
-<?php ob_start(); ?>
-
-<section>
-	<form action="/index.php/postEmailReconfirmation" method="post" />
-		<p>
-			<label for="email">email</label><input type="email" name="email" id="email" value="<?= $returnMessages ?>" />
-			<input type="hidden" name="previousEmail" value="<?=$returnMessages ?>" />
-		    <button type="submit">valider</button>
-		</p>
-	</form> 
-</section>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require __DIR__.'/template.php'; ?>
-
-}
+	<section>
+    	<form action="/index.php/postEmailReconfirmation" method="post" />
+        	<p>
+            	<label for="email">email</label><input type="email" name="email" id="email" value="{{ email }}" />
+            	<input type="hidden" name="previousEmail" value="{{ email }}" />
+            	<button type="submit">valider</button>
+        	</p>
+    	</form> 
+	</section>
+{% endblock %}

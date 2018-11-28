@@ -1,6 +1,10 @@
-<?php 
+<?php $content = ob_start(); ?>
 
-$data['message']. '
+<p><?=$data['message']?></p><br />
   
-L\'email de la personne: ' . $data['email'].'
-Date: Le ' .date('l j F \à Y H:i:s'); 
+<p>L'email de la personne: <?=$data['email'].'
+Date: Le ' .date('l j F \à Y H:i:s'); ?></p>
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require('templateMessage.php'); ?>

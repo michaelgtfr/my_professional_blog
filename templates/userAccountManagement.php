@@ -1,26 +1,28 @@
-<?php $title = 'list of user account no validate' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/userAccountManagement.css" />' ?>
+{% extends "template.html" %}
 
-<!--body-->
-<?php ob_start(); ?>
+{% block title %}List of user account no validate{% endblock %}
+{% block style %}<link rel="stylesheet" href="http://projetcinq/css/userAccountManagement.css" />{% endblock %}
 
-<section>
-    <p><?= $data['request']->getSession('message') ?></p>
-    <?php if ($data['user'] != null) : ?>
-        <?php foreach($data['user'] as $value) : ?>
-	        <img src="http://projetcinq/img/avatar/<?= $value->getPhoto() ?>" />
-	        <p><?= $value->getName() ?></p>
-	        <p><?= $value->getFirstName() ?></p>
-	        <p><?= $value->getPresentation() ?></p>
-	        <p><?= $value->getDateCreate() ?></p>
-	        <a href="http://projetcinq/index.php/useraccountvalidate/<?= $value->getId() ?>">Valider le compte</a>
-	        <a href="http://projetcinq/index.php/useraccountreject/<?= $value->getId() ?>">Refuser le compte</a>
-        <?php endforeach; ?>
-    <?php else : ?>
-        <p>Désoler il y n'a rien à juger!</p>
-    <?php endif; ?>
-</section>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require __DIR__.'/template.php'; ?>
+{% block content %}
+<!--body: Page showing user account to posted-->
+    <section class="section container">
+        <div class="row">
+            <p class="message col-sm-12">{{ message }}</p>
+            {% if user %}
+                {% for value in user %}
+                    <div class="user col-sm-3">
+                        <img class="imgUser col-sm-12" src="http://projetcinq/img/avatar/{{ value.getPhoto }}" width="100%" />
+                        <p class="col-sm-6"><span>Nom:</span> {{ value.getName }}</p>
+                        <p class="col-sm-6"><span>Prénom:</span> {{ value.getFirstName }}</p>
+                        <p class="col-sm-12"><span>Présentation:</span> {{ value.getPresentation }}</p>
+                        <p class="col-sm-12"><span>créer le {{ value.getDateCreate }}</span></p>
+                        <a class="validate col-sm-12 btn btn-danger" href="http://projetcinq/index.php/useraccountvalidate?id={{ value.getId }}&token={{ request.getSession('token') }}">Valider le compte</a>
+                        <a class="reject col-sm-12 btn btn-danger" href="http://projetcinq/index.php/useraccountreject?id={{ value.getId }}&token={{ request.getSession('token') }}">Refuser le compte</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Désoler il y n'a rien à juger!</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

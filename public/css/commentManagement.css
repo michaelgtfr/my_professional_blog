@@ -1,0 +1,35 @@
+.board h3
+{
+	text-align: center;
+}
+
+.titleContent
+{
+	text-decoration: underline;
+}
+
+.block
+{
+	box-shadow: 0px 0px 10px gray;
+	margin-bottom: 20px;
+}
+
+.contentBlock
+{
+	font-weight: bold;
+}
+
+.titleBlock
+{
+	text-decoration: underline;
+}
+
+.button 
+{
+	opacity: 0.6;
+}
+
+.reject
+{
+	margin-bottom: 20px;
+}

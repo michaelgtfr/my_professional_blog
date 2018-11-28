@@ -1,14 +1,20 @@
 <?php
-
 namespace MyModule\domaine\repository;
 
 use MyModule\domaine\repository\DBConnect;
 
+/**
+*Class containing all the requests concerning modified articles.
+*/
 class UpdatePostManagement extends DBConnect
 {
-	public function reqChangeRegister
-	($blogPost, $title, $chapo, $content, $author)
-    {
+    public function reqChangeRegister(
+        $blogPost,
+        $title,
+        $chapo,
+        $content,
+        $author
+    ) {
         $req = $this->db->prepare('INSERT INTO blog_post_update(blog_post_id,
             author, title, chapo, content) 
             VALUES(:blog_post_id, :author, :title, :chapo, :content)');
@@ -70,7 +76,7 @@ class UpdatePostManagement extends DBConnect
                                 INNER JOIN user
                                 ON blog_post_update.author = user.id  
                                 WHERE blog_post_update.id = :id');
-        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->bindParam(':id', $id, \PDO::PARAM_INT);
         $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');

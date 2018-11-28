@@ -1,6 +1,5 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyModule\domaine\repository\UpdatePostManagement;
 use MyModule\entities\Items;
@@ -16,11 +15,12 @@ class ValidateChangeArticle
     {
         $reqArticle = (new UpdatePostManagement)->recoverModifyArticle();
 
-	    $request->addSession('message', 'Vous étes sur la partie modification d\'un article deja validé. Vous pouvez choisir si oui ou non, il peut modifier l\'article déja présent sur le blog.');
+        $message = 'Vous étes sur la partie modification d\'un article deja validé. Vous pouvez choisir si oui ou non, il peut modifier l\'article déja présent sur le blog.';
 
-	    echo (new TemplateLoader)->generate('validateChangeArticle.php', [
-	    	'request' => $request,
-	    	'article' => $reqArticle
-	    	]);
+        echo (new TemplateLoader)->twigTemplate('validateChangeArticle.php', [
+            'request' => $request,
+            'article' => $reqArticle,
+            'message' => $message
+            ]);
     }
 }

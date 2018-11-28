@@ -1,5 +1,4 @@
 <?php
-
 namespace MyModule\Controller;
 
 use MyApp\HTTP\HTTPRequest;
@@ -10,8 +9,8 @@ use MyApp\TemplateLoader;
 */
 class Error404
 {
-	public function __invoke()
-	{
-        echo (new TemplateLoader)->generate('error404.php', '');
-	}
+    public function __invoke()
+    {
+        echo (new TemplateLoader)->twigTemplate('error404.php', []);
+    }
 }

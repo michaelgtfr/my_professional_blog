@@ -1,6 +1,5 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
@@ -10,19 +9,29 @@ use MyModule\entities\Comment;
 /**
 *Class allowing the validation of a comment.
 */
-class validateComment
+class ValidateComment
 {
-	public function __invoke(HTTPRequest $request)
-	{
-    	validationComment($request->getParams()[0]);
+    public function __invoke(HTTPRequest $request)
+    {
+        if ($request->getSession('token') == $request->getGET('token')) {
+            $data = new CommentManagement;
+            $data->validationComment($request->getGET('id'));
 
-    	$request->addSession('message', 'La validation du commentaire est réussit, vous pouvez continuer si vous le voulez à valider d\'autre commentaire');
+            $message = 'La validation du commentaire est réussit, vous pouvez continuer si vous le voulez à valider d\'autre commentaire';
 
-    	$data = commentRecovery();
+            $comment =  $data->commentRecovery();
 
-    	echo (new TemplateLoader)->generate('commentManagement.php', [
-    		'request' => $request, 
-    		'comment' => $data
-    		));
-	}
+            (new TemplateLoader)->twigTemplate('commentManagement.php', [
+                'request' => $request,
+                'comment' => $comment,
+                'message' => $message
+                ]);
+        } else {
+            $message = 'désolé! mais votre requête n\'a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
+
+            $this->templateLoader->twigTemplate('message.php', [
+                'message' => $message
+                ]);
+        }
+    }
 }

@@ -1,0 +1,39 @@
+.list
+{
+	box-shadow: 0px 0px 10px gray;
+}
+
+.article
+{
+	box-shadow: 0px 0px 10px gray;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.blockTwo h3
+{
+	font-family: 'broken_heartregular', sans serif;
+	text-align: center;
+}
+
+.blockTwo p
+{
+	text-align: left;
+}
+
+
+.blockThree
+{
+	text-align: center;
+}
+
+.blockThree a
+{
+	opacity: 0.6;
+	vertical-align: bottom;
+}
+
+.page
+{
+	font-weight: bold;
+}

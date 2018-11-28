@@ -1,6 +1,5 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
@@ -11,7 +10,7 @@ use MyModule\fonction\SendEmail;
 /**
 *Class allowing validation of an unvalidated account.
 */
-class userAccountValidate
+class UserAccountValidate
 {
     private $templateLoader;
 
@@ -22,24 +21,31 @@ class userAccountValidate
 
     public function __invoke(HTTPRequest $request)
     {
-        $data = new UserManagement;
-        $data->reqUserAccountValidate($request->getparams()[0]);
+        if ($request->getGET('token') == $request->getSession('token')) {
+            $data = new UserManagement;
+            $data->reqUserAccountValidate($request->getGET('id'));
 
-        $content = $this->templateLoader->generate('userAccountValidate.php', [])
+            $content = $this->templateLoader->generate('userAccountValidate.php', []);
 
-        new SendEmail(
-            $data->reqUserEmailAccount($request->getParams()[0])->getEmail(),
-            'Validation de votre compte utilisateur',
-            $content
-        );
+            $userEmail = $data->reqUserEmailAccount($request->getGET('id'));
 
-        $return = (new UserManagement)->userAccountNoValidate();
+            new SendEmail($userEmail->getEmail(), 'Validation de votre compte utilisateur', $content);
 
-        $request->addSession('message', 'Félicitation! vous avez validé le compte utilisateur. Il recevera un message lui disant qu\'il peut se connecter. Vous pouvez continué a valider des comptes utilisateurs si vous le voulez');
+            $return = (new UserManagement)->userAccountNoValidate();
 
-        echo $this->templateLoader->generate('userAccountManagement.php', array(
-            'user' => $return,
-            'message' => $message
-        ));
+            $message = 'Félicitation! vous avez validé le compte utilisateur. Il recevera un message lui disant qu\'il peut se connecter. Vous pouvez continué à valider des comptes utilisateurs si vous le voulez';
+
+            $this->templateLoader->twigTemplate('userAccountManagement.php', [
+                'user' => $return,
+                'request' => $request,
+                'message' => $message
+                ]);
+        } else {
+            $message = 'Désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
+
+            $this->templateLoader->twigTemplate('message', [
+                'message' => $message
+                ]);
+        }
     }
 }

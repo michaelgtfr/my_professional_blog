@@ -1,5 +1,4 @@
 <?php
-
 namespace MyModule\Controller;
 
 use MyApp\HTTP\HTTPRequest;
@@ -12,9 +11,12 @@ use MyModule\entities\Items;
 */
 class DetailArticleModify
 {
-	public function __invoke(HTTPRequest $request)
-	{
-    	$data = (new UpdatePostManagement)->articleDetailModify($request->getParams()[0]);
-    	echo (new TemplateLoader)->generate('articleDetailModify.php', $data);
-	}
+    public function __invoke(HTTPRequest $request)
+    {
+        $data = (new UpdatePostManagement)->articleDetailModify($request->getParams()[0]);
+        
+        (new TemplateLoader)->twigTemplate('articleDetailModify.php', [
+            'article' => $data
+            ]);
+    }
 }

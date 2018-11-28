@@ -1,0 +1,38 @@
+.section
+{
+	box-shadow: 0px 0px 10px gray;
+}
+
+
+.message
+{
+	margin-bottom: 50px;
+}
+
+.user
+{
+	box-shadow: 0px 0px 10px gray;
+	margin: 20px;
+}
+
+.imgUser
+{
+	padding-top: 20px;
+}
+
+.validate
+{
+	opacity: 0.6;
+	margin-bottom: 10px;
+}
+
+.reject
+{
+	opacity: 0.6;
+	margin-bottom: 10px;
+}
+
+span
+{
+	font-weight: bold;
+}

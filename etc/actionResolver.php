@@ -1,10 +1,10 @@
 <?php
-
 namespace MyApp;
 
 use MyApp\HTTP\HTTPRequest;
+
 /**
-*class permettant l'appelle du controleur
+*Class allowing the controller's call.
 */
 class ActionResolver
 {

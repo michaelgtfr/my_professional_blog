@@ -1,24 +1,20 @@
 <?php
+namespace MyApp;
 
-namespace MyApp; 
 /**
-*récupére les variables de configuration de la base de données
+*Retrieve configuration variables from the database
 */
-final class Config 
+final class Config
 {
-	private $settings = [];
+    private $settings = [];
 
-	public function loadConfigFromFile($fileName)
-	{
-		$this->settings = require_once dirname(__DIR__) .sprintf('/config/%s', $fileName);
-	}
+    public function loadConfigFromFile($fileName)
+    {
+        $this->settings = require dirname(__DIR__) .sprintf('/config/%s', $fileName);
+    }
 
     public function get($key)
     {
-    	if (!isset($this->settings[$key])) {
-            return null;
-    	}
-
-    	return $this->settings[$key];
+        return $this->settings[$key];
     }
 }

@@ -1,24 +1,39 @@
-<?php $title = 'Update her profil' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/updateHerProfil.css" />' ?>
+{% extends "template.html" %}
 
-<!--body-->
-<?php ob_start(); ?>
+{% block title %}Update her profil{% endblock %}
+{% block style %}<link rel="stylesheet" href="http://projetcinq/css/updateHerProfil.css" />{% endblock %}
 
-<section>
-    <h3>Modification du profil:</h3>
-    <img src="http://projetcinq/img/avatar/<?= $data->getPhoto() ?>" alt="photo de profil" />
-    <form action="/index.php/postupdateherprofil" method="post" enctype="multipart/form-data">
-    	<label for="name">Nom:</label><input type="text" name="name" id="name" value="<?= $data->getName() ?>" />
-    	<label for="firstName">prenom:</label><input type="text" name="firstName" id="firstName" value="<?= $data->getFirstName() ?>" />
-    	<label for="email">Email:</label><input type="email" name="email" id="email" value="<?= $data->getEmail() ?>" />
-    	<label for="presentation">presentation:</label><input type="text" name="presentation" id="presentation" value="<?= $data->getPresentation() ?>"/>
-    	<input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
-	    <label for="photo">Photo/Logo (max 1Mo, JPG, PNG) : </label><input type="file" name="photo" id="photo" />
-	    <input type="hidden" name="avatar" value="<?= $data->getphoto() ?>" />
-	    <button type="submit">Valider</button>
-	</form>
-</section>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require __DIR__.'/template.php'; ?>
+{% block content %}
+<!--body: Page displaying the profile modification form -->
+    <section class="body container">
+        <div class="row">
+            <h3 class="titleBlock col-sm-12">Modification du profil:</h3>
+            <img class="col-sm-6 col-sm-offset-3" src="http://projetcinq/img/avatar/{{ user.getPhoto }}" alt="photo de profil" />
+            <div class="col-sm-8 col-sm-offset-2">
+                <form action="/index.php/postupdateherprofil" method="post" enctype="multipart/form-data">
+                    <div class="col-sm-12 form-group">
+                        <label for="name">Nom:</label><input class="form-control" type="text" name="name" id="name" value="{{ user.getName }}" />
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <label for="firstName">prenom:</label><input class="form-control" type="text" name="firstName" id="firstName" value="{{ user.getFirstName }}" />
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <label for="email">Email:</label><input class="form-control" type="email" name="email" id="email" value="{{ user.getEmail }}" />
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <label for="presentation">presentation:</label><input class="form-control" type="text" name="presentation" id="presentation" value="{{ user.getPresentation }}"/>
+                    </div>
+                    <input type="hidden" name="maxFileSize" value="1048576" />
+                    <div class="col-sm-12 form-group">
+                        <label for="photo">Photo/Logo (max 1Mo, JPG, PNG) : </label><input class="form-control" type="file" name="photo" id="photo" />
+                    </div>
+                    <input type="hidden" name="avatar" value="{{ user.getphoto }}" />
+                    <input type="hidden" name="token" id="token" value="{{ request.getSession('token') }}" />
+                    <div class="validate col-sm-12 form-group">
+                        <button class="btn btn-danger" type="submit">Valider</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

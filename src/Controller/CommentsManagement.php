@@ -1,6 +1,5 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
@@ -12,13 +11,16 @@ use MyModule\entities\Comment;
 */
 class CommentsManagement
 {
-	public function __invoke(HTTPRequest $request)
-	{
-		$req = (new CommentManagement)->commentRecovery();
-		$request->addSession('message', 'Ici vous pouvez valider ou refuser les commentaires omis par les utilisateurs');
-		echo (new TemplateLoader)->generate('commentManagement.php', array(
-								'request' => $request,
-								'comment' => $req
-								));
-	}
+    public function __invoke(HTTPRequest $request)
+    {
+        $req = (new CommentManagement)->commentRecovery();
+
+        $message = 'Ici vous pouvez valider ou refuser les commentaires omis par les utilisateurs';
+
+        (new TemplateLoader)->twigTemplate('commentManagement.php', [
+                                'request' => $request,
+                                'comment' => $req,
+                                'message' => $message
+                                ]);
+    }
 }

@@ -1,5 +1,4 @@
 <?php
-
 namespace MyModule\Controller;
 
 use MyApp\HTTP\HTTPRequest;
@@ -10,12 +9,14 @@ use MyModule\entities\Items;
 /**
 *Class allowing the recovery of an invalidated article.
 */
-class detailArticleNoValidate
+class DetailArticleNoValidate
 {
-	public function __invoke(HTTPRequest $request)
-	{
-		$returnMessages = (new ArticleManagement)->reqArticleNoValidate($request->getPOST()[0]);
+    public function __invoke(HTTPRequest $request)
+    {
+        $article = (new ArticleManagement)->reqArticleNoValidate($request->getParams()[0]);
 
-		echo (new TemplateLoader)->generate('detailArticleNoValidate.php', $returnMessages);
-	}
+        echo (new TemplateLoader)->twigTemplate('detailArticleNoValidate.php', [
+            'article' => $article
+            ]);
+    }
 }

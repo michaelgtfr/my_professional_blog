@@ -1,6 +1,5 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyModule\domaine\repository\ArticleManagement;
@@ -14,12 +13,19 @@ class ModifyArticle
 {
     public function __invoke(HTTPRequest $request)
     {
-	    if(!empty($request->getSession('id')) && !empty($request->getSession('email'))) {
-	        $data = (new ArticleManagement)->articleToBeAmended($request->getParams()[0]);
-	        echo (new TemplateLoader)->generate('modifyArticle.php', $data);
+        if (!empty($request->getSession('id')) && !empty($request->getSession('email'))) {
+            $data = (new ArticleManagement)->articleToBeAmended($request->getParams()[0]);
+
+            (new TemplateLoader)->twigTemplate('modifyArticle.php', [
+                'data' => $data,
+                'request' => $request
+                ]);
         } else {
-    	    $request->addSession('message', 'désoler, vous ne pouvez pas accéder à cette page');
-    	    echo (new TemplateLoader)->generate('message.php', $request);
+            $message = 'désoler, vous ne pouvez pas accéder à cette page';
+
+            (new TemplateLoader)->twigTemplate('message.php', [
+                'message' => $message
+                ]);
         }
     }
 }

@@ -1,17 +1,12 @@
-<!-- head -->
-<?php $title = "error 404 page" ?>
+{% extends "template.html" %}
 
-<?php $style = '<link rel="stylesheet" href="http://projetcinq/css/error404.css" />' ?>
+{%block title %}Error 404 page{% endblock %}
 
-<!--body-->
+{% block style %}<link rel="stylesheet" href="http://projetcinq/css/error404.css" />{% endblock %}
 
-<?php ob_start(); ?>
-
-<section>
-	<p>Désoler met votre page n'existe pas!</p>
-</section>
-
-<?php $content = ob_get_clean(); ?>
-
-
-<?php require __DIR__.'/template.php'; ?>
+{% block content %}
+<!--body: Error 404 page -->
+	<section>
+    	<p>Désolé! mais votre page n'existe pas!</p>
+	</section>
+{% endblock %}

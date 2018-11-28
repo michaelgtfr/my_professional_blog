@@ -1,28 +1,30 @@
-<?php $title = 'item detail' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/articleManagement.css" />' ?>
+{% extends "template.html" %}
 
-<!--body: Affiche les articles non validés-->
-<?php ob_start(); ?>
+{% block title %}Item detail{% endblock %}
+{% block style %}<link rel="stylesheet" href="http://projetcinq/css/articleManagement.css" />{% endblock %}
 
-<section class="validateArticle">
-    <h3>Valider des articles:</h3>
-    <p><?= $data['requete']->getSession('message')?></p>
-    <?php if ($data['items']) : ?>
-        <?php foreach ($data['items'] as $value) : ?>
-            <p><?= $value->getTitle() ?></p>
-            <p><?= $value->getChapo() ?></p>
-            <p><?= $value->getFirstName() ?></p>
-            <p><?= $value->getDateCreate() ?></p>
-            <img src="http://projetcinq/img/imgPost/<?= $value->getNamePicture().'.'. $value->getExtentionPicture() ?>" alt="<?= $value->getDescriptionPicture() ?>" />
-            <a href="http://projetcinq/index.php/detailarticlenovalidate/<?= $value->getId() ?>" target="_blank">Voir l'article</a>
-            <a href="http://projetcinq/index.php/validatearticle/<?= $value->getId() ?>">Valider l'article</a>
-            <a href="http://projetcinq/index.php/deletearticle/<?= $value->getId() ?>">Refuser l'article</a>
-        <?php endforeach; ?>
-    <?php else : ?>
-        <p>Désoler il n'y a rien à valider</p>
-    <?php endif; ?>
-</section>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require __DIR__.'/template.php'; ?>
+{% block content %}
+<!--body: Shows uncommitted items-->
+    <section class="validateArticle container">
+        <div class="row">
+            <h3 class="col-sm-12">Valider des articles:</h3>
+            <p class="col-sm-12">{{ message }}</p>
+            {% if items %}
+                {% for value in items %}
+                    <div class="items col-sm-3">
+                        <img class=" imgItems col-sm-12" src="http://projetcinq/img/imgPost/{{ value.getNamePicture }}.{{ value.getExtentionPicture}}" alt="{{ value.getDescriptionPicture }}" width="100%" />
+                        <p class="col-sm-12">{{ value.getTitle }}</p>
+                        <p class="col-sm-12">{{ value.getChapo }}</p>
+                        <p class="col-sm-12">{{ value.getFirstName }}</p>
+                        <p class="col-sm-12">Créer le {{ value.getDateUpdate }}</p>
+                        <a class="detailItems col-sm-12 btn btn-danger" href="http://projetcinq/index.php/detailarticlenovalidate/{{ value.getId }}" target="_blank">Voir l'article</a>
+                        <a class="validateItems col-sm-12 btn btn-danger" href="http://projetcinq/index.php/validatearticle?id={{ value.getId }}&token={{ request.getSession('token') }}">Valider l'article</a>
+                        <a class="rejectItems col-sm-12 btn btn-danger" href="http://projetcinq/index.php/deletearticle?id={{ value.getId }}&token={{ request.getSession('token') }}">Refuser l'article</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="col-sm-12">Désoler il n'y a rien à valider</p>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

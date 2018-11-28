@@ -105,6 +105,12 @@ footer a
 	padding-top: 20px;
 }
 
+.content
+{
+	background-color: white;
+	z-index: 1;
+}
+
 
 /*all media superior to 1800px                           all media superior to 1800px                                  all media superior to 1800px */
 

@@ -1,13 +1,13 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 use MyModule\fonction\Dashboard;
+use MyModule\fonction\Token;
 
 /**
-*class allowing either the automatic connection or the display of the login page.
+*Class allowing either the automatic connection or the display of the login page.
 */
 class LoginPage
 {
@@ -16,7 +16,11 @@ class LoginPage
         if ($request->getSession('id') != null && $request->getSession('email') != null) {
             $connection = new Dashboard($request);
         } else {
-            echo (new TemplateLoader)->generate('loginPage.php', []);
+            new Token($request);
+            
+            echo (new TemplateLoader)->twigTemplate('loginPage.php', [
+                'request'=> $request
+                ]);
         }
     }
 }

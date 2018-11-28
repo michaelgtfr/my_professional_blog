@@ -1,6 +1,5 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
@@ -14,12 +13,14 @@ class ArticlesManagement
 {
     public function __invoke(HTTPRequest $request)
     {
-	    $reqArticle = (new ArticleManagement)->noValidateArticles();
-	    $request->addSession('message', 'Page de validation des articles');
+        $reqArticle = (new ArticleManagement)->noValidateArticles();
 
-	    echo (new TemplateLoader)->generate('articleManagement.php', array(
+        $message = 'Page de validation des articles';
+
+        echo (new TemplateLoader)->twigTemplate('articleManagement.php', array(
             'items' => $reqArticle,
-            'request' => $request
+            'request' => $request,
+            'message' => $message,
         ));
     }
 }

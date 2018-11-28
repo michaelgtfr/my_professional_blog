@@ -1,42 +1,50 @@
 <?php
-
 namespace MyModule\domaine\repository;
 
 use MyModule\domaine\repository\DBConnect;
 
+/**
+*Class containing all user requests.
+*/
 class UserManagement extends DBConnect
 {
     public function userRecovery($email)
     {
-	  	$req = $this->db->prepare('SELECT id, email, password, confirmation,
+        $req = $this->db->prepare('SELECT id, email, password, confirmation,
 	  	                    validation, role FROM user WHERE email = :email AND confirmation = 1 AND validation = 1');
-	  	$req->bindParam('email', $email);
-		$req->execute();
+        $req->bindParam('email', $email);
+        $req->execute();
 
-		$req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\User');
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\User');
 
         $result = $req->fetch();
         
         return $result;
     }
 
-    public function registration($name, $firstname, $email, $photo,
-                                $presentation, $passwordHash, $key)
-    {
-		$req = $this->db->prepare('INSERT INTO user(name, first_name, 
+    public function registration(
+        $name,
+        $firstname,
+        $email,
+        $photo,
+        $presentation,
+        $passwordHash,
+        $key
+    ) {
+        $req = $this->db->prepare('INSERT INTO user(name, first_name, 
 			            confirmation, validation, email, photo, presentation,
 		                password, role, date_create, confirmation_key) 
 			            VALUES(:name, :first_name, :confirmation, :validation,
 			            :email, :photo, :presentation, :password, :role, NOW(), 
 			            :confirmation_key)');
-		$req->bindParam('name', $name);
-		$req->bindParam('first_name', $firstname);
-		$req->bindValue('confirmation', 0);
-		$req->bindValue('validation', 0);
-		$req->bindParam('email', $email);
-		$req->bindParam('photo', $photo);
-		$req->bindParam('presentation', $presentation);
-		$req->bindParam('password', $passwordHash);
+        $req->bindParam('name', $name);
+        $req->bindParam('first_name', $firstname);
+        $req->bindValue('confirmation', 0);
+        $req->bindValue('validation', 0);
+        $req->bindParam('email', $email);
+        $req->bindParam('photo', $photo);
+        $req->bindParam('presentation', $presentation);
+        $req->bindParam('password', $passwordHash);
         $req->bindValue('role', 'editeur');
         $req->bindParam('confirmation_key', $key);
         $req->execute();
@@ -44,10 +52,10 @@ class UserManagement extends DBConnect
 
     public function confirmation($email)
     {
-		$req = $this->db->prepare('SELECT id, confirmation, email, 
+        $req = $this->db->prepare('SELECT id, confirmation, email, 
 			                confirmation_key AS confirmationKey FROM user Where email = :email AND confirmation = 0');
-		$req->bindParam(':email', $email);
-		$req->execute();
+        $req->bindParam('email', $email);
+        $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\User');
 
@@ -58,53 +66,53 @@ class UserManagement extends DBConnect
 
     public function validateConfirmation($email)
     {
-		$req = $this->db->prepare('UPDATE user SET confirmation = 1 
+        $req = $this->db->prepare('UPDATE user SET confirmation = 1 
 			                    WHERE email = :email');
-		$req->bindParam('email', $email);
-		$req->execute();
+        $req->bindParam('email', $email);
+        $req->execute();
     }
 
     public function updateEmail($id, $email)
     {
-		$req = $this->db->prepare('UPDATE user SET email = :email 
+        $req = $this->db->prepare('UPDATE user SET email = :email 
 			                    WHERE id = :id');
-		$req->bindParam('email', $email);
-		$req->bindParam('id', $id);
-		$req->execute();
+        $req->bindParam('email', $email);
+        $req->bindParam('id', $id);
+        $req->execute();
     }
 
     public function verificationElement($email, $name)
     {
-		$req = $this->db->prepare('SELECT name, confirmation_key as confirmationKey
+        $req = $this->db->prepare('SELECT name, confirmation_key as confirmationKey
 			                    FROM user 
 			                    WHERE email = :email AND name = :name');
-		$req->bindParam('email', $email);
-		$req->bindParam('name', $name);
-		$req->execute();
+        $req->bindParam('email', $email);
+        $req->bindParam('name', $name);
+        $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\User');
 
-		return $req->fetch();
+        return $req->fetch();
     }
 
     public function changePassword($email, $password)
     {
-		$req = $this->db->prepare('UPDATE user 
+        $req = $this->db->prepare('UPDATE user 
 			                    SET password = :password, confirmation = 0 
 			                    WHERE email = :email');
-		$req->bindParam('password', $password);
-		$req->bindParam('email', $email);
-		$req->execute();
+        $req->bindParam('password', $password);
+        $req->bindParam('email', $email);
+        $req->execute();
     }
 
     public function userAccount($id)
     {
-		$req = $this->db->prepare('SELECT id,name,
+        $req = $this->db->prepare('SELECT id,name,
                         first_name AS firstName,
                         email,photo,presentation,role,
                         date_create AS dateCreate FROM user WHERE id = :id');
-		$req->bindParam('id', $id);
-		$req->execute();
+        $req->bindParam('id', $id);
+        $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\User');
         
@@ -162,9 +170,14 @@ class UserManagement extends DBConnect
         $req->execute();
     }
 
-    public function reqUpdateUserAccount
-    ($id, $name, $firstName, $email, $presentation, $photo)
-    {
+    public function reqUpdateUserAccount(
+        $id,
+        $name,
+        $firstName,
+        $email,
+        $presentation,
+        $photo
+    ) {
         $req = $this->db->prepare('UPDATE user SET name = :name,
                                         first_name = :firstName,
                                         email = :email,

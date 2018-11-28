@@ -1,13 +1,11 @@
-<?php $title = 'message page' ?>
-<?php $style ='<link rel="stylesheet" href="http://projetcinq/css/message.css" />' ?>
+{% extends "template.html" %}
 
+{% block title %}Message page{% endblock %}
+{% block style %}<link rel="stylesheet" href="http://projetcinq/css/message.css" />{% endblock %}
+
+{% block content %}
 <!--body: Page of message-->
-<?php ob_start(); ?>
-
-<section>
-	<p><?= $data->getSession('message'); ?></p>
-</section>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require __DIR__.'/template.php'; ?>
+	<section>
+		<p>{{ message }}</p>
+	</section>
+{% endblock %}

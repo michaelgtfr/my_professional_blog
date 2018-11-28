@@ -1,16 +1,15 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\TemplateLoader;
 
 /**
 *Class calling the registration page.
 */
-class registrationPage
+class RegistrationPage
 {
-	public function __invoke()
-	{
-		echo (new TemplateLoader)->generate('registrationPage.php', []);
-	}
+    public function __invoke()
+    {
+        echo (new TemplateLoader)->twigTemplate('registrationPage.php', []);
+    }
 }

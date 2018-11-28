@@ -1,16 +1,15 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\TemplateLoader;
 
 /**
 *Class to display the form for changing a password.
 */
-class resetPassword
+class ResetPassword
 {
-	public function __invoke()
-	{
-		echo (new TemplateLoader)->generate('resetPassword.php','');
-	}
+    public function __invoke()
+    {
+        echo (new TemplateLoader)->twigTemplate('resetPassword.php', []);
+    }
 }

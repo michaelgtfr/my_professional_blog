@@ -1,16 +1,11 @@
-
 <?php
 
 // Configuration of the database 
 
 return[
-
-	'host' = 'localhost',
-	'dbname' = 'test',
-	'charset' = 'utf8',
-	'username' = 'project',
-	'password' = 'five'
+	'host' => 'localhost',
+	'dbname' => 'test',
+	'charset' => 'utf8',
+	'username' => 'projet',
+	'password' => 'five'
 ];
-
-
-

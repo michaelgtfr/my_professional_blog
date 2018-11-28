@@ -1,6 +1,5 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
@@ -13,31 +12,38 @@ use MyModule\fonction\SendEmail;
 */
 class DeleteArticle
 {
-	private $templateLoader;
+    private $templateLoader;
 
     public function __construct()
     {
         $this->templateLoader = new TemplateLoader();
     }
 
-	public function __invoke(HTTPRequest $request)
-	{
-		$user = new ArticleManagement;
-		$email = $user->userArticle($request->getParams()[0]);
+    public function __invoke(HTTPRequest $request)
+    {
+        if ($request->getSession('token') == $request->getGET('token')) {
+            $user = new ArticleManagement;
+            $email = $user->userArticle($request->getGET('id'));
+            $content = $this->templateLoader->generate('deleteArticle.php', []);
 
-		$content = $this->templateLoader->generate('deleteArticle.php', []);
+            new SendEmail($email->getEmail(), 'Refus de votre article', $content);
 
-    	new SendEmail($email, 'Refus de votre article', $content);
+            $user->reqDeleteArticle($request->getGET('id'));
+            $reqArticle = $user->noValidateArticles();
 
-		$user->reqDeleteArticle($request->getParams()[0]);
-		$reqArticle = $user->noValidateArticles();
+            $message = 'Article supprimer, vous pouvez continué à supprimer des articles.';
 
-		$request->addSession('message', 'Article supprimer, vous pouvez continué à supprimer des articles.');
+            $this->templateLoader->twigTemplate('articleManagement.php', [
+                                'items' => $reqArticle,
+                                'request' => $request,
+                                'message' => $message
+                                ]);
+        } else {
+            $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
 
-		echo $this->templateLoader->generate('articleManagement.php', [
-								'article' => $reqArticle,
-								'request' => $request
-								]);
-	}
+            (new TemplateLoader)->twigTemplate('message.php', [
+                'message' => $message
+                ]);
+        }
+    }
 }
-

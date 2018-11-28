@@ -1,6 +1,5 @@
 <?php
-
-namespace MyModule\Controller;
+namespace MyModule\controller;
 
 use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
@@ -11,25 +10,41 @@ use MyModule\entities\Items;
 /**
 *Class allowing the validation of an article by an administrator.
 */
-class validateArticle
+class ValidateArticle
 {
-    public function __invoke(HTTPResquest $request)
-{
-        $data = new ArticleManagement;
-        $email = $data->userArticle($request->getParams()[0]);
+    private $templateLoader;
 
-        $content = $this->templateLoader->generate('validateArticle.php', [])
+    public function __construct()
+    {
+        $this->templateLoader = new TemplateLoader();
+    }
 
-        new sendEmail($email->getEmail(), 'Validation de votre article', $content);
+    public function __invoke(HTTPRequest $request)
+    {
+        if ($request->getSession('token') == $request->getGET('token')) {
+            $data = new ArticleManagement();
+            $email = $data->userArticle($request->getGET('id'));
 
-	    $data->reqValidateArticle($request->getParams()[0]);
-        $reqArticle = $data->noValidateArticles();
+            $content = $this->templateLoader->generate('validateArticle.php', []);
 
-        $request->addSession('message', 'Article validé, vous pouvez continué à valider des articles.');
+            new sendEmail($email->getEmail(), 'Validation de votre article', $content);
 
-        echo (new TemplateLoader)->generate('articleManagement.php', [
-            'article' => $reqArticle,
-            'request' => $request
-            ]);
+            $data->reqValidateArticle($request->getGET('id'));
+            $reqArticle = $data->noValidateArticles();
+
+            $message = 'Article validé, vous pouvez continué à valider des articles.';
+
+            $this->templateLoader->TwigTemplate('articleManagement.php', [
+                'items' => $reqArticle,
+                'request' => $request,
+                'message' => $message
+                ]);
+        } else {
+            $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
+
+            $this->templateLoader->twigTemplate('message.php', [
+                'message' => $message
+                ]);
+        }
     }
 }

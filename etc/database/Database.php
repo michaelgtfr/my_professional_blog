@@ -1,12 +1,15 @@
 <?php
-
 namespace MyApp\database;
+
 use \PDO;
 use MyApp\Config;
 
+/**
+*Class for creating the connection to the database.
+*/
 final class Database
 {
-    private $config;
+    private $config = [];
 
     public function __construct()
     {
@@ -22,8 +25,7 @@ final class Database
         $charset = $this->config->get('charset');
         $username = $this->config->get('username');
         $password = $this->config->get('password');
-        
-		return new \PDO('mysql:host=localhost;dbname=profesionnal_blog;charset=utf8', 
-            'root', '', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
+        return new \PDO('mysql:host='.$host.';dbname='.$dbname.';charset='.$charset.'', $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
     }
 }

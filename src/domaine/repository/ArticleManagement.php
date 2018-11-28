@@ -1,21 +1,23 @@
 <?php
-
 namespace MyModule\domaine\repository;
 
 use MyModule\domaine\repository\DBConnect;
 
+/**
+*Class containing all the requests on articles.
+*/
 class ArticleManagement extends DBConnect
 {
     public function countItems()
     {
-        $req = $this->db->query('SELECT COUNT(*) AS total FROM blog_posts WHERE validate_blog_post = true'); 
+        $req = $this->db->query('SELECT COUNT(*) AS total FROM blog_posts WHERE validate_blog_post = true');
         $Data = $req->fetch();
         return $Data;
     }
 
     public function listingOfArticles($firstEnter, $messagesByPage)
     {
-		$req = $this->db->prepare('SELECT blog_posts.id AS id,
+        $req = $this->db->prepare('SELECT blog_posts.id AS id,
 									blog_posts.title AS title,
 									blog_posts.chapo AS chapo, 
 									blog_posts.validate_blog_post AS validateBlogPost,
@@ -32,18 +34,18 @@ class ArticleManagement extends DBConnect
 			                        WHERE validate_blog_post = true ORDER BY id 
 			                        DESC LIMIT :firstEnter, :messagesByPage');
 
-		$req->bindParam(':firstEnter', $firstEnter, \PDO::PARAM_INT);
-		$req->bindParam(':messagesByPage', $messagesByPage, \PDO::PARAM_INT);
-		$req->execute();
+        $req->bindParam(':firstEnter', $firstEnter, \PDO::PARAM_INT);
+        $req->bindParam(':messagesByPage', $messagesByPage, \PDO::PARAM_INT);
+        $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');
-        
+
         return $req->fetchAll();
     }
 
     public function articleDetail($id)
     {
-	    $req = $this->db->prepare('SELECT blog_posts.id AS id,
+        $req = $this->db->prepare('SELECT blog_posts.id AS id,
 									blog_posts.title AS title,
 									blog_posts.chapo AS chapo,
 									blog_posts.validate_blog_post AS validateBlogPost,
@@ -62,17 +64,17 @@ class ArticleManagement extends DBConnect
 								ON blog_posts.author = user.id  
 								WHERE validate_blog_post = true 
 								AND blog_posts.id = :id');
-	    $req->bindParam(':id', $id, \PDO::PARAM_INT);
-	    $req->execute();
-		
+        $req->bindParam(':id', $id, \PDO::PARAM_INT);
+        $req->execute();
+        
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');
 
         return $req->fetch();
     }
  
-    public function lastThreeAddition() 
+    public function lastThreeAddition()
     {
-	    $req = $this->db->query('SELECT blog_posts.id AS id,
+        $req = $this->db->query('SELECT blog_posts.id AS id,
                                     blog_posts.author AS author,
                                     blog_posts.validate_blog_post AS validateBlogPost,
                                     blog_posts.title AS title,
@@ -89,7 +91,7 @@ class ArticleManagement extends DBConnect
                                     INNER JOIN user
                                     ON blog_posts.author = user.id 
                                     WHERE blog_posts.validate_blog_post = true 
-                                    ORDER BY blog_posts.id DESC LIMIT 0,2');
+                                    ORDER BY blog_posts.id DESC LIMIT 0,3');
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');
 
@@ -108,7 +110,7 @@ class ArticleManagement extends DBConnect
         $req->bindParam('title', $title);
         $req->bindParam('chapo', $chapo);
         $req->bindParam('content', $content);
-        $req->execute();   
+        $req->execute();
     }
 
     public function recoveryIdArticle($title, $chapo)
@@ -233,10 +235,10 @@ class ArticleManagement extends DBConnect
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');
         
-        return $req->fetch(); 
+        return $req->fetch();
     }
 
-    public function modifyTheDonnees($params)
+    public function modifyTheDonnees($author, $title, $chapo, $content, $idBlogPost)
     {
         $req = $this->db->prepare('UPDATE blog_posts SET author = :author,
                                                 title = :title,
@@ -244,11 +246,11 @@ class ArticleManagement extends DBConnect
                                                 content = :content,
                                                 date_update = NOW()
                             WHERE id = :blog_post_id');
-        $req->bindParam('author', $params->getAuthor());
-        $req->bindParam('title', $params->getTitle());
-        $req->bindParam('chapo', $params->getChapo());
-        $req->bindParam('content', $params->getContent());
-        $req->bindParam('blog_post_id', $params->getidBlogPost());
+        $req->bindParam('author', $author);
+        $req->bindParam('title', $title);
+        $req->bindParam('chapo', $chapo);
+        $req->bindParam('content', $content);
+        $req->bindParam('blog_post_id', $idBlogPost);
         $req->execute();
-   }
+    }
 }

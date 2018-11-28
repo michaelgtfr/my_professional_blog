@@ -1,6 +1,5 @@
-<?php 
-
-namespace MyModule\Controller;
+<?php
+namespace MyModule\controller;
 
 use MyModule\fonction\SendEmail;
 use MyApp\HTTP\HTTPRequest;
@@ -11,7 +10,7 @@ use MyModule\domaine\repository\UserManagement;
 /**
 *Class allowing the creation of a user account.
 */
-class postRegistration
+class PostRegistration
 {
     private $templateLoader;
 
@@ -20,7 +19,7 @@ class postRegistration
         $this->templateLoader = new TemplateLoader();
     }
 
-    function __invoke(HTTPRequest $request)
+    public function __invoke(HTTPRequest $request)
     {
         $maxsize = 1048576;
         $extensionAllowed = array('jpg', 'jpeg', 'png');
@@ -28,15 +27,15 @@ class postRegistration
         $resultat = (new UserManagement)->userRecovery($request->getPOST('email'));
 
         if (!empty($resultat)) {
-            $request->addSession('message', 'Desoler mais ce compte existe deja');
+            $message = 'Desoler mais ce compte existe deja';
         } elseif ($request->getFILES('photo', 'error') > 0) {
-            $request->addSession('message', 'Erreur lors du transfert');
+            $message = 'Erreur lors du transfert';
         } elseif ($request->getFILES('photo', 'size') > $maxsize) {
-    	    $request->addSession('message', 'Le fichier est trop gros');
+            $message = 'Le fichier est trop gros';
         } elseif (!in_array($extensionUpload, $extensionAllowed)) {
-            $request->addSession('message', 'L\'extention du fichier n\'est pas autorisé');
+            $message = 'L\'extention du fichier n\'est pas autorisé';
         } elseif ($request->getPOST('passwordOne') != $request->getPOST('passwordTwo')) {
-    	    $request->addSession('message', 'Les mots de passe sont différents');
+            $message = 'Les mots de passe sont différents';
         } else {
             $dateAvatar = date('Y_m_d_H_i_s');
             $namePhoto = "{$dateAvatar}.{$extensionUpload}";
@@ -46,7 +45,7 @@ class postRegistration
 
             $passwordHash = password_hash($request->getPOST('passwordOne'), PASSWORD_DEFAULT);
 
-            $key = md5(microtime(TRUE)*100000);
+            $key = md5(microtime(true)*100000);
 
             $resultat = (new UserManagement)->registration($request->getPOST('name'), $request->getPOST('firstname'), $request->getPOST('email'), $namePhoto, $request->getPOST('presentation'), $passwordHash, $key);
 
@@ -54,12 +53,14 @@ class postRegistration
             
             $content = $this->templateLoader->generate('messageOfConfirmation.php', [
                 'email' => $request->getPOST('email'),
-                'key' => $request->getSession('key')]
-                );
+                'key' => $request->getSession('key')]);
             new SendEmail($request->getPOST('email'), 'Confirmation de votre compte', $content);
 
-            $request->addSession('message', 'Félicitation, votre inscription est réussie il vous reste à le valider pour cela, cliquer sur le lien envoyé sur votre adresse email est aprés votre confirmation un administrateur doit approuver votre inscription');
+            $message = 'Félicitation, votre inscription est réussie il vous reste à le valider pour cela, cliquer sur le lien envoyé sur votre adresse email est aprés votre confirmation un administrateur doit approuver votre inscription';
         }
-        echo $this->templateLoader->generate('postRegistration.php', $request);
+        $this->templateLoader->twigTemplate('postRegistration.php', [
+            'request' => $request,
+            'message' => $message
+            ]);
     }
 }
