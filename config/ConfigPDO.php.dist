@@ -1,0 +1,15 @@
+<?php
+namespace MyConfig;
+/*
+*Configuration of the database
+*/ 
+
+class ConfigPDODist
+{
+    const HOST = 'localhost';
+    const DB_NAME = 'test';
+    const CHARSET = 'utf8';
+    const DB_HOST = 'mysql:host='.self::HOST.';dbname='.self::DB_NAME.';charset='.self::CHARSET;
+    const DB_USER = 'projet';
+    const DB_PASS = 'five';
+}
