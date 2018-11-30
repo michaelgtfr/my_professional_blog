@@ -25,6 +25,7 @@ class ComposerStaticInit9162e48e3db1a8cd340a08692ba29ac9
         'M' => 
         array (
             'MyModule\\' => 9,
+            'MyConfig\\' => 9,
             'MyApp\\' => 6,
         ),
         'E' => 
@@ -49,6 +50,10 @@ class ComposerStaticInit9162e48e3db1a8cd340a08692ba29ac9
         'MyModule\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
+        ),
+        'MyConfig\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/config',
         ),
         'MyApp\\' => 
         array (

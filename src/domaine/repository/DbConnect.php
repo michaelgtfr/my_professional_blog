@@ -13,7 +13,7 @@ class DBConnect
     public function __construct()
     {
         if ($this->db == null) {
-            $this->db = (new Database)->getPDO();
+            $this->db = (new Database)->getConnection();
         }
     }
 }

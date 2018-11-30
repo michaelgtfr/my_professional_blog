@@ -9,7 +9,6 @@ class OPSession
     /**
      * Function that retrieves the visitor's IP address
      * Works poorly with Ajax
-     *
      */
     public static function IP()
     {
@@ -27,7 +26,6 @@ class OPSession
         }
         return $realIp;
     }
-        
     /**
      * Generate a new Session variable
      * is used during the creation or during a session-theft attempt
@@ -37,21 +35,19 @@ class OPSession
         // We copy the session to a new session and then empty this new session
         session_regenerate_id();
         $_SESSION=array();
-            
         $_SESSION['AGENT']    = $_SERVER['HTTP_USER_AGENT'];
         $_SESSION['ACCEPT']   = $_SERVER['HTTP_ACCEPT'];
         $_SESSION['LANGUAGE'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
         $_SESSION['ENCODING'] = $_SERVER['HTTP_ACCEPT_ENCODING'];
         $_SESSION['IP']       = self::IP();
     }
-        
+
     /**
-     * Corresponds to the function session_start() but in a secure version
-     */
+    * Corresponds to the function session_start() but in a secure version
+    */
     public static function start()
     {
         session_start();
-            
         if (!isset($_SESSION['IP'])) {
             // If the session was not initialized
             self::newSession();

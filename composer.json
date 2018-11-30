@@ -10,7 +10,8 @@
     "autoload": {
         "psr-4": {
             "MyApp\\": "etc/",
-            "MyModule\\": "src/"
+            "MyModule\\": "src/",
+            "MyConfig\\": "config/"
         }
     },
     "require": {

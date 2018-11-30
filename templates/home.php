@@ -31,7 +31,7 @@
                 </ul>
             </div>
             <div class="blockCV col-sm-3">  
-                <a href="img/cv_michael.pdf"><i class="fa fa-file-pdf-o fa-3x"></i></a>
+                <a target="_blank" href="img/cv_michael.pdf"><i class="fa fa-file-pdf-o fa-3x"></i></a>
             </div>
         </div>
     </div>

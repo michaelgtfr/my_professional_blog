@@ -1,31 +1,18 @@
 <?php
 namespace MyApp\database;
 
-use \PDO;
-use MyApp\Config;
+use MyConfig\ConfigPDO;
 
 /**
 *Class for creating the connection to the database.
 */
-final class Database
+final class Database extends ConfigPDO
 {
-    private $config = [];
 
-    public function __construct()
+    public function getConnection()
     {
-        $this->config = new Config();
-    }
-
-    public function getPDO()
-    {
-        $this->config->loadConfigFromFile('pdo.php');
-
-        $host = $this->config->get('host');
-        $dbname = $this->config->get('dbname');
-        $charset = $this->config->get('charset');
-        $username = $this->config->get('username');
-        $password = $this->config->get('password');
-
-        return new \PDO('mysql:host='.$host.';dbname='.$dbname.';charset='.$charset.'', $username, $password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+        $connection = new \PDO(self::DB_HOST, self::DB_USER, self::DB_PASS);
+        $connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        return $connection;
     }
 }
