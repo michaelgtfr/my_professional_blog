@@ -4,7 +4,7 @@ namespace MyModule\controller;
 use MyApp\TemplateLoader;
 use MyModule\domaine\repository\UserManagement;
 use MyApp\HTTP\HTTPRequest;
-use MyModule\fonction\Dashboard;
+use MyModule\service\Dashboard;
 
 /**
 *Class allowing element verification for connection to a user account.

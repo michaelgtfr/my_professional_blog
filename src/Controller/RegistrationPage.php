@@ -10,6 +10,6 @@ class RegistrationPage
 {
     public function __invoke()
     {
-        echo (new TemplateLoader)->twigTemplate('registrationPage.php', []);
+        (new TemplateLoader)->twigTemplate('registrationPage.php', []);
     }
 }

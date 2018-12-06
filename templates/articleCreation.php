@@ -7,8 +7,8 @@
     <!--body: Form for creating an article -->
     <section class="formulaire container">
         <div class="row">
-            <h3 class="col-sm-12">Formulaire de création d'article</h3>
-            <form action="/index.php/postarticlecreation" method="post" enctype="multipart/form-data" class="col-sm-12">
+            <h3 class="col-xs-12">Formulaire de création d'article</h3>
+            <form action="/index.php/postarticlecreation" method="post" enctype="multipart/form-data" class="col-xs-12">
                 <div class="form-group">
                     <input type="hidden" name="id" value="{{ request.getSession('id') }}" />
                     <input type="hidden" name="token" value="{{ request.getSession('token') }}" />

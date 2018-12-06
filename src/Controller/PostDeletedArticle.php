@@ -18,7 +18,7 @@ class PostDeletedArticle
         } else {
             $message = 'Désoler, mais vous ne pouvez pas accéder à cette page.';
         }
-        (new TemplateLoader)->generate('message.php', [
+        (new TemplateLoader)->twigTemplate('message.php', [
             'message' => $message
             ]);
     }

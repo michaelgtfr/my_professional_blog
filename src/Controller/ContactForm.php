@@ -3,7 +3,7 @@ namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
-use MyModule\fonction\SendEmail;
+use MyModule\service\SendEmail;
 
 /**
 *Class allowing the treatment and sending by message of the form of contact.
@@ -21,7 +21,7 @@ class ContactForm
     {
         if ($request->getParams()[0] == 1) {
             $subject = 'Message de '.$request->getPOST('name');
-        } elseif ($params[0] == 2) {
+        } elseif ($request->getParams()[0] == 2) {
             $subject = 'Message de '. $request->getPOST('name') .'[' . $request->getPOST('role') . ' du site]';
         }
         $content = $this->templateLoader->generate('contactForm.php', [

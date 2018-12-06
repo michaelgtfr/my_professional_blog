@@ -72,12 +72,12 @@ class UserManagement extends DBConnect
         $req->execute();
     }
 
-    public function updateEmail($id, $email)
+    public function updateEmail($idUser, $email)
     {
         $req = $this->db->prepare('UPDATE user SET email = :email 
 			                    WHERE id = :id');
         $req->bindParam('email', $email);
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idUser);
         $req->execute();
     }
 
@@ -105,13 +105,13 @@ class UserManagement extends DBConnect
         $req->execute();
     }
 
-    public function userAccount($id)
+    public function userAccount($idUser)
     {
         $req = $this->db->prepare('SELECT id,name,
                         first_name AS firstName,
                         email,photo,presentation,role,
                         date_create AS dateCreate FROM user WHERE id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idUser);
         $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\User');
@@ -132,18 +132,18 @@ class UserManagement extends DBConnect
         return $req->fetchAll();
     }
 
-    public function reqUserAccountValidate($id)
+    public function reqUserAccountValidate($idUser)
     {
         $req = $this->db->prepare('UPDATE user SET validation = 1 
         	                    WHERE  id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idUser);
         $req->execute();
     }
 
-    public function reqUserEmailAccount($id)
+    public function reqUserEmailAccount($idUser)
     {
         $req = $this->db->prepare('SELECT email FROM user WHERE id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idUser);
         $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\User');
@@ -151,11 +151,11 @@ class UserManagement extends DBConnect
         return $req->fetch();
     }
 
-    public function reqUserEmailAndPhotoAccount($id)
+    public function reqUserEmailAndPhotoAccount($idUser)
     {
         $req = $this->db->prepare('SELECT email, photo FROM user 
         	                    WHERE id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idUser);
         $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\User');
@@ -163,15 +163,15 @@ class UserManagement extends DBConnect
         return $req->fetch();
     }
 
-    public function reqUserAccountReject($id)
+    public function reqUserAccountReject($idUser)
     {
         $req = $this->db->prepare('DELETE FROM user WHERE id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idUser);
         $req->execute();
     }
 
     public function reqUpdateUserAccount(
-        $id,
+        $idUser,
         $name,
         $firstName,
         $email,
@@ -189,7 +189,7 @@ class UserManagement extends DBConnect
         $req->bindParam('email', $email);
         $req->bindParam('presentation', $presentation);
         $req->bindParam('photo', $photo);
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idUser);
         $req->execute();
     }
 }

@@ -7,7 +7,7 @@ namespace MyApp;
 class TemplateLoader
 {
     // Use to retrieve items in a file
-    private function generate($file, $data)
+    public function generate($file, $data)
     {
         $fichier = __DIR__.'./../templates/'.$file;
         if (file_exists($fichier)) {
@@ -16,13 +16,12 @@ class TemplateLoader
 
             require __DIR__.'./../templates/'.$file;
             return ob_get_clean();
-        } else {
+        }
             $message = 'Désolée mais une erreur est survenue pendant l\'envoie du message'
 
             (new TemplateLoader)->twigTemplate('message.php', [
                 'message' => $message
                 ]);
-        }
     }
 
     public function twigTemplate($file, $data)

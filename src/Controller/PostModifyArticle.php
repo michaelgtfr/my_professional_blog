@@ -30,7 +30,7 @@ class PostModifyArticle
                     $datePicture = date('Y_m_d_H_i_s');
                     $namePhoto = "{$datePicture}.{$extensionUpload}";
                     $transfertFile ="img\imgPost\\$namePhoto";
-                    $result = move_uploaded_file($request->getFILES('picture', 'tmp_name'), $transfertFile);
+                    move_uploaded_file($request->getFILES('picture', 'tmp_name'), $transfertFile);
                     (new PictureManagement)->reqAddPicture($idPostUpdate->getId(), $request->getPOST('description'), $datePicture, $extensionUpload);
 
                     $message = 'Félicitation, votre article a été enregistré comme modification. Il modifiera l\'article voulu à la validation d\'un administrateur';

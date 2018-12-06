@@ -43,6 +43,8 @@
                     </div>
                 </div>
     		</section>
-    		<?= $content ?>
+            <section>
+    		    <?= $content; ?>
+            </section>
     	</body>
     </html>

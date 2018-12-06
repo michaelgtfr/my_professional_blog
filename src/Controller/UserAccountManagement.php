@@ -13,23 +13,21 @@ class UserAccountManagement
 {
     public function __invoke(HTTPRequest $request)
     {
-
         if (!empty($request->getSession('id')) && !empty($request->getSession('email')) && $request->getSession('role') == 'administrateur') {
             $return = (new UserManagement)->userAccountNoValidate();
 
             $message = 'Vous voici dans la partie validation des comptes éditeurs. Vous pouvez choisir si oui ou non il peut faire partie des éditeur du site.';
 
-            (new TemplateLoader)->twigTemplate('userAccountManagement.php', [
+            return (new TemplateLoader)->twigTemplate('userAccountManagement.php', [
                 'user' => $return,
                 'request' => $request,
                 'message' => $message
                 ]);
-        } else {
-            $message = 'Désoler vous ne pouvez pas accéder à cette page';
-
-            (new TemplateLoader)->twigTemplate('message.php', [
-                'message' => $message
-                ]);
         }
+        $message = 'Désoler vous ne pouvez pas accéder à cette page';
+
+        (new TemplateLoader)->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }

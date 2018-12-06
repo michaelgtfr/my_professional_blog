@@ -5,7 +5,7 @@ use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 use MyModule\domaine\repository\ArticleManagement;
 use MyModule\entities\Items;
-use MyModule\fonction\SendEmail;
+use MyModule\service\SendEmail;
 
 /**
 *Class allowing the deleted because the reject of the validate of the article non validate
@@ -33,17 +33,16 @@ class DeleteArticle
 
             $message = 'Article supprimer, vous pouvez continué à supprimer des articles.';
 
-            $this->templateLoader->twigTemplate('articleManagement.php', [
+            return $this->templateLoader->twigTemplate('articleManagement.php', [
                                 'items' => $reqArticle,
                                 'request' => $request,
                                 'message' => $message
                                 ]);
-        } else {
-            $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
-
-            (new TemplateLoader)->twigTemplate('message.php', [
-                'message' => $message
-                ]);
         }
+        $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
+
+        (new TemplateLoader)->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }

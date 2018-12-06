@@ -5,7 +5,7 @@ use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 use MyModule\domaine\repository\UserManagement;
 use MyModule\entities\User;
-use MyModule\fonction\SendEmail;
+use MyModule\service\SendEmail;
 
 /**
 *Class for reconfirming an email from an invalid user account.

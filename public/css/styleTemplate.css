@@ -124,5 +124,37 @@ footer a
 	.banner
 	{
 		height: 600px;
+
+	}
+}
+
+/* all media inferior to 768px                            all media inferior to 768px */
+
+@media screen and (max-width: 768px)
+{
+	.navbar
+	{
+		position: relative;
+		text-align: center;
+		margin-bottom: 0px;
+	}
+
+	header
+	{
+		background-repeat: no-repeat;
+		background-image: url("../img/cocodix.jpg");
+		background-size: 100%;
+		height: auto;
+	}
+
+	.banner
+	{
+		height: auto;
+	}
+
+	.banner h1
+	{
+
+		font-size: 2em;
 	}
 }

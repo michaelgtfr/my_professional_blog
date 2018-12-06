@@ -15,16 +15,15 @@ class UpdateHerProfil
     {
         if ($request->getSession('id')[0]) {
             $data = (new UserManagement)->userAccount($request->getSession('id')[0]);
-            (new TemplateLoader)->twigTemplate('updateHerProfil.php', [
+            return (new TemplateLoader)->twigTemplate('updateHerProfil.php', [
                 'user' => $data,
                 'request' => $request
                 ]);
-        } else {
-            $message = 'Désolé! mais vous ne pouvez pas accéder à cette page';
+        }
+        $message = 'Désolé! mais vous ne pouvez pas accéder à cette page';
 
-            (new TemplateLoader)->twigTemplate('message.php', [
+        (new TemplateLoader)->twigTemplate('message.php', [
                 'message' => $message
                 ]);
-        }
     }
 }

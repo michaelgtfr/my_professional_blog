@@ -37,3 +37,20 @@
 {
 	font-weight: bold;
 }
+
+/* all media inferior to 768px */
+
+@media screen and (max-width: 768px)
+{
+	.article
+	{
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
+	.col-xs-12
+	{
+		position: initial;
+		float: none;
+	}
+}

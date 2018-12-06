@@ -3,8 +3,8 @@ namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
-use MyModule\fonction\Dashboard;
-use MyModule\fonction\Token;
+use MyModule\service\Dashboard;
+use MyModule\service\Token;
 
 /**
 *Class allowing either the automatic connection or the display of the login page.

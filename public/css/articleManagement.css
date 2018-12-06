@@ -32,3 +32,13 @@
 	opacity: 0.6;
 	margin-bottom: 10px;
 }
+
+/* all media inferior to 768px */
+
+@media screen and (max-width: 768px)
+{
+	.items
+	{
+		width: auto;
+	}
+}

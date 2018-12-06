@@ -103,3 +103,13 @@ label
 {
 	text-align: center;
 }
+
+/* all media inferior to 768px */
+
+@media screen and (max-width: 768px)
+{
+	.menuEditor .btn
+	{
+		margin: 10px;
+	}
+}

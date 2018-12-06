@@ -9,7 +9,7 @@ use MyModule\domaine\repository\DBConnect;
 class PictureManagement extends DBConnect
 {
     public function photoJoin(
-        $id,
+        $idPost,
         $datePicture,
         $extensionUpload,
         $description
@@ -17,7 +17,7 @@ class PictureManagement extends DBConnect
         $req = $this->db->prepare('INSERT INTO picture
             (update_post_id, blog_posts_id, name, extention, description)
             VALUES(NULL, :blog_posts_id, :name, :extention, :description)');
-        $req->bindParam('blog_posts_id', $id);
+        $req->bindParam('blog_posts_id', $idPost);
         $req->bindParam('name', $datePicture);
         $req->bindParam('extention', $extensionUpload);
         $req->bindParam('description', $description);
@@ -52,13 +52,13 @@ class PictureManagement extends DBConnect
         $req->execute();
     }
 
-    public function recoveryPicture($id)
+    public function recoveryPicture($idPost)
     {
         $req = $this->db->prepare('SELECT blog_posts_id AS blogPostsIdPicture,
                                 name AS namePicture,
                                 extention AS extentionPicture 
                                 FROM picture WHERE update_post_id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idPost);
         $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Picture');
@@ -66,28 +66,28 @@ class PictureManagement extends DBConnect
         return $req->fetch();
     }
 
-    public function deletePicture($id)
+    public function deletePicture($idPost)
     {
         $req = $this->db->prepare('DELETE FROM picture 
                                 WHERE update_post_id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idPost);
         $req->execute();
     }
 
-    public function modifyPicture($id)
+    public function modifyPicture($idPost)
     {
         $req = $this->db->prepare('UPDATE picture SET update_post_id = NULL 
                                 WHERE update_post_id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idPost);
         $req->execute();
     }
 
-    public function recoveryNameExtentionPicture($id)
+    public function recoveryNameExtentionPicture($idPost)
     {
         $req = $this->db->prepare('SELECT name AS namePicture,
                                 extention AS extentionPicture FROM picture 
                                 WHERE blog_posts_id = :blog_posts_id');
-        $req->bindParam('blog_posts_id', $id);
+        $req->bindParam('blog_posts_id', $idPost);
         $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Picture');
@@ -95,21 +95,21 @@ class PictureManagement extends DBConnect
         return $req->fetch();
     }
 
-    public function reqDeletedPicture($id)
+    public function reqDeletedPicture($idPost)
     {
         $req = $this->db->prepare('DELETE FROM picture 
                                 WHERE blog_posts_id = :blog_posts_id');
-        $req->bindParam('blog_posts_id', $id);
+        $req->bindParam('blog_posts_id', $idPost);
         $req->execute();
     }
 
-    public function reqModifyPicture($blogPostsId, $id)
+    public function reqModifyPicture($blogPostsId, $idPost)
     {
         $req = $this->db->prepare('UPDATE picture SET update_post_id = NULL,
                                 blog_posts_id = :blog_posts_id 
                                 WHERE update_post_id = :id');
         $req->bindParam('blog_posts_id', $blogPostsId);
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idPost);
         $req->execute();
     }
 }

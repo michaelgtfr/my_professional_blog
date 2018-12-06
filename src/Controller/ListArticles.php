@@ -2,7 +2,7 @@
 namespace MyModule\Controller;
 
 use MyApp\HTTP\HTTPRequest;
-use MyModule\fonction\Pagination;
+use MyModule\service\Pagination;
 use MyApp\TemplateLoader;
 use MyModule\entities\Items;
 
@@ -13,7 +13,7 @@ class ListArticles
 {
     public function __invoke(HTTPRequest $request)
     {
-        $returnMessages = new Pagination('blog_posts', $request->getParams());
+        $returnMessages = new Pagination($request->getParams());
 
         (new TemplateLoader)->twigTemplate('listOfArticles.php', [
             'message' => $returnMessages->getReqMessage(),

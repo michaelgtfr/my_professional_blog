@@ -16,16 +16,15 @@ class ModifyArticle
         if (!empty($request->getSession('id')) && !empty($request->getSession('email'))) {
             $data = (new ArticleManagement)->articleToBeAmended($request->getParams()[0]);
 
-            (new TemplateLoader)->twigTemplate('modifyArticle.php', [
+            return (new TemplateLoader)->twigTemplate('modifyArticle.php', [
                 'data' => $data,
                 'request' => $request
                 ]);
-        } else {
-            $message = 'désoler, vous ne pouvez pas accéder à cette page';
-
-            (new TemplateLoader)->twigTemplate('message.php', [
-                'message' => $message
-                ]);
         }
+        $message = 'désoler, vous ne pouvez pas accéder à cette page';
+
+        (new TemplateLoader)->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }

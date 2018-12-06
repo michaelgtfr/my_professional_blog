@@ -1,7 +1,7 @@
 <?php
 namespace MyModule\controller;
 
-use MyModule\fonction\SendEmail;
+use MyModule\service\SendEmail;
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 use MyModule\entities\User;

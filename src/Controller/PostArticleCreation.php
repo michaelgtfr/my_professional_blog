@@ -20,7 +20,7 @@ class PostArticleCreation
             $extensionUpload = strtolower(substr(strrchr($request->getFILES('photo', 'name'), '.'), 1));
 
             if ($request->getFILES('photo', 'error') > 0) {
-                $request->addSession('message', 'erreur lors du transfert');
+                $message = 'erreur lors du transfert';
             } elseif ($request->getFILES('photo', 'size') > $maxsize) {
                 $message = 'desoler mais votre fichier est trop gros';
             } elseif (!in_array($extensionUpload, $extensionAllowed)) {
@@ -29,7 +29,7 @@ class PostArticleCreation
                 $datePicture = date('Y_m_d_H_i_s');
                 $namePhoto = "{$datePicture}.{$extensionUpload}";
                 $transfertFile ="img\imgPost\\$namePhoto";
-                $result = move_uploaded_file($request->getFILES('photo', 'tmp_name'), $transfertFile);
+                move_uploaded_file($request->getFILES('photo', 'tmp_name'), $transfertFile);
 
                 $data = new ArticleManagement;
                 $data->addArticle($request->getPOST('id'), $request->getPOST('title'), $request->getPOST('chapo'), $request->getPOST('content'));
@@ -38,15 +38,14 @@ class PostArticleCreation
 
                 $message = 'Félicitation! votre article a été créé. Il sera visible dès qu\'un administrateur aura valider cet article.';
             }
-            (new TemplateLoader)->twigTemplate('message.php', [
-                'message' => $message
-                ]);
-        } else {
-            $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
-
-            (new TemplateLoader)->twigTemplate('message.php', [
+            return (new TemplateLoader)->twigTemplate('message.php', [
                 'message' => $message
                 ]);
         }
+        $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
+
+        (new TemplateLoader)->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }

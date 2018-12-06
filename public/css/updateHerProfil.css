@@ -13,3 +13,19 @@
 	text-align: center;
 	opacity: 0.6;
 }
+
+/* all media inferior to 768px                            all media inferior to 768px */
+
+@media screen and (max-width: 768px)
+{
+	.titleBlock
+	{
+		text-align: center;
+	}
+
+	.body img
+	{
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}

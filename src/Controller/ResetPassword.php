@@ -10,6 +10,6 @@ class ResetPassword
 {
     public function __invoke()
     {
-        echo (new TemplateLoader)->twigTemplate('resetPassword.php', []);
+        (new TemplateLoader)->twigTemplate('resetPassword.php', []);
     }
 }

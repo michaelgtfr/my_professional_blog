@@ -5,7 +5,7 @@ use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
 use MyModule\domaine\repository\UserManagement;
 use MyModule\entities\User;
-use MyModule\fonction\SendEmail;
+use MyModule\service\SendEmail;
 
 /**
 *Class allowing deletion by denying validation of a validated user account.

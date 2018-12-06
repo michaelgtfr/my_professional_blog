@@ -58,7 +58,7 @@ class UpdatePostManagement extends DBConnect
         return $req->fetchAll();
     }
 
-    public function articleDetailModify($id)
+    public function articleDetailModify($idPost)
     {
         $req = $this->db->prepare('SELECT blog_post_update.id AS id,
                                     blog_post_update.title AS title,
@@ -76,7 +76,7 @@ class UpdatePostManagement extends DBConnect
                                 INNER JOIN user
                                 ON blog_post_update.author = user.id  
                                 WHERE blog_post_update.id = :id');
-        $req->bindParam(':id', $id, \PDO::PARAM_INT);
+        $req->bindParam(':id', $idPost, \PDO::PARAM_INT);
         $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');
@@ -84,7 +84,7 @@ class UpdatePostManagement extends DBConnect
         return $req->fetch();
     }
 
-    public function validateTheModify($id)
+    public function validateTheModify($idPost)
     {
         $req = $this->db->prepare('SELECT blog_post_update.id AS id,
                                     blog_post_update.blog_post_id AS idBlogPost,
@@ -94,7 +94,7 @@ class UpdatePostManagement extends DBConnect
                                     blog_post_update.content AS content
                                     FROM blog_post_update 
         	                        WHERE id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idPost);
         $req->execute();
 
         $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, 'MyModule\\entities\\Items');
@@ -102,11 +102,11 @@ class UpdatePostManagement extends DBConnect
         return $req->fetch();
     }
 
-    public function deleteTheModify($id)
+    public function deleteTheModify($idPost)
     {
         $req = $this->db->prepare('DELETE FROM blog_post_update 
         	                        WHERE id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idPost);
         $req->execute();
     }
 }
