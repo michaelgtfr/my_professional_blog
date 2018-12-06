@@ -1,0 +1,39 @@
+.section
+{
+	box-shadow: 0px 0px 10px gray;
+}
+
+.message
+{
+	margin-bottom: 20px;
+}
+
+.author
+{
+	font-family: 'broken_heartregular', sans serif;
+	font-size: 2em;
+}
+
+span
+{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.post
+{
+	box-shadow: 0px 0px 10px gray;
+	margin-bottom: 20px;
+}
+
+.btn
+{
+	opacity: 0.6;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.post img
+{
+	margin-top: 10px;
+}
