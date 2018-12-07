@@ -17,10 +17,10 @@ class ArticlesManagement
 
         $message = 'Page de validation des articles';
 
-        echo (new TemplateLoader)->twigTemplate('articleManagement.php', array(
+        (new TemplateLoader)->twigTemplate('articleManagement.php', [
             'items' => $reqArticle,
             'request' => $request,
             'message' => $message,
-        ));
+        ]);
     }
 }

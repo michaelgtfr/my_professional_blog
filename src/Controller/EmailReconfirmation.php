@@ -11,7 +11,7 @@ class EmailReconfirmation
 {
     public function __invoke(HTTPRequest $request)
     {
-        echo (new TemplateLoader)->twigTemplate('emailReconfirmation.php', [
+        (new TemplateLoader)->twigTemplate('emailReconfirmation.php', [
             'email' =>  $request->getGET('email')
             ]);
     }

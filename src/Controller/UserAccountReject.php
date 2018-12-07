@@ -35,17 +35,16 @@ class UserAccountReject
 
             $message = 'Le compte à été supprimé. Il recevera un message lui disant que sont compte à été refusé. Vous pouvez continué à juger des comptes utilisateurs si vous le voulez';
 
-            $this->templateLoader->twigTemplate('userAccountManagement.php', [
-                'user' => $return,
-                'request' => $request,
-                'message' => $message
-                ]);
-        } else {
-            $message = 'désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
-
-            $this->templateLoader->twigTemplate('message', [
-                'message' => $message
+            return $this->templateLoader->twigTemplate('userAccountManagement.php', [
+                    'user' => $return,
+                    'request' => $request,
+                    'message' => $message
                 ]);
         }
+        $message = 'désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
+
+        $this->templateLoader->twigTemplate('message', [
+            'message' => $message
+            ]);
     }
 }

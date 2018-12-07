@@ -34,17 +34,16 @@ class RefuseTheChange
             $reqArticle = $data->recoverModifyArticle();
             $message = 'L\'article à été supprimé, vous pouvez continuer à juger les autres articles modifié.';
 
-            (new TemplateLoader)->twigTemplate('validateChangeArticle.php', [
-                'request' => $request,
-                'article' => $reqArticle,
-                'message' => $message
-                ]);
-        } else {
-            $message = 'désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
-
-            (new templateLoader)->twigTemplate('message', [
-                'message' => $message
+            return (new TemplateLoader)->twigTemplate('validateChangeArticle.php', [
+                    'request' => $request,
+                    'article' => $reqArticle,
+                    'message' => $message
                 ]);
         }
+        $message = 'désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
+
+        (new templateLoader)->twigTemplate('message', [
+            'message' => $message
+            ]);
     }
 }

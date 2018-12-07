@@ -192,7 +192,7 @@ class ArticleManagement extends DBConnect
     public function reqDeleteArticle($idPost)
     {
         $req = $this->db->prepare('DELETE FROM blog_posts WHERE id = :id');
-        $req->bindParam('id', $id);
+        $req->bindParam('id', $idPost);
         $req->execute();
 
         $req = $this->db->prepare('DELETE FROM picture 

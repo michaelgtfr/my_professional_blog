@@ -1,6 +1,8 @@
 <?php
 namespace MyApp;
 
+use MyApp\HTTP\HTTPRequest;
+
 /*
 * Verifies that these well the same person who connects, avoids the session theft.
 */
@@ -10,19 +12,18 @@ class OPSession
      * Function that retrieves the visitor's IP address
      * Works poorly with Ajax
      */
-    public static function IP()
+    public static function IPUser(HTTPRequest $request)
     {
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            return $realIp = $_SERVER['HTTP_CLIENT_IP'];
-        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            if (strchr($_SERVER['HTTP_X_FORWARDED_FOR'], ',')) {
-                 $tab = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
-                 $realIp = $tab[0];
-            } else {
-                $realIp = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        if (!empty($request->getServer('HTTP_CLIENT_IP'))) {
+            return $realIp = $request->getServer('HTTP_CLIENT_IP');
+        } elseif (!empty($request->getServer('HTTP_X_FORWARDED_FOR'))) {
+            if (strchr($request->getServer('HTTP_X_FORWARDED_FOR'), ',')) {
+                $tab = explode(',', $request->getServer('HTTP_X_FORWARDED_FOR'));
+                return $realIp = $tab[0];
             }
+            $realIp = $request->getServer('HTTP_X_FORWARDED_FOR');
         } else {
-            $realIp = $_SERVER['REMOTE_ADDR'];
+            $realIp = $request->getServer('REMOTE_ADDR');
         }
         return $realIp;
     }
@@ -30,37 +31,36 @@ class OPSession
      * Generate a new Session variable
      * is used during the creation or during a session-theft attempt
      */
-    public static function newSession()
+    public static function newSession(HTTPRequest $request)
     {
         // We copy the session to a new session and then empty this new session
         session_regenerate_id();
         $_SESSION=array();
-        $_SESSION['AGENT']    = $_SERVER['HTTP_USER_AGENT'];
-        $_SESSION['ACCEPT']   = $_SERVER['HTTP_ACCEPT'];
-        $_SESSION['LANGUAGE'] = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-        $_SESSION['ENCODING'] = $_SERVER['HTTP_ACCEPT_ENCODING'];
-        $_SESSION['IP']       = self::IP();
+        $request->setSession('AGENT', $request->getServer('HTTP_USER_AGENT'));
+        $request->setSession('ACCEPT', $request->getServer('HTTP_ACCEPT'));
+        $request->setSession('LANGUAGE', $request->getServer('HTTP_ACCEPT_LANGUAGE'));
+        $request->setSession('ENCODING', $request->getServer('HTTP_ACCEPT_ENCODING'));
+        $request->setSession('IP', self::IPUser($request));
     }
 
     /**
     * Corresponds to the function session_start() but in a secure version
     */
-    public static function start()
+    public static function start(HTTPRequest $request)
     {
-        session_start();
-        if (!isset($_SESSION['IP'])) {
+        if (empty($request->getSession('IP'))) {
             // If the session was not initialized
-            self::newSession();
+            self::newSession($request);
         } else {
             // Checking the IP address, accepted encoding, accepted languages and browser
-            if ($_SESSION['AGENT'] !== $_SERVER['HTTP_USER_AGENT']
-                || $_SESSION['ACCEPT'] !== $_SERVER['HTTP_ACCEPT']
-                || $_SESSION['LANGUAGE'] !== $_SERVER['HTTP_ACCEPT_LANGUAGE']
-                || $_SESSION['ENCODING'] !== $_SERVER['HTTP_ACCEPT_ENCODING']
-                || $_SESSION['IP'] !== self::IP()
+            if ($request->getSession('AGENT') !== $request->getServer('HTTP_USER_AGENT')
+                || $request->getSession('ACCEPT') !== $request->getServer('HTTP_ACCEPT')
+                || $request->getSession('LANGUAGE') !== $request->getServer('HTTP_ACCEPT_LANGUAGE')
+                || $request->getSession('ENCODING') !== $request->getServer('HTTP_ACCEPT_ENCODING')
+                || $request->getSession('IP') !== self::IPUser($request)
             ) {
                 // If a value is not correct, one overwrites everything and we rewrite
-                self::newSession();
+                self::newSession($request);
             }
         }
     }

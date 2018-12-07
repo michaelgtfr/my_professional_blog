@@ -34,17 +34,16 @@ class ValidateArticle
 
             $message = 'Article validé, vous pouvez continué à valider des articles.';
 
-            $this->templateLoader->TwigTemplate('articleManagement.php', [
-                'items' => $reqArticle,
-                'request' => $request,
-                'message' => $message
-                ]);
-        } else {
-            $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
-
-            $this->templateLoader->twigTemplate('message.php', [
-                'message' => $message
-                ]);
+            return $this->templateLoader->TwigTemplate('articleManagement.php', [
+                    'items' => $reqArticle,
+                    'request' => $request,
+                    'message' => $message
+                    ]);
         }
+        $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
+
+        $this->templateLoader->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }

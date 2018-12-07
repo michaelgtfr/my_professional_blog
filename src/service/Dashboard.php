@@ -15,7 +15,7 @@ class Dashboard
         $request->addSession('message', null);
         $result = (new UserManagement)->userAccount($request->getSession('id'));
         
-        echo (new TemplateLoader)->twigTemplate('dashboard.php', [
+        (new TemplateLoader)->twigTemplate('dashboard.php', [
             'result' => $result
             ]);
     }

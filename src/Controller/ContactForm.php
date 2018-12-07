@@ -32,7 +32,7 @@ class ContactForm
 
         $message = 'félicitation votre message à été envoyé sur l\'email administrateur';
 
-        echo $this->templateLoader->twigTemplate('message.php', [
+        $this->templateLoader->twigTemplate('message.php', [
             'message' => $message
             ]);
     }

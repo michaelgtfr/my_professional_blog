@@ -50,6 +50,11 @@ class HTTPRequest
         $this->server['REQUEST_URI'] = $value;
     }
 
+    public function getServer($key, $value = null)
+    {
+        return $this->server[$key] ?? $value;
+    }
+
     /**methode permettant de récupéré une variable POST*/
     public function getPOST($key)
     {

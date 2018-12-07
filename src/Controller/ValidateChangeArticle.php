@@ -17,7 +17,7 @@ class ValidateChangeArticle
 
         $message = 'Vous étes sur la partie modification d\'un article deja validé. Vous pouvez choisir si oui ou non, il peut modifier l\'article déja présent sur le blog.';
 
-        echo (new TemplateLoader)->twigTemplate('validateChangeArticle.php', [
+        (new TemplateLoader)->twigTemplate('validateChangeArticle.php', [
             'request' => $request,
             'article' => $reqArticle,
             'message' => $message

@@ -22,7 +22,7 @@ class PostConnection
             if (!$resultat) {
                 $message = 'Desolé, mais votre mot de passe ou identifiant est incorrect !';
             
-                (new TemplateLoader)->twigTemplate('message.php', [
+                return (new TemplateLoader)->twigTemplate('message.php', [
                     'message' => $message
                     ]);
             } else {
@@ -30,21 +30,20 @@ class PostConnection
                     $request->addSession('id', $resultat->getId());
                     $request->addSession('email', $resultat->getEmail());
                     $request->addSession('role', $resultat->getRole());
-                    $connection = new Dashboard($request);
+                    return new Dashboard($request);
                 } else {
                     $message = 'Desolé, mais votre mot de passe ou identifiant est incorrect !';
 
-                    (new TemplateLoader)->twigTemplate('message.php', [
+                    return (new TemplateLoader)->twigTemplate('message.php', [
                         'message' => $message
                         ]);
                 }
             }
-        } else {
-            $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
-
-            (new TemplateLoader)->twigTemplate('message.php', [
-                'message' => $message
-                ]);
         }
+        $message = 'Désolé! un erreur est survenu veuillez réessayer ultérieurement ou envoyer un message à un administrateur';
+
+        (new TemplateLoader)->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }

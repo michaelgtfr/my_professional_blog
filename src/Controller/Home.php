@@ -11,7 +11,7 @@ use MyModule\entities\Items;
 */
 class Home
 {
-    public function __invoke(HTTPRequest $request)
+    public function __invoke()
     {
         $articleReturn = (new ArticleManagement)->lastThreeAddition();
         (new TemplateLoader)->twigTemplate('home.php', [

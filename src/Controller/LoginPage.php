@@ -14,13 +14,12 @@ class LoginPage
     public function __invoke(HTTPRequest $request)
     {
         if ($request->getSession('id') != null && $request->getSession('email') != null) {
-            $connection = new Dashboard($request);
-        } else {
-            new Token($request);
-            
-            echo (new TemplateLoader)->twigTemplate('loginPage.php', [
-                'request'=> $request
-                ]);
+            return new Dashboard($request);
         }
+        new Token($request);
+            
+        (new TemplateLoader)->twigTemplate('loginPage.php', [
+            'request'=> $request
+            ]);
     }
 }

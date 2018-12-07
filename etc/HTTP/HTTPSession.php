@@ -1,8 +1,6 @@
 <?php
 namespace MyApp\HTTP;
 
-use MyApp\OPSession;
-
 /**
 *Class allowing the creation of a session and the retrieval of SESSION elements.
 */
@@ -10,7 +8,7 @@ class HTTPSession
 {
     public function __construct()
     {
-        (new OPSession)::start();
+        session_start();
     }
 
     public function add($key, $value)

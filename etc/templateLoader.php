@@ -32,12 +32,12 @@ class TemplateLoader
             $twig = new \Twig_Environment($loader, array('cache' => false));
 
             echo $twig->render($file, $data);
-        } else {
-            $message = 'Désolée mais nous ne trouvons pas la page';
-
-            (new TemplateLoader)->twigTemplate('message.php', [
-                'message' => $message
-                ]);
+            return;
         }
+        $message = 'Désolée mais nous ne trouvons pas la page';
+
+        (new TemplateLoader)->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }

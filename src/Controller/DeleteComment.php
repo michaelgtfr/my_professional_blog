@@ -21,17 +21,16 @@ class DeleteComment
 
             $comment = $req->commentRecovery();
 
-            (new TemplateLoader)->twigTemplate('commentManagement.php', [
+            return (new TemplateLoader)->twigTemplate('commentManagement.php', [
                     'request' => $request,
                     'comment' => $comment,
                     'message' => $message
                     ]);
-        } else {
-            $message = 'désolé! mais votre requête n\'a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
-
-            (new TemplateLoader)->twigTemplate('message.php', [
-                'message' => $message
-                ]);
         }
+        $message = 'désolé! mais votre requête n\'a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
+
+        (new TemplateLoader)->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }

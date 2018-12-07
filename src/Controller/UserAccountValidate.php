@@ -35,17 +35,16 @@ class UserAccountValidate
 
             $message = 'Félicitation! vous avez validé le compte utilisateur. Il recevera un message lui disant qu\'il peut se connecter. Vous pouvez continué à valider des comptes utilisateurs si vous le voulez';
 
-            $this->templateLoader->twigTemplate('userAccountManagement.php', [
-                'user' => $return,
-                'request' => $request,
-                'message' => $message
-                ]);
-        } else {
-            $message = 'Désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
-
-            $this->templateLoader->twigTemplate('message', [
-                'message' => $message
+            return $this->templateLoader->twigTemplate('userAccountManagement.php', [
+                    'user' => $return,
+                    'request' => $request,
+                    'message' => $message
                 ]);
         }
+        $message = 'Désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
+
+        $this->templateLoader->twigTemplate('message', [
+            'message' => $message
+            ]);
     }
 }

@@ -23,7 +23,7 @@ class FormComment
         $article = (new ArticleManagement)->articleDetail($request->getPOST('id'));
         $comment = $data->detailComment($request->getPOST('id'));
 
-        echo (new TemplateLoader)->twigTemplate('articleDetail.php', [
+        (new TemplateLoader)->twigTemplate('articleDetail.php', [
                     'article' => $article,
                     'comment' => $comment,
                     'request' => $request,

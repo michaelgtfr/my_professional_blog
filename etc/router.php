@@ -31,7 +31,7 @@ class Router
     // Check corelation between the road and the url.
     public function handleRequest(HTTPRequest $request)
     {
-        foreach ($this->routes as $key => $route) {
+        foreach ($this->routes as $route) {
             switch ($route->getPath()) {
                 case in_array($request->getMethod(), $route->getMethods()):
                     $this->routePath = $route->getPath();

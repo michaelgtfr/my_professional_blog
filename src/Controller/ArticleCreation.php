@@ -12,15 +12,14 @@ class ArticleCreation
     public function __invoke(HTTPRequest $request)
     {
         if (!empty($request->getSession('id')) && !empty($request->getSession('email'))) {
-            echo (new TemplateLoader)->twigTemplate('articleCreation.php', [
+            return (new TemplateLoader)->twigTemplate('articleCreation.php', [
                 'request' => $request
                 ]);
-        } else {
-            $message = 'Désoler, mais vous pouvez pas aller sur cette page sans vous connectez.';
-        
-            echo (new TemplateLoader)->twigTemplate('message.php', [
-                'message' => $message
-                ]);
         }
+        $message = 'Désoler, mais vous pouvez pas aller sur cette page sans vous connectez.';
+        
+        (new TemplateLoader)->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }

@@ -41,7 +41,7 @@ class PostRegistration
             $namePhoto = "{$dateAvatar}.{$extensionUpload}";
             $transfertFile ="img\avatar\\$namePhoto";
 
-            $result = move_uploaded_file($request->getFILES('photo', 'tmp_name'), $transfertFile);
+            move_uploaded_file($request->getFILES('photo', 'tmp_name'), $transfertFile);
 
             $passwordHash = password_hash($request->getPOST('passwordOne'), PASSWORD_DEFAULT);
 

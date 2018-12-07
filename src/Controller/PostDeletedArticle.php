@@ -15,9 +15,13 @@ class PostDeletedArticle
         if (!empty($request->getSession('id')) && !empty($request->getSession('email')) && $request->getSession('role') == 'administrateur') {
             (new ArticleManagement)->reqDeleteArticle($request->getParams()[0]);
             $message = 'L\'article a été effacé';
-        } else {
-            $message = 'Désoler, mais vous ne pouvez pas accéder à cette page.';
+            
+            return (new TemplateLoader)->twigTemplate('message.php', [
+            'message' => $message
+            ]);
         }
+        $message = 'Désoler, mais vous ne pouvez pas accéder à cette page.';
+
         (new TemplateLoader)->twigTemplate('message.php', [
             'message' => $message
             ]);

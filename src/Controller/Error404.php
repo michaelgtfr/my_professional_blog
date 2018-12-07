@@ -11,6 +11,6 @@ class Error404
 {
     public function __invoke()
     {
-        echo (new TemplateLoader)->twigTemplate('error404.php', []);
+        (new TemplateLoader)->twigTemplate('error404.php', []);
     }
 }

@@ -15,7 +15,7 @@ class DetailArticleNoValidate
     {
         $article = (new ArticleManagement)->reqArticleNoValidate($request->getParams()[0]);
 
-        echo (new TemplateLoader)->twigTemplate('detailArticleNoValidate.php', [
+        (new TemplateLoader)->twigTemplate('detailArticleNoValidate.php', [
             'article' => $article
             ]);
     }

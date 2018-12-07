@@ -28,13 +28,13 @@ class PostResetPassword
             if (empty($result->getConfirmationKey())) {
                 $message = 'Désolé, mais votre compte est introuvable veuillez prévénir un administrateur via le formulaire de contact pour trouver une solution à votre problème.';
 
-                $this->templateLoader->twigTemplate('message.php', [
+                return $this->templateLoader->twigTemplate('message.php', [
                                                     'message' => $message
                                                     ]);
             } elseif ($request->getPOST('passwordOne') != $request->getPOST('passwordTwo')) {
                 $message = 'Desolé! vos mots de passes sont différents';
 
-                $this->templateLoader->twigTemplate('resetPassword.php', [
+                return $this->templateLoader->twigTemplate('resetPassword.php', [
                                                 'request' => $request,
                                                 'message' => $message
                                                 ]);
@@ -50,17 +50,16 @@ class PostResetPassword
         
                 $message = 'Félicitation! votre mot de passe à été modifié, vous pourrez utiliser votre compte aprés la validation de votre nouveau mot de passe envoyé sur votre adresse email';
 
-                $this->templateLoader->twigTemplate('postRegistration.php', [
+                return $this->templateLoader->twigTemplate('postRegistration.php', [
                     'message' => $message,
                     'request' => $request
                     ]);
             }
-        } else {
-            $message = 'désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
-
-            $this->templateLoader->twigTemplate('message.php', [
-                'message' => $message
-                ]);
         }
+        $message = 'désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
+
+        $this->templateLoader->twigTemplate('message.php', [
+            'message' => $message
+            ]);
     }
 }
