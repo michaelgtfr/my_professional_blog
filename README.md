@@ -74,3 +74,18 @@ Important: You will ensure that there are no security vulnerabilities (XSS, CRSF
   After connecting, double-click in the left window on the files or click-Drop the folders in the right window that you want to send to the server. As soon as it appears in the right window, it was sent to your server.
   !Please note that your home page should be appelleindex. html. This is the page that will be loaded when a new visitor arrives on your site.
   
+## Database installation:
+
+### Prerequisite:
+
+  .The IP address of the MySQL server.
+  .Your MySQL Login.
+  .Your MySQL password.
+  .The name of the database, if it has already been created.
+  .The PhpMyAdmin address that allows you to manage your online database.
+  
+### Access:
+
+   Changed the parameter file of the database (Config/ConfigPDO.php). Now that it's done, your scripts have access to the host database.
+   !If your table is still empty, you have to use the phpMyAdmin that the hosting puts at your disposal to recreate the tables. On your machine, go to your local phpMyAdmin. Use it to export all your tables. This will create a. sql file on your hard disk that will contain your tables. Then go to the phpMyAdmin address of your host. Once there, use the Import feature to import the. sql file that is on your hard disk. Your tables are now loaded on the host's MySQL server.
+
