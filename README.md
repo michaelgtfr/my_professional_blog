@@ -8,8 +8,8 @@ My professional blog for my project five of my study on openclassroom
 
 The project is to create my own professional blog. This web site is broken down into two large groups of pages:
 
-  * Useful pages for all visitors  
-  * The pages that allow you to administer your blog  
+* Useful pages for all visitors  
+* The pages that allow you to administer your blog  
   
 Here is the list of pages that will have to be accessible from your website:
   
