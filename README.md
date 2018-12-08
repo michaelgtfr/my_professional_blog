@@ -4,7 +4,7 @@
 
 My professional blog for my project five of my study on openclassroom
 
-Context:
+# Context:
 
 The project is to create my own professional blog. This web site is broken down into two large groups of pages:
 
@@ -56,4 +56,7 @@ On the page detailing a blog post, you have to display the following information
 On the page for editing a blog post, the user has the option to edit the title, Chapo, author and content fields.
 In the footer menu, it must include a link to access the administration of the blog.
 Important: You will ensure that there are no security vulnerabilities (XSS, CRSF, SQL injection, session hijacking,...).
+
+# Installation:
+
   
