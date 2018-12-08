@@ -78,7 +78,7 @@ class HTTPRequest
 
     public function getGET($key)
     {
-        return $this->query[$key];
+        return htmlspecialchars($this->query[$key]);
     }
 
     public function getSession($key)

@@ -41,7 +41,7 @@ class ValidateTheChange
 
             $reqArticle = $postUpdate->recoverModifyArticle();
 
-            echo (new TemplateLoader)->twigTemplate('validateChangeArticle.php', [
+            (new TemplateLoader)->twigTemplate('validateChangeArticle.php', [
                 'request' => $request,
                 'article' => $reqArticle,
                 'message' => $message
@@ -49,7 +49,7 @@ class ValidateTheChange
         } else {
             $message = 'désolé! mais votre requête n\a pas aboutie, veuillez réessayer ultérieurement ou envoyer un email à un administrateur.';
 
-            $this->templateLoader->twigTemplate('message', [
+            (new TemplateLoader)->twigTemplate('message', [
                 'message' => $message
                 ]);
         }

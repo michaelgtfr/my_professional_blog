@@ -36,11 +36,11 @@ class OPSession
         // We copy the session to a new session and then empty this new session
         session_regenerate_id();
         $_SESSION=array();
-        $request->setSession('AGENT', $request->getServer('HTTP_USER_AGENT'));
-        $request->setSession('ACCEPT', $request->getServer('HTTP_ACCEPT'));
-        $request->setSession('LANGUAGE', $request->getServer('HTTP_ACCEPT_LANGUAGE'));
-        $request->setSession('ENCODING', $request->getServer('HTTP_ACCEPT_ENCODING'));
-        $request->setSession('IP', self::IPUser($request));
+        $request->addSession('AGENT', $request->getServer('HTTP_USER_AGENT'));
+        $request->addSession('ACCEPT', $request->getServer('HTTP_ACCEPT'));
+        $request->addSession('LANGUAGE', $request->getServer('HTTP_ACCEPT_LANGUAGE'));
+        $request->addSession('ENCODING', $request->getServer('HTTP_ACCEPT_ENCODING'));
+        $request->addSession('IP', self::IPUser($request));
     }
 
     /**
@@ -50,18 +50,17 @@ class OPSession
     {
         if (empty($request->getSession('IP'))) {
             // If the session was not initialized
+            return self::newSession($request);
+        }
+        // Checking the IP address, accepted encoding, accepted languages and browser
+        if ($request->getSession('AGENT') !== $request->getServer('HTTP_USER_AGENT')
+            || $request->getSession('ACCEPT') !== $request->getServer('HTTP_ACCEPT')
+            || $request->getSession('LANGUAGE') !== $request->getServer('HTTP_ACCEPT_LANGUAGE')
+            || $request->getSession('ENCODING') !== $request->getServer('HTTP_ACCEPT_ENCODING')
+            || $request->getSession('IP') !== self::IPUser($request)
+        ) {
+            // If a value is not correct, one overwrites everything and we rewrite
             self::newSession($request);
-        } else {
-            // Checking the IP address, accepted encoding, accepted languages and browser
-            if ($request->getSession('AGENT') !== $request->getServer('HTTP_USER_AGENT')
-                || $request->getSession('ACCEPT') !== $request->getServer('HTTP_ACCEPT')
-                || $request->getSession('LANGUAGE') !== $request->getServer('HTTP_ACCEPT_LANGUAGE')
-                || $request->getSession('ENCODING') !== $request->getServer('HTTP_ACCEPT_ENCODING')
-                || $request->getSession('IP') !== self::IPUser($request)
-            ) {
-                // If a value is not correct, one overwrites everything and we rewrite
-                self::newSession($request);
-            }
         }
     }
 }
