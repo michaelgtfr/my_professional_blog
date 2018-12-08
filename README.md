@@ -89,4 +89,4 @@ Important: You will ensure that there are no security vulnerabilities (XSS, CRSF
    Changed the parameter file of the database (Config/ConfigPDO.php). Now that it's done, your scripts have access to the host database.
    !If your table is still empty, you have to use the phpMyAdmin that the hosting puts at your disposal to recreate the tables. On your machine, go to your local phpMyAdmin. Use it to export all your tables. This will create a. sql file on your hard disk that will contain your tables. Then go to the phpMyAdmin address of your host. Once there, use the Import feature to import the. sql file that is on your hard disk. Your tables are now loaded on the host's MySQL server.
    
-   * **Site installation Complete**
+   **Site installation Complete**
