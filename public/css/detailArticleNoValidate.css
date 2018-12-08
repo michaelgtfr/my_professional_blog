@@ -1,0 +1,31 @@
+.validateArticle
+{
+	box-shadow: 0px 0px 10px gray;
+}
+
+.validateArticle h3
+{
+	text-align: center;
+}
+
+.validateArticle img
+{
+	border: 2px black solid;
+}
+
+.chapoItems
+{
+	text-align: left;
+}
+
+.contentItems
+{
+	text-align: left;
+}
+
+.titleItems
+{
+	font-family: 'broken_heartregular', sans serif;
+	font-size: 4em;
+	font-weight: bold;
+}

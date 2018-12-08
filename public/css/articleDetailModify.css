@@ -1,0 +1,28 @@
+.titleSection
+{
+	text-align: center;
+	font-family: 'broken_heartregular', sans serif;
+	font-size: 4em;
+	font-weight: bold;
+}
+
+.section img
+{
+	border: 2px black solid;
+}
+
+.chapoSection
+{
+	text-align: left;
+	font-weight: bold;
+}
+
+.contentSection
+{
+	text-align: left;
+}
+
+.author
+{
+	font-weight: bold;
+}

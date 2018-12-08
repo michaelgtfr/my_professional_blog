@@ -1,0 +1,15 @@
+.formulaire
+{
+	box-shadow: 0px 0px 10px gray;
+}
+
+h3
+{
+	text-align: center;
+}
+
+.validate
+{
+	text-align: center;
+	opacity: 0.6;
+}
