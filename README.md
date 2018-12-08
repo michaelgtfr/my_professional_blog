@@ -8,29 +8,29 @@ My professional blog for my project five of my study on openclassroom
 
 The project is to create my own professional blog. This web site is broken down into two large groups of pages:
 
-+ Useful pages for all visitors  
-+ The pages that allow you to administer your blog  
++  Useful pages for all visitors  
++  The pages that allow you to administer your blog  
   
 Here is the list of pages that will have to be accessible from your website:
   
-+ The home page     
-+ The page listing all of the blogs posts     
-+ The page displaying a blog post     
-+ The page for adding a blog post     
-+ The page for editing a blog post      
-+ The pages that allow you to edit/delete a blog post     
-+ Login/user Registration pages     
++  The home page     
++  The page listing all of the blogs posts     
++  The page displaying a blog post     
++  The page for adding a blog post     
++  The page for editing a blog post      
++  The pages that allow you to edit/delete a blog post     
++  Login/user Registration pages     
   
 We will develop an administration part that will have to be accessible only to registered and validated users.  
 The administration pages will therefore be accessible on conditions and ensure the security of the administration part.  
 
 The following information must be presented on the home page:  
 
-+ Your first and last name      
-+ A photo and/or a logo     
-+ A catch phrase that looks like you (example: "Martin Durand, the developer you need!")      
-+ A menu for navigating through all the pages of your website     
-+ A contact form (at the submission of this form, an email with all this information will be sent to you) with the following fields:           
++  Your first and last name      
++  A photo and/or a logo     
++  A catch phrase that looks like you (example: "Martin Durand, the developer you need!")      
++  A menu for navigating through all the pages of your website     
++  A contact form (at the submission of this form, an email with all this information will be sent to you) with the following fields:           
   + Surname/First Name        
   + Contact email     
   + Message      
