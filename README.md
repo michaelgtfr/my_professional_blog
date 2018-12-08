@@ -59,4 +59,18 @@ Important: You will ensure that there are no security vulnerabilities (XSS, CRSF
 
 ## Installation:
 
+### Prerequisite:
+
+  .Offer accommodation on a hosting.
+  .Have a domain name that will be the address on which your site will be accessible.
+  .Have its ID on its hosting (host, password, Identifying).
+  .Have installed an FTP on his computer.
+  
+### Site installation:
+(Example with FileZilla but all FTP works on the same principle)
+
+  Open your FTP software. Cliquez sur le logo " Gestionnaire of site". A window opens. Click on "New Site" and give it the name you want (example: "My Site"). To the right, you will have to indicate (the IP address, password and its username). Click Connect.
+  !Warning a message warns you after you click Connect you tell yourself if you are connecting or not.
+  After connecting, double-click in the left window on the files or click-Drop the folders in the right window that you want to send to the server. As soon as it appears in the right window, it was sent to your server.
+  !Please note that your home page should be appelleindex. html. This is the page that will be loaded when a new visitor arrives on your site.
   
