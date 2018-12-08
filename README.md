@@ -30,7 +30,8 @@ The following information must be presented on the home page:
   * A photo and/or a logo  
   * A catch phrase that looks like you (example: "Martin Durand, the developer you need!")  
   * A menu for navigating through all the pages of your website  
-  * A contact form (at the submission of this form, an email with all this information will be sent to you) with the following fields:         * Surname/First Name  
+  * A contact form (at the submission of this form, an email with all this information will be sent to you) with the following fields:         
+      * Surname/First Name  
       * Contact email  
       * Message  
   * A link to your CV in PDF format  
