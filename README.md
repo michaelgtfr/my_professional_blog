@@ -77,7 +77,7 @@ Important: You will ensure that there are no security vulnerabilities (XSS, CRSF
   
 ## Database installation
 
-### Prerequisite
+### required
 
 -The IP address of the MySQL server      
 -Your MySQL Login      
