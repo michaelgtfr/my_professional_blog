@@ -3,17 +3,18 @@ namespace MyModule\service;
 
 use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
+use MyConfig\Dev;
 
 /**
 *Class for sending email to the user.
 */
-class SendEmail
+class SendEmail extends Dev
 {
     public function __construct($email, $subject, $text)
     {
-        $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-        ->setUsername('michael.garret.france@gmail.com')
-        ->setPassword('mlgt180391');
+        $transport = (new \Swift_SmtpTransport(self::EMAIL_SMTP, self::EMAIL_PORT, self::EMAIL_CLE))
+        ->setUsername(self::EMAIL_USER)
+        ->setPassword(self::EMAIL_PASSWORD);
 
         $mailer = new \Swift_Mailer($transport);
 

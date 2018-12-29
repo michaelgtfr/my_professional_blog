@@ -1,12 +1,12 @@
 <?php
 namespace MyApp\database;
 
-use MyConfig\ConfigPDO;
+use MyConfig\Dev;
 
 /**
 *Class for creating the connection to the database.
 */
-final class Database extends ConfigPDO
+final class Database extends Dev
 {
 
     public function getConnection()
