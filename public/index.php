@@ -1,4 +1,5 @@
 <?php
+require __DIR__.'/../config/Dev.php';
 require_once __DIR__.'/../vendor/autoload.php';
 
 use MyApp\Router;

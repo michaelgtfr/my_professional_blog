@@ -11,9 +11,9 @@ class SendEmail
 {
     public function __construct($email, $subject, $text)
     {
-        $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-        ->setUsername('michael.garret.france@gmail.com')
-        ->setPassword('mlgt180391');
+        $transport = (new \Swift_SmtpTransport(EMAIL_SMTP, EMAIL_PORT, EMAIL_CLE))
+        ->setUsername(EMAIL_USER)
+        ->setPassword(EMAIL_PASSWORD);
 
         $mailer = new \Swift_Mailer($transport);
 

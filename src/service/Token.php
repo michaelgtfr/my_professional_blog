@@ -11,7 +11,7 @@ class Token
     public function __construct(HTTPRequest $request)
     {
         if ($request->getSession('token') == null) {
-            $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+            $token = bin2hex(random_bytes(32));
             $request->addSession('token', $token);
         }
     }

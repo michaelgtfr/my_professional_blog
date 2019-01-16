@@ -27,19 +27,17 @@ class HTTPRequest
         $this->session = new HTTPSession();
     }
 
-    /**créer une instanciation et renvoie les données demandés*/
+    /**Create an instantiation and return the requested data*/
     public static function createFromGlobals()
     {
         return new self($_GET, $_POST, $_FILES, $_SERVER);
     }
 
-    /** fonction permettant de recupéré la méthode utilisé pour envoyer la requete*/
     public function getMethod()
     {
         return $this->server['REQUEST_METHOD'];
     }
 
-    /**methode permettant de récupéré l'url*/
     public function getURL()
     {
         return $this->server['REQUEST_URI'];
@@ -55,7 +53,6 @@ class HTTPRequest
         return $this->server[$key] ?? $value;
     }
 
-    /**methode permettant de récupéré une variable POST*/
     public function getPOST($key)
     {
         return htmlspecialchars($this->request[$key]);
