@@ -58,6 +58,10 @@ On the page for editing a blog post, the user has the option to edit the title, 
 In the footer menu, it must include a link to access the administration of the blog.  
 Important: You will ensure that there are no security vulnerabilities (XSS, CRSF, SQL injection, session hijacking,...).  
 
+## Download libraries via composer
+
+Go to the root folder of the site. In the root folder right click the mouse and then press git bash (or equivalent software). The Open software write  " composer install ". The libraries will be installed automatically in a vendor folder.
+
 ## Installation
 
 ### Prerequisite
