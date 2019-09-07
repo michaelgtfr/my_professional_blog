@@ -1,9 +1,6 @@
 <?php
 namespace MyModule\service;
 
-use Swift_Attachment;
-use Swift_Image;
-
 /**
 *Class for sending email to the user.
 */

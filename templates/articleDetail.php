@@ -34,10 +34,10 @@
 	<section class="commentary row">
         <h3>Les Commentaires</h3>
         <div class="commentaryBlock col-sm-6 col-sm-offset-3 col-xs-12">
-    	{% for values in comment %}
-        	<p class="contentComment col-xs-12">{{ values.getContentComment }}</p>
-        	<p class="authorComment col-xs-12">Créé par {{ values.getAuthorComment }} le {{ values.getDateCreateComment }}</p>
-    	{% endfor %}
+    	    {% for values in comment %}
+        	  <p class="contentComment col-xs-12">{{ values.getContentComment }}</p>
+        	  <p class="authorComment col-xs-12">Créé par {{ values.getAuthorComment }} le {{ values.getDateCreateComment }}</p>
+    	    {% endfor %}
         </div>
 	</section>
 	<section class="formComment row">
