@@ -1,0 +1,44 @@
+.validateArticle
+{
+	box-shadow: 0px 0px 10px gray;
+	text-align: center;
+}
+
+.items
+{
+	box-shadow: 0px 0px 10px gray;
+	margin : 20px;
+}
+
+.imgItems
+{
+	margin-top: 10px;
+}
+
+.detailItems
+{
+	opacity: 0.6;
+	margin-bottom: 10px;
+}
+
+.validateItems
+{
+	opacity: 0.6;
+	margin-bottom: 10px;
+}
+
+.rejectItems
+{
+	opacity: 0.6;
+	margin-bottom: 10px;
+}
+
+/* all media inferior to 768px */
+
+@media screen and (max-width: 768px)
+{
+	.items
+	{
+		width: auto;
+	}
+}

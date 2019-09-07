@@ -1,0 +1,82 @@
+.articleDetail
+{
+	box-shadow: 0px 0px 10px gray;
+}
+
+.adminNav
+{
+	text-align: center;
+	opacity: 0.6;
+}
+
+.article h3
+{
+	text-align: center;
+	font-family: 'broken_heartregular', sans serif;
+	font-size: 4em;
+	font-weight: bold;
+}
+
+.article img
+{
+	border: 2px black solid;
+}
+
+.chapoItems
+{
+	text-align: left;
+	font-weight: bold;
+}
+
+.contentItems
+{
+	text-align: left;
+}
+
+.formComment
+{
+	background-image: url("../img/cococinq.png");
+	background-size: 100%;
+	color: white;
+	text-shadow: 1px 1px 3px black;
+}
+
+.validate
+{
+	text-align: center;
+}
+
+.formComment h3
+{
+	padding-top: 10px;
+	text-align: center;
+	font-size: 4em;
+	font-family: 'broken_heartregular', sans serif;
+	padding-bottom: 50px;
+	text-decoration: underline;
+}
+
+.commentary h3
+{
+	padding-top: 10px;
+	text-align: center;
+	font-size: 4em;
+	font-family: 'broken_heartregular', sans serif;
+	padding-bottom: 50px;
+	text-decoration: underline;
+}
+
+.commentaryBlock
+{
+	box-shadow: 0px 0px 10px black;
+	margin-bottom: 10px;
+}
+.authorComment
+{
+	background-color: red;
+	opacity: 0.7;
+	color: white;
+	border-bottom: 2px black solid;
+	padding: 2px;
+}
+
