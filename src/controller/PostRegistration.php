@@ -27,7 +27,7 @@ class PostRegistration
 
         if (!empty($resultat)) {
             $message = 'Desoler mais ce compte existe deja';
-        } elseif ($request->getFILES('photo', 'error') == 0) {
+        } elseif ($request->getFILES('photo', 'error') > 2) {
             $message = 'Erreur lors du transfert';
         } elseif ($request->getFILES('photo', 'size') > $maxsize) {
             $message = 'Le fichier est trop gros';
