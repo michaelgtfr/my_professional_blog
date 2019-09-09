@@ -4,8 +4,6 @@ namespace MyModule\Controller;
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 use MyModule\domaine\repository\CommentManagement;
-use MyModule\entities\Comment;
-use MyModule\entities\Items;
 use MyModule\domaine\repository\ArticleManagement;
 
 /**

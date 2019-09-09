@@ -3,7 +3,6 @@ namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
-use MyModule\entities\BlogPosts;
 use MyModule\domaine\repository\ArticleManagement;
 use MyModule\domaine\repository\PictureManagement;
 

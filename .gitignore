@@ -1,5 +1,5 @@
 Dev.php
 Prod.php
 vendor/
-.idea/
-.avatar
+.idea
+avatar/

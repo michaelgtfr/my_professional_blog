@@ -5,8 +5,6 @@ use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 use MyModule\domaine\repository\UpdatePostManagement;
 use MyModule\domaine\repository\PictureManagement;
-use MyModule\entities\User;
-use MyModule\entities\Picture;
 
 /**
 *Class to refuse the modification of an article.

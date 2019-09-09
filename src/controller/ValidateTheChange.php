@@ -6,8 +6,6 @@ use MyApp\HTTP\HTTPRequest;
 use MyModule\domaine\repository\UpdatePostManagement;
 use MyModule\domaine\repository\PictureManagement;
 use MyModule\domaine\repository\ArticleManagement;
-use MyModule\entities\Picture;
-use MyModule\entities\Items;
 
 /**
 *Class to modify an already validated article.

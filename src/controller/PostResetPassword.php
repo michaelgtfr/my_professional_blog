@@ -3,7 +3,6 @@ namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
-use MyModule\entities\User;
 use MyModule\domaine\repository\UserManagement;
 use MyModule\service\SendEmail;
 

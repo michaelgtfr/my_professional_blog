@@ -4,7 +4,6 @@ namespace MyModule\controller;
 use MyApp\HTTP\HTTPRequest;
 use MyModule\domaine\repository\UserManagement;
 use MyApp\TemplateLoader;
-use MyModule\entities\User;
 
 /*
 *Class allowing modification of the user account.

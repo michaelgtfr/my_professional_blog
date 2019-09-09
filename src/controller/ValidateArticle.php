@@ -5,7 +5,6 @@ use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
 use MyModule\service\SendEmail;
 use MyModule\domaine\repository\ArticleManagement;
-use MyModule\entities\Items;
 
 /**
 *Class allowing the validation of an article by an administrator.

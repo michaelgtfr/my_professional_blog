@@ -4,7 +4,6 @@ namespace MyModule\controller;
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 use MyModule\domaine\repository\ArticleManagement;
-use MyModule\entities\Items;
 use MyModule\service\SendEmail;
 
 /**

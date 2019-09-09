@@ -1,10 +1,8 @@
 <?php
 namespace MyModule\Controller;
 
-use MyApp\HTTP\HTTPRequest;
 use MyModule\domaine\repository\ArticleManagement;
 use MyApp\TemplateLoader;
-use MyModule\entities\Items;
 
 /**
 *class controller of the homepage.

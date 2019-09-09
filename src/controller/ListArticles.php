@@ -4,7 +4,6 @@ namespace MyModule\Controller;
 use MyApp\HTTP\HTTPRequest;
 use MyModule\service\Pagination;
 use MyApp\TemplateLoader;
-use MyModule\entities\Items;
 
 /**
 *Class controler of the item listing page.

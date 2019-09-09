@@ -12,8 +12,8 @@
                 <div class="article col-xs-12">
                     <img class="blockOne col-sm-4 col-xs-12" src="http://projetcinq/img/imgPost/{{ value.getNamePicture }}.{{ value.getExtentionPicture }}" alt="{{ value.getDescriptionPicture }}" />
                     <div class="blockTwo col-sm-5 col-xs-12">
-                        <h3 class="col-xs-12">{{ value.getTitle }}</h3>
-                        <p class="col-xs-12">{{ value.getChapo }}</p>
+                        <h3 class="col-xs-12">{{ value.getTitle|raw }}</h3>
+                        <p class="col-xs-12">{{ value.getChapo|raw }}</p>
                     </div>
                     <div class="blockThree col-sm-3 col-xs-12">
                         <p class="col-xs-12">Créer par {{ value.getFirstName }}</p>

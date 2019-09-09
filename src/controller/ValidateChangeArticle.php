@@ -2,7 +2,6 @@
 namespace MyModule\controller;
 
 use MyModule\domaine\repository\UpdatePostManagement;
-use MyModule\entities\Items;
 use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
 

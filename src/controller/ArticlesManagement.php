@@ -3,7 +3,6 @@ namespace MyModule\controller;
 
 use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
-use MyModule\entities\Items;
 use MyModule\domaine\repository\ArticleManagement;
 
 /**

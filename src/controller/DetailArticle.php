@@ -5,8 +5,6 @@ use MyApp\HTTP\HTTPRequest;
 use MyModule\domaine\repository\ArticleManagement;
 use MyModule\domaine\repository\CommentManagement;
 use MyApp\TemplateLoader;
-use MyModule\entities\Items;
-use MyModule\entities\Comment;
 
 /**
 *Class controller of the item detail page.

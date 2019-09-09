@@ -17,7 +17,7 @@ class TemplateLoader
             require __DIR__.'./../templates/'.$file;
             return ob_get_clean();
         }
-            $message = 'Désolée mais une erreur est survenue pendant l\'envoie du message'
+            $message = 'Désolée mais une erreur est survenue pendant l\'envoie du message';
 
             (new TemplateLoader)->twigTemplate('message.php', [
                 'message' => $message

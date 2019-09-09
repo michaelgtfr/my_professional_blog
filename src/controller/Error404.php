@@ -1,7 +1,6 @@
 <?php
 namespace MyModule\Controller;
 
-use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 
 /**

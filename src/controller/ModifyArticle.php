@@ -4,7 +4,6 @@ namespace MyModule\controller;
 use MyApp\HTTP\HTTPRequest;
 use MyModule\domaine\repository\ArticleManagement;
 use MyApp\TemplateLoader;
-use MyModule\entities\Items;
 
 /**
 *Class to display the edit form for an article.

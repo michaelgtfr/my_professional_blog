@@ -5,7 +5,6 @@ use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 use MyModule\domaine\repository\UpdatePostManagement;
 use MyModule\domaine\repository\PictureManagement;
-use MyModule\entities\User;
 
 /**
 *Class to check and save as possible a previously validated article.

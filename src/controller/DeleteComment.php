@@ -3,7 +3,6 @@ namespace MyModule\Controller;
 
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
-use MyModule\entities\Comment;
 use MyModule\domaine\repository\CommentManagement;
 
 /**

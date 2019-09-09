@@ -4,7 +4,6 @@ namespace MyModule\Controller;
 use MyApp\HTTP\HTTPRequest;
 use MyModule\domaine\repository\ArticleManagement;
 use MyApp\TemplateLoader;
-use MyModule\entities\Items;
 
 /**
 *Class allowing the recovery of an invalidated article.

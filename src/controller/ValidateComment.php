@@ -4,7 +4,6 @@ namespace MyModule\controller;
 use MyApp\TemplateLoader;
 use MyApp\HTTP\HTTPRequest;
 use MyModule\domaine\repository\CommentManagement;
-use MyModule\entities\Comment;
 
 /**
 *Class allowing the validation of a comment.

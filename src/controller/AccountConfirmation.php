@@ -4,7 +4,6 @@ namespace MyModule\controller;
 use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 use MyModule\domaine\repository\UserManagement;
-use MyModule\entities\User;
 
 /**
 *Class allowing the confirmation of a user account.

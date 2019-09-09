@@ -14,8 +14,8 @@
                         <div class="post col-xs-12 col-sm-4">
                             <img class="col-xs-12" src="http://projetcinq/img/imgPost/{{ value.getNamePicture }}.{{ value.getExtentionPicture }}" alt="{{ value.getDescriptionPicture }}"/>
                             <p class="author col-xs-12">Auteur: {{ value.getFirstName }}</p>
-                            <p class="col-xs-12"><span>Titre:</span> {{ value.getTitle }}</p>
-                            <p class="col-xs-12"><span>Chapo:</span> {{ value.getChapo }}</p>
+                            <p class="col-xs-12"><span>Titre:</span> {{ value.getTitle|raw }}</p>
+                            <p class="col-xs-12"><span>Chapo:</span> {{ value.getChapo|raw }}</p>
                             <a class="col-xs-12 btn btn-danger" href="http://projetcinq/index.php/detailarticlemodify/{{ value.getId }}" target="_blank">Voir l'article modifié</a>
                             <a class="col-xs-12 btn btn-danger" href="http://projetcinq/index.php/articledetail/{{ value.getIdBlogPost }}" target="_blank">Voir l'article</a>
                             <a class="col-xs-12 btn btn-danger" href="http://projetcinq/index.php/validatethechange?id={{ value.getId }}&token={{ request.getSession('token') }}" >Valider le changement</a>

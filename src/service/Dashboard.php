@@ -16,7 +16,8 @@ class Dashboard
         $result = (new UserManagement)->userAccount($request->getSession('id'));
         
         (new TemplateLoader)->twigTemplate('dashboard.php', [
-            'result' => $result
+            'result' => $result,
+            'account' => $request->getSession('id')
             ]);
     }
 }
