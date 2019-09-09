@@ -1,7 +1,6 @@
 <?php
 namespace MyModule\controller;
 
-use MyApp\HTTP\HTTPRequest;
 use MyApp\TemplateLoader;
 
 /**
@@ -9,7 +8,7 @@ use MyApp\TemplateLoader;
  */
 class Disconnection
 {
-    public function __invoke(HTTPRequest $request)
+    public function __invoke()
     {
         session_destroy();
 

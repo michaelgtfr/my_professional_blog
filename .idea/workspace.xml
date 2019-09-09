@@ -2,48 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d659e7f-47d2-46e4-9589-0f92e3909cc0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controller/Disconnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/etc/TemplateLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/etc/TemplateLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/articleDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/articleDetail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/AccountConfirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AccountConfirmation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ArticlesManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArticlesManagement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/CommentsManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CommentsManagement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/DeleteArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DeleteArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/DeleteComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DeleteComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/DetailArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DetailArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/DetailArticleModify.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DetailArticleModify.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/DetailArticleNoValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DetailArticleNoValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Error404.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Error404.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/FormComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FormComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ListArticles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ListArticles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ModifyArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ModifyArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/PostArticleCreation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostArticleCreation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/PostModifyArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostModifyArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/PostResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostResetPassword.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/RefuseTheChange.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RefuseTheChange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/UpdateHerProfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UpdateHerProfil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/UserAccountManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserAccountManagement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/UserAccountReject.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserAccountReject.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/UserAccountValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserAccountValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ValidateArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ValidateArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ValidateChangeArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ValidateChangeArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ValidateComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ValidateComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ValidateTheChange.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ValidateTheChange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/articleDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articleDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/articleDetailModify.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articleDetailModify.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/commentManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/commentManagement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/detailArticleNoValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/detailArticleNoValidate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/listOfArticles.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/listOfArticles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modifyArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modifyArticle.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/updateHerProfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/updateHerProfil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/validateChangeArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/validateChangeArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Disconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Disconnection.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +15,26 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="624">
+              <caret line="75" column="35" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/controller/Disconnection.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -157,6 +136,17 @@
             <path>
               <item name="my_professional_blog(2)" type="b2602c69:ProjectViewProjectNode" />
               <item name="my_professional_blog(2)" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my_professional_blog(2)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my_professional_blog(2)" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my_professional_blog(2)" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my_professional_blog(2)" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -216,17 +206,19 @@
       <workItem from="1567771290103" duration="29000" />
       <workItem from="1567771852640" duration="15214000" />
       <workItem from="1567869974896" duration="11846000" />
-      <workItem from="1568016818458" duration="4387000" />
+      <workItem from="1568016818458" duration="5185000" />
+      <workItem from="1568046471218" duration="1679000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32327000" />
+    <option name="totallyTimeSpent" value="34804000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26308724" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2671141" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -287,16 +279,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/listOfArticles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/loginPage.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/updateHerProfil.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -376,13 +358,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="75" column="35" lean-forward="true" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -511,13 +486,6 @@
     <entry file="file://$PROJECT_DIR$/src/controller/EmailReconfirmation.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/controller/Disconnection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/DetailArticleNoValidate.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -610,6 +578,28 @@
           <folding>
             <element signature="e#38#65#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/styleTemplate.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2117" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/SendEmail.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="75" column="35" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controller/Disconnection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
