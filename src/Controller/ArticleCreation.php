@@ -2,27 +2,22 @@
 namespace MyModule\controller;
 
 use MyApp\HTTP\HTTPRequest;
-use MyModule\domaine\repository\ArticleManagement;
 use MyApp\TemplateLoader;
-use MyModule\entities\Items;
 
 /**
-*Class to display the edit form for an article.
+*Class to call the article creation form.
 */
-class ModifyArticle
+class ArticleCreation
 {
     public function __invoke(HTTPRequest $request)
     {
         if (!empty($request->getSession('id')) && !empty($request->getSession('email'))) {
-            $data = (new ArticleManagement)->articleToBeAmended($request->getParams()[0]);
-
-            return (new TemplateLoader)->twigTemplate('modifyArticle.php', [
-                'data' => $data,
+            return (new TemplateLoader)->twigTemplate('articleCreation.php', [
                 'request' => $request
                 ]);
         }
-        $message = 'désoler, vous ne pouvez pas accéder à cette page';
-
+        $message = 'Désoler, mais vous pouvez pas aller sur cette page sans vous connectez.';
+        
         (new TemplateLoader)->twigTemplate('message.php', [
             'message' => $message
             ]);

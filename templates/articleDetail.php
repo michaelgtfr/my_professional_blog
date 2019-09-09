@@ -24,7 +24,6 @@
     	{% if message is defined %}
         	<p class="col-xs-12">{{ message }}</p>
     	{% endif %}
-
     	<h3 class="col-xs-12">{{ article.getTitle|raw }}</h3>
     	<img class="col-sm-8 col-sm-offset-2" src="http://projetcinq/img/imgPost/{{ article.getNamePicture }}.{{ article.getExtentionPicture }}" alt="{{ article.getDescriptionPicture }}" width="100%" />
     	<p class="chapoItems col-xs-12">{{ article.getChapo|raw }}</p>

@@ -2,8 +2,93 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d659e7f-47d2-46e4-9589-0f92e3909cc0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Disconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Disconnection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/actionResolver.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/router.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/etc/templateLoader.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/AccountConfirmation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ArticleCreation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ArticlesManagement.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/CommentsManagement.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ContactForm.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/DeleteArticle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/DeleteComment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/DeletedArticle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/DetailArticle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/DetailArticleModify.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/DetailArticleNoValidate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/EmailReconfirmation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Error404.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/FormComment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Home.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ListArticles.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/LoginPage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ModifyArticle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PostArticleCreation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PostDeletedArticle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PostEmailReconfirmation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PostModifyArticle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PostRegistration.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PostResetPassword.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/PostUpdateHerProfil.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/Postconnection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/RefuseTheChange.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/RegistrationPage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ResetPassword.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/UpdateHerProfil.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/UserAccountManagement.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/UserAccountReject.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/UserAccountValidate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ValidateArticle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ValidateChangeArticle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ValidateComment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ValidateTheChange.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/domaine/repository/DbConnect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/ActionResolver.php" beforeDir="false" afterPath="$PROJECT_DIR$/etc/ActionResolver.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/etc/Router.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/etc/TemplateLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/etc/TemplateLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/articleDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/articleDetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/home_page_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/home_page_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/AccountConfirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/AccountConfirmation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ArticleCreation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArticleCreation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ArticlesManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ArticlesManagement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/CommentsManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/CommentsManagement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ContactForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ContactForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/DeleteArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DeleteArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/DeleteComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DeleteComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/DeletedArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DeletedArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/DetailArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DetailArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/DetailArticleModify.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DetailArticleModify.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/DetailArticleNoValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DetailArticleNoValidate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/EmailReconfirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/EmailReconfirmation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Error404.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Error404.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/FormComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FormComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ListArticles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ListArticles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/LoginPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/LoginPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ModifyArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ModifyArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PostArticleCreation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostArticleCreation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PostDeletedArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostDeletedArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PostEmailReconfirmation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostEmailReconfirmation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PostModifyArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostModifyArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PostRegistration.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostRegistration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PostResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostResetPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PostUpdateHerProfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PostUpdateHerProfil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Postconnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Postconnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/RefuseTheChange.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RefuseTheChange.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/RegistrationPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/RegistrationPage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ResetPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ResetPassword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/UpdateHerProfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UpdateHerProfil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/UserAccountManagement.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserAccountManagement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/UserAccountReject.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserAccountReject.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/UserAccountValidate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/UserAccountValidate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ValidateArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ValidateArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ValidateChangeArticle.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ValidateChangeArticle.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ValidateComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ValidateComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ValidateTheChange.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ValidateTheChange.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/domaine/repository/DBConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/domaine/repository/DBConnect.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articleDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articleDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/templateMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/templateMessage.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,20 +101,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="75" column="35" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controller/Disconnection.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -207,12 +283,12 @@
       <workItem from="1567771852640" duration="15214000" />
       <workItem from="1567869974896" duration="11846000" />
       <workItem from="1568016818458" duration="5185000" />
-      <workItem from="1568046471218" duration="1679000" />
+      <workItem from="1568046471218" duration="1976000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34804000" />
+    <option name="totallyTimeSpent" value="35101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -246,7 +322,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/etc/Router.php</url>
+          <url>file://$PROJECT_DIR$/etc/router.php</url>
           <line>3</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
@@ -599,7 +675,7 @@
     <entry file="file://$PROJECT_DIR$/src/controller/Disconnection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
