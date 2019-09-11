@@ -2,4 +2,4 @@ Dev.php
 Prod.php
 vendor/
 .idea/
-publi/img/avatar/
+public/img/avatar/
