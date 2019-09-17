@@ -17,15 +17,16 @@ class PostConnection
             sleep(0.5);
             $resultat = (new UserManagement)->userRecovery($request->getPOST('email'));
 
-            $PasswordCorrect = password_verify($request->getPOST('password'), $resultat->getPassword());
-
             if (!$resultat) {
                 $message = 'Desolé, mais votre mot de passe ou identifiant est incorrect !';
-            
+
                 return (new TemplateLoader)->twigTemplate('message.php', [
                     'message' => $message
-                    ]);
+                ]);
             } else {
+
+                $PasswordCorrect = password_verify($request->getPOST('password'), $resultat->getPassword());
+
                 if ($PasswordCorrect) {
                     $request->addSession('id', $resultat->getId());
                     $request->addSession('email', $resultat->getEmail());
@@ -36,7 +37,7 @@ class PostConnection
 
                     return (new TemplateLoader)->twigTemplate('message.php', [
                         'message' => $message
-                        ]);
+                    ]);
                 }
             }
         }
@@ -44,6 +45,7 @@ class PostConnection
 
         (new TemplateLoader)->twigTemplate('message.php', [
             'message' => $message
-            ]);
+        ]);
     }
 }
+

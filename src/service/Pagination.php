@@ -2,7 +2,6 @@
 namespace MyModule\service;
 
 use MyModule\domaine\repository\ArticleManagement;
-use MyModule\entities\Items;
 
 /**
 *Class allowing the pagination of the elements sent.
@@ -21,6 +20,10 @@ class Pagination
         $totalReturn = $data->countItems();
         $total = $totalReturn['total'];
         $this->numberOfPages = ceil($total/$messagesByPage);
+
+        if ($this->numberOfPages <= 0 ) {
+            $this->numberOfPages = 1;
+        }
 
         if (isset($params)) {
             $this->currentPage = intval($params[0]);

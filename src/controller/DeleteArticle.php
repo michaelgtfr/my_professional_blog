@@ -30,6 +30,7 @@ class DeleteArticle
 
             $user->reqDeleteArticle($request->getGET('id'));
             $reqArticle = $user->noValidateArticles();
+            unlink(__DIR__.'./../../public/img/imgPost/'. $request->getGET('picture'));
 
             $message = 'Article supprimer, vous pouvez continué à supprimer des articles.';
 

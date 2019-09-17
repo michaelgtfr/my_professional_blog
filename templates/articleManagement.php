@@ -19,7 +19,7 @@
                         <p class="col-xs-12">Créer le {{ value.getDateUpdate }}</p>
                         <a class="detailItems col-xs-12 btn btn-danger" href="http://projetcinq/index.php/detailarticlenovalidate/{{ value.getId }}" target="_blank">Voir l'article</a>
                         <a class="validateItems col-xs-12 btn btn-danger" href="http://projetcinq/index.php/validatearticle?id={{ value.getId }}&token={{ request.getSession('token') }}">Valider l'article</a>
-                        <a class="rejectItems col-xs-12 btn btn-danger" href="http://projetcinq/index.php/deletearticle?id={{ value.getId }}&token={{ request.getSession('token') }}">Refuser l'article</a>
+                        <a class="rejectItems col-xs-12 btn btn-danger" href="http://projetcinq/index.php/deletearticle?id={{ value.getId }}&token={{ request.getSession('token') }}&picture={{ value.getNamePicture }}.{{ value.getExtentionPicture }}">Refuser l'article</a>
                     </div>
                 {% endfor %}
             {% else %}

@@ -13,8 +13,8 @@ class UpdateHerProfil
 {
     public function __invoke(HTTPRequest $request)
     {
-        if ($request->getSession('id')[0]) {
-            $data = (new UserManagement)->userAccount($request->getSession('id')[0]);
+        if ($request->getSession('id')) {
+            $data = (new UserManagement)->userAccount($request->getSession('id'));
             return (new TemplateLoader)->twigTemplate('updateHerProfil.php', [
                 'user' => $data,
                 'request' => $request
