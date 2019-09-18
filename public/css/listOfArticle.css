@@ -36,6 +36,7 @@
 .page
 {
 	font-weight: bold;
+	text-align: center;
 }
 
 /* all media inferior to 768px */

@@ -36,8 +36,8 @@
                 <label for="presentation">Présentation :</label><textarea class="form-control" name="presentation" id="presentation" rows="10" cols="50">Ecrivez votre présentation ici</textarea>
             </div>
             <div class="validate col-sm-12 form-group">
-            <button type="submit">valider</button>
-        </div>
-    </p>
+                <button class="btn btn-danger" type="submit">valider</button>
+            </div>
+        </p>
     </form>
 {% endblock %}

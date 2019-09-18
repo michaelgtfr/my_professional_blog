@@ -9,7 +9,7 @@
 <section class="articleDetail container">
 	{% if request.getSession('id') and request.getSession('email') and request.getSession('role') %}
     	<nav class="adminNav row">
-        	<div class="Modify col-xs-6">
+        	<div class="modify col-xs-6">
             	<a class="btn btn-danger" href="http://projetcinq/index.php/modifyarticle/{{ article.getId }}">Modifier l'article</a>
         	</div>
 	{% endif %}
@@ -24,19 +24,20 @@
     	{% if message is defined %}
         	<p class="col-xs-12">{{ message }}</p>
     	{% endif %}
-
-    	<h3 class="col-xs-12">{{ article.getTitle }}</h3>
+    	<h3 class="col-xs-12">{{ article.getTitle|raw }}</h3>
     	<img class="col-sm-8 col-sm-offset-2" src="http://projetcinq/img/imgPost/{{ article.getNamePicture }}.{{ article.getExtentionPicture }}" alt="{{ article.getDescriptionPicture }}" width="100%" />
-    	<p class="chapoItems col-xs-12">{{ article.getChapo }}</p>
-    	<p class="contentItems col-xs-12">{{ article.getContent }}</p>
+    	<p class="chapoItems col-xs-12">{{ article.getChapo|raw }}</p>
+    	<p class="contentItems col-xs-12">{{ article.getContent|raw }}</p>
     	<p class="col-xs-12">Créer par {{ article.getFirstName }}, le {{ article.getDateCreate }}</p>
 	</section>
-	<section class="commentaire row">
+	<section class="commentary row">
         <h3>Les Commentaires</h3>
+        <div class="commentaryBlock col-sm-6 col-sm-offset-3 col-xs-12">
     	{% for values in comment %}
-        	<p class="col-xs-12">{{ values.getContentComment }}</p>
-        	<p class="col-xs-12">Créé par {{ values.getAuthorComment }} le {{ values.getDateCreateComment }}</p>
+        	<p class="contentComment col-xs-12">{{ values.getContentComment|raw }}</p>
+        	<p class="authorComment col-xs-12">Créé par {{ values.getAuthorComment }} le {{ values.getDateCreateComment }}</p>
     	{% endfor %}
+        </div>
 	</section>
 	<section class="formComment row">
         <h3>Formulaire de commentaire</h3>

@@ -1,3 +1,5 @@
 Dev.php
 Prod.php
 vendor/
+.idea/
+public/img/avatar/

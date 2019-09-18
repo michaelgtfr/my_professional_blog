@@ -71,6 +71,9 @@
                         <li><h2>Compte:</h2></li>
                         <li><a href="/index.php/loginpage">Mon compte</a></li>
                         <li><a href="/index.php/registrationpage">Inscription</a></li>
+                        {% if account %}
+                        <li><a href="/index.php/disconnection">Déconnexion</a></li>
+                        {% endif %}
                     </ul>
                     <div class= "socialNetworks col-xs-12">
                         <a class="btn btn-primary btn-lg" href="https://fr-fr.facebook.com/"><i class="fa fa-facebook fa-2x"></i></a>

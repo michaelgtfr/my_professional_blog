@@ -2,7 +2,6 @@
 namespace MyModule\entities;
 
 use MyModule\entities\EntityManagement;
-
 /**
 *Class containing the entity on the users.
 */

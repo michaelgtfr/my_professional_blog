@@ -19,11 +19,10 @@
         	.banner
 			{
 				background-color: red;
-				opacity: 0.5;
+				opacity: 0.7;
 				color: white;
 				background-size: 100%;
 				font-family: 'broken_heartregular', sans serif;
-				color: gray;
 				text-align: center;
 				font-size: 1em;
 				text-shadow: 5px 5px 10px black ;
@@ -35,9 +34,6 @@
     	<body>
     		<section>
     			<div class="banner">
-                    <div>
-                        <p><img src="/img/logoblogdeux.jpg" alt="logo du site" width="20%" height="20%" /></p>
-                    </div>
                     <div>
                         <h1>Cocoworking<br />blog</h1>
                     </div>

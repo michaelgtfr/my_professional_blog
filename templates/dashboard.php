@@ -13,7 +13,7 @@
             <p class="col-sm-6">Nom : {{ result.getName }}</p>
             <p class="col-sm-6">Prénom : {{ result.getFirstName }}</p>
             <p class="col-sm-6">email : {{ result.getEmail }}</p>
-            <p class="col-sm-6">Présentation : {{ result.getPresentation }}</p>
+            <p class="col-sm-6">Présentation : {{ result.getPresentation|raw }}</p>
             <p class="col-sm-6">Compte créer le {{ result.getDateCreate }}</p>
             <a class="col-xs-12 col-sm-6 btn btn-danger" href="http://projetcinq/index.php/updateherprofil/{{ result.getId }}">Modifier mon profil</a>
         </div>   

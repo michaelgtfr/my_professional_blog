@@ -21,7 +21,7 @@
                         <label for="email">Email:</label><input class="form-control" type="email" name="email" id="email" value="{{ user.getEmail }}" />
                     </div>
                     <div class="col-xs-12 form-group">
-                        <label for="presentation">presentation:</label><input class="form-control" type="text" name="presentation" id="presentation" value="{{ user.getPresentation }}"/>
+                        <label for="presentation">presentation:</label><input class="form-control" type="text" name="presentation" id="presentation" value="{{ user.getPresentation|raw }}"/>
                     </div>
                     <input type="hidden" name="maxFileSize" value="1048576" />
                     <div class="col-xs-12 form-group">

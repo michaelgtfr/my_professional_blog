@@ -43,7 +43,7 @@
     <div class="post col-xs-12">
         {% if article %}
             {% for value in article %}
-                <div class="blogpost col-xs-12 col-sm-4">
+                <div class="blogpost col-sm-4 col-xs-12">
                     <div class="picture col-xs-12">
                         <p><img src="http://projetcinq/img/imgPost/{{ value.getNamePicture }}.{{ value.getExtentionPicture }}" alt=" {{ value.getDescriptionPicture }}" width="100%" /></p>
                     </div>

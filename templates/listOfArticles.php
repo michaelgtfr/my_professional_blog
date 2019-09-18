@@ -12,8 +12,8 @@
                 <div class="article col-xs-12">
                     <img class="blockOne col-sm-4 col-xs-12" src="http://projetcinq/img/imgPost/{{ value.getNamePicture }}.{{ value.getExtentionPicture }}" alt="{{ value.getDescriptionPicture }}" />
                     <div class="blockTwo col-sm-5 col-xs-12">
-                        <h3 class="col-xs-12">{{ value.getTitle }}</h3>
-                        <p class="col-xs-12">{{ value.getChapo }}</p>
+                        <h3 class="col-xs-12">{{ value.getTitle|raw }}</h3>
+                        <p class="col-xs-12">{{ value.getChapo|raw }}</p>
                     </div>
                     <div class="blockThree col-sm-3 col-xs-12">
                         <p class="col-xs-12">Créer par {{ value.getFirstName }}</p>
@@ -22,15 +22,21 @@
                 </div>
             {% endfor %}
         </div>
-        <div class="page col-sm-12">
+        <nav class="page col-sm-12">
+            <ul class="pagination">
             {% for i in 1..numberOfPages %}
                 {% if i == currentPage %}      
-                    <p class="page">{{ i }}</p> 
+                    <li class="page-item active ">
+                        <a class="page-link ">{{ i }}</a>
+                    </li>
                 {% else %}    
-                    <a class="pagination" href="index.php/listofarticles/page={{ i }}">{{ i }}</a>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ i }}">{{ i }}</a>
+                    </li>
                 {% endif %}
             {% endfor %}
-        </div>
+            </ul>
+        </nav>
     </div>
 </section>
 {% endblock %}

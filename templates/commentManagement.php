@@ -15,7 +15,7 @@
 	            {% for value in comment %}
                     <div class="block col-sm-3 col-xs-12">
                         <p class="titleBlock col-xs-12">Commentaire:</p>
-                        <p class="contentBlock col-xs-12">" {{ value.getContentComment }} "</p>
+                        <p class="contentBlock col-xs-12">" {{ value.getContentComment|raw }} "</p>
                         <p class="col-xs-12">Créer par {{ value.getAuthorComment }},<br /> le {{ value.getDateCreateComment }}</p>
                         <div class=col-xs-12>
                             <p><a class="col-xs-12 button btn btn-danger" href="/index.php/articledetail/{{ value.getBlogPostIdComment }}">Voir le detail</a></p>

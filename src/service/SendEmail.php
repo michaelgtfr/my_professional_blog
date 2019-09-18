@@ -1,9 +1,6 @@
 <?php
 namespace MyModule\service;
 
-use MyApp\TemplateLoader;
-use MyApp\HTTP\HTTPRequest;
-
 /**
 *Class for sending email to the user.
 */
