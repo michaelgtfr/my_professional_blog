@@ -1,8 +1,6 @@
 # My professional blog
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/93291baa746f45d7ae67a5859936cd8f)](https://app.codacy.com/app/michaelgtfr/my_professional_blog?utm_source=github.com&utm_medium=referral&utm_content=michaelgtfr/my_professional_blog&utm_campaign=Badge_Grade_Settings)
-
-<a href="https://codeclimate.com/github/michaelgtfr/my_professional_blog/maintainability"><img src="https://api.codeclimate.com/v1/badges/aa492a9f2f82ea44159e/maintainability" /></a>
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/93291baa746f45d7ae67a5859936cd8f)](https://app.codacy.com/app/michaelgtfr/my_professional_blog?utm_source=github.com&utm_medium=referral&utm_content=michaelgtfr/my_professional_blog&utm_campaign=Badge_Grade_Settings)<a href="https://codeclimate.com/github/michaelgtfr/my_professional_blog/maintainability"><img src="https://api.codeclimate.com/v1/badges/aa492a9f2f82ea44159e/maintainability" /></a>
 
 My professional blog for my project five of my study on openclassroom
 
