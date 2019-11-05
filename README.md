@@ -94,4 +94,11 @@ Go to the root folder of the site. In the root folder right click the mouse and 
    Changed the parameter file of the database (Config/ConfigPDO.php). Now that it's done, your scripts have access to the host database.
    !If your table is still empty, you have to use the phpMyAdmin that the hosting puts at your disposal to recreate the tables. On your machine, go to your local phpMyAdmin. Use it to export all your tables. This will create a. sql file on your hard disk that will contain your tables. Then go to the phpMyAdmin address of your host. Once there, use the Import feature to import the. sql file that is on your hard disk. Your tables are now loaded on the host's MySQL server.  
    
+### Example of installation on a host
+
+  Click on "create a database".
+  Choose your type and language version, a description and a password.
+  After creation by the host, log in and click on "import". In this page click on "browse", choose your sql file then click on "execute".
+  voila, your database is create.
+  
    __Site installation Complete__
